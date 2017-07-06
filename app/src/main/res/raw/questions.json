@@ -1,0 +1,2100 @@
+[
+  {
+    "qstnNbr": "1",
+    "qstnStr": "¿Cuál es su edad cumplida en años?",
+    "openOptFlag": true,
+    "openOptStr": null
+  },
+  {
+    "qstnNbr": "2",
+    "qstnStr": "Sexo",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Hombre"
+      },
+      {
+        "opt": "b",
+        "optStr": "Mujer"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "3",
+    "qstnStr": "Estado Civil",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Soltero (a)"
+      },
+      {
+        "opt": "b",
+        "optStr": "Casado (a)"
+      },
+      {
+        "opt": "c",
+        "optStr": "Unión libre"
+      },
+      {
+        "opt": "d",
+        "optStr": "Divorciado (a)"
+      },
+      {
+        "opt": "e",
+        "optStr": "Viudo (a)"
+      },
+      {
+        "opt": "f",
+        "optStr": "Otro"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "4",
+    "qstnStr": "¿Cuál es su religión?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Católica"
+      },
+      {
+        "opt": "b",
+        "optStr": "Cristiana"
+      },
+      {
+        "opt": "c",
+        "optStr": "Judía"
+      },
+      {
+        "opt": "d",
+        "optStr": "Mormón"
+      },
+      {
+        "opt": "e",
+        "optStr": "Testigo de Jehová"
+      },
+      {
+        "opt": "f",
+        "optStr": "Ateo"
+      },
+      {
+        "opt": "g",
+        "optStr": "Musulmán"
+      },
+      {
+        "opt": "h",
+        "optStr": "Otros. Especifique:",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "5",
+    "qstnStr": "¿Cuál es su nivel de estudios?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Primaria incompleta"
+      },
+      {
+        "opt": "b",
+        "optStr": "Primaria completa"
+      },
+      {
+        "opt": "c",
+        "optStr": "Secundaria incompleta"
+      },
+      {
+        "opt": "d",
+        "optStr": "Secundaria completa"
+      },
+      {
+        "opt": "e",
+        "optStr": "Bachillerato incompleto"
+      },
+      {
+        "opt": "f",
+        "optStr": "Bachillerato completo"
+      },
+      {
+        "opt": "g",
+        "optStr": "Carrera técnica incompleta"
+      },
+      {
+        "opt": "h",
+        "optStr": "Carrera técnica completa"
+      },
+      {
+        "opt": "i",
+        "optStr": "Licenciatura incompleta"
+      },
+      {
+        "opt": "j",
+        "optStr": "Licenciatura completa"
+      },
+      {
+        "opt": "k",
+        "optStr": "Posgrado"
+      },
+      {
+        "opt": "l",
+        "optStr": "Sin estudios"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "6",
+    "qstnStr": "¿Cuál es su ocupación?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Profesionista"
+      },
+      {
+        "opt": "b",
+        "optStr": "Empleado (a)"
+      },
+      {
+        "opt": "c",
+        "optStr": "Negocio propio"
+      },
+      {
+        "opt": "d",
+        "optStr": "Comerciante"
+      },
+      {
+        "opt": "e",
+        "optStr": "Estudiante"
+      },
+      {
+        "opt": "f",
+        "optStr": "Hogar/Ama de casa"
+      },
+      {
+        "opt": "g",
+        "optStr": "Empleada doméstica"
+      },
+      {
+        "opt": "h",
+        "optStr": "Obrero (a)"
+      },
+      {
+        "opt": "i",
+        "optStr": "Otro. Especifique:",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "7",
+    "qstnStr": "¿Cuál es su colonia de residencia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Centro"
+      },
+      {
+        "opt": "b",
+        "optStr": "Satélite"
+      },
+      {
+        "opt": "c",
+        "optStr": "Lomas de Casa Blanca"
+      },
+      {
+        "opt": "d",
+        "optStr": "Santa Rosa Jáuregui"
+      },
+      {
+        "opt": "e",
+        "optStr": "El Tintero"
+      },
+      {
+        "opt": "f",
+        "optStr": "Mercurio"
+      },
+      {
+        "opt": "g",
+        "optStr": "Felipe Carrillo Puerto"
+      },
+      {
+        "opt": "h",
+        "optStr": "Desarrollo San Pablo"
+      },
+      {
+        "opt": "i",
+        "optStr": "Cerrito Colorado"
+      },
+      {
+        "opt": "j",
+        "optStr": "San José el Alto"
+      },
+      {
+        "opt": "k",
+        "optStr": "Santa María Magdalena"
+      },
+      {
+        "opt": "l",
+        "optStr": "Montenegro"
+      },
+      {
+        "opt": "m",
+        "optStr": "Los Viñedos"
+      },
+      {
+        "opt": "n",
+        "optStr": "Santa Catarina"
+      },
+      {
+        "opt": "o",
+        "optStr": "Menchaca I"
+      },
+      {
+        "opt": "p",
+        "optStr": "Milenio III"
+      },
+      {
+        "opt": "q",
+        "optStr": "Tlacote el Pajo"
+      },
+      {
+        "opt": "r",
+        "optStr": "Ejido Modelo"
+      },
+      {
+        "opt": "s",
+        "optStr": "Jofrito"
+      },
+      {
+        "opt": "t",
+        "optStr": "Otra. ¿Cuál?",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "8",
+    "qstnStr": "¿Cuántos hijos tiene?",
+    "openOptFlag": true,
+    "openOptStr": null
+  },
+  {
+    "qstnNbr": "9",
+    "qstnStr": "¿Cuántas personas habitan en su hogar?",
+    "openOptFlag": true,
+    "openOptStr": null
+  },
+  {
+    "qstnNbr": "10",
+    "qstnStr": "En su hogar, ¿quién es el jefe(a) de familia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Padre"
+      },
+      {
+        "opt": "b",
+        "optStr": "Madre"
+      },
+      {
+        "opt": "c",
+        "optStr": "Esposo(a)/Conyugue"
+      },
+      {
+        "opt": "d",
+        "optStr": "Hijo (a)"
+      },
+      {
+        "opt": "e",
+        "optStr": "Otro"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "11",
+    "qstnStr": "¿Cuántas personas aportan al gasto familiar en su hogar?",
+    "openOptFlag": true,
+    "openOptStr": null
+  },
+  {
+    "qstnNbr": "12",
+    "qstnStr": "¿Cuál es el ingreso mensual en su hogar?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Menos de 1,000"
+      },
+      {
+        "opt": "b",
+        "optStr": "De 1,001 a 1,500"
+      },
+      {
+        "opt": "c",
+        "optStr": "De 1,501 a 3,000"
+      },
+      {
+        "opt": "d",
+        "optStr": "De 3,001 a 4,000"
+      },
+      {
+        "opt": "e",
+        "optStr": "De 4,001 a 6,000"
+      },
+      {
+        "opt": "f",
+        "optStr": "De 6,001 a 10,000"
+      },
+      {
+        "opt": "g",
+        "optStr": "10,000 ó más"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "13",
+    "qstnStr": "Su vivienda es:",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Propia"
+      },
+      {
+        "opt": "b",
+        "optStr": "Rentada"
+      },
+      {
+        "opt": "c",
+        "optStr": "Prestada"
+      },
+      {
+        "opt": "d",
+        "optStr": "Otro. Especifique:",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "14",
+    "qstnStr": "¿Dónde nació usted?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Municipio de Querétaro (Pasar a la pregunta 16)"
+      },
+      {
+        "opt": "b",
+        "optStr": "Otro municipio en el estado de Querétaro. Seleccione cuál: (pasar a la siguiente pregunta)",
+        "options": [
+          "Amealco de Bonfil",
+          "Pinal de Amoles",
+          "Arroyo Seco",
+          "Cadereyta de Montes",
+          "Colón",
+          "Corregidora",
+          "Ezequiel Montes",
+          "Huimilpan",
+          "Jalpan de Serra",
+          "Landa de Matamoros",
+          "El Marqués",
+          "Pedro Escobedo",
+          "Peñamiller",
+          "San Joaquín",
+          "San Juan del Río",
+          "Tequisquiapan",
+          "Tolimán"
+        ]
+      },
+      {
+        "opt": "c",
+        "optStr": "Otro estado. Seleccione cuál: (Pasar a la siguiente pregunta)",
+        "options": [
+          "Aguascalientes",
+          "Baja California",
+          "Baja California Sur",
+          "Campeche",
+          "Chiapas",
+          "Chihuahua",
+          "Ciudad de México",
+          "Coahuila",
+          "Colima",
+          "Durango",
+          "Estado de México",
+          "Guanajuato",
+          "Guerrero",
+          "Hidalgo",
+          "Jalisco",
+          "Michoacán",
+          "Morelos",
+          "Nayarit",
+          "Nuevo León",
+          "Oaxaca",
+          "Puebla",
+          "Quintana Roo",
+          "San Luis Potosí",
+          "Sin Localidad",
+          "Sinaloa",
+          "Sonora",
+          "Tabasco",
+          "Tamaulipaz",
+          "Tlaxcala",
+          "Veracruz",
+          "Yucatán",
+          "Zacatecas"
+        ]
+      },
+      {
+        "opt": "d",
+        "optStr": "Otro país:"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "15",
+    "qstnStr": "En caso de no haber nacido en el municipio de Querétaro, ¿cuánto tiempo tiene que llegó a esta ciudad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "De 1 a 5 años"
+      },
+      {
+        "opt": "b",
+        "optStr": "De 6 a 10 años"
+      },
+      {
+        "opt": "c",
+        "optStr": "Más de 10 años"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "16",
+    "qstnStr": "¿Tiene familiares que hayan migrado del estado?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí (Pasar a la siguiente pregunta)"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pasar a la pregunta 20)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "17",
+    "qstnStr": "¿Hacia dónde migró su familiar?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Otro municipio del estado",
+        "options": [
+          "Amealco de Bonfil",
+          "Pinal de Amoles",
+          "Arroyo Seco",
+          "Cadereyta de Montes",
+          "Colón",
+          "Corregidora",
+          "Ezequiel Montes",
+          "Huimilpan",
+          "Jalpan de Serra",
+          "Landa de Matamoros",
+          "El Marqués",
+          "Pedro Escobedo",
+          "Peñamiller",
+          "San Joaquín",
+          "San Juan del Río",
+          "Tequisquiapan",
+          "Tolimán"
+        ]
+      },
+      {
+        "opt": "b",
+        "optStr": "Otro estado",
+        "options": [
+          "Aguascalientes",
+          "Baja California",
+          "Baja California Sur",
+          "Campeche",
+          "Chiapas",
+          "Chihuahua",
+          "Ciudad de México",
+          "Coahuila",
+          "Colima",
+          "Durango",
+          "Estado de México",
+          "Guanajuato",
+          "Guerrero",
+          "Hidalgo",
+          "Jalisco",
+          "Michoacán",
+          "Morelos",
+          "Nayarit",
+          "Nuevo León",
+          "Oaxaca",
+          "Puebla",
+          "Quintana Roo",
+          "San Luis Potosí",
+          "Sin Localidad",
+          "Sinaloa",
+          "Sonora",
+          "Tabasco",
+          "Tamaulipaz",
+          "Tlaxcala",
+          "Veracruz",
+          "Yucatán",
+          "Zacatecas"
+        ]
+      },
+      {
+        "opt": "c",
+        "optStr": "Estados Unidos"
+      },
+      {
+        "opt": "d",
+        "optStr": "Otro país"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "18",
+    "qstnStr": "¿Cuál es la causa por la que migraron sus familiares?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Situación conyugal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Inseguridad"
+      },
+      {
+        "opt": "c",
+        "optStr": "Factores económicos"
+      },
+      {
+        "opt": "d",
+        "optStr": "Intereses laborales"
+      },
+      {
+        "opt": "e",
+        "optStr": "Estudios"
+      },
+      {
+        "opt": "f",
+        "optStr": "Otra causa. ¿Cuál?",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "19",
+    "qstnStr": "El estado en el que su familiar migro:",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Con visa y permiso provisional"
+      },
+      {
+        "opt": "b",
+        "optStr": "Con visa y permiso de trabajo permanente"
+      },
+      {
+        "opt": "c",
+        "optStr": "Tiene residencia"
+      },
+      {
+        "opt": "d",
+        "optStr": "Sin papeles, pagando para que lo ayudaran a pasar"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "20",
+    "qstnStr": "En su opinión, ¿quién es responsable de la seguridad de su colonia o comunidad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Gobierno Municipal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Gobierno del Estado"
+      },
+      {
+        "opt": "c",
+        "optStr": "Gobierno Federal"
+      },
+      {
+        "opt": "d",
+        "optStr": "La ciudadanía"
+      },
+      {
+        "opt": "e",
+        "optStr": "Los políticos"
+      },
+      {
+        "opt": "f",
+        "optStr": "Todos"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "21",
+    "qstnStr": "¿Cuál de las siguientes autoridades conoce? (Puede seleccionar más de una opción)",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Policía Municipal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Policía de Tránsito"
+      },
+      {
+        "opt": "c",
+        "optStr": "Policía Estatal Única"
+      },
+      {
+        "opt": "d",
+        "optStr": "Policía Federal"
+      },
+      {
+        "opt": "e",
+        "optStr": "Marina"
+      },
+      {
+        "opt": "f",
+        "optStr": "Ejército"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "22",
+    "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor confianza?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Policía Municipal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Policía de Proximidad"
+      },
+      {
+        "opt": "c",
+        "optStr": "Policía de Tránsito"
+      },
+      {
+        "opt": "d",
+        "optStr": "Policía Estatal Única"
+      },
+      {
+        "opt": "e",
+        "optStr": "Policía Federal"
+      },
+      {
+        "opt": "f",
+        "optStr": "Marina"
+      },
+      {
+        "opt": "g",
+        "optStr": "Ejército"
+      },
+      {
+        "opt": "h",
+        "optStr": "Jueces"
+      },
+      {
+        "opt": "i",
+        "optStr": "Ministerios Públicos"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "23",
+    "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor desconfianza?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Policía Municipal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Policía de Proximidad"
+      },
+      {
+        "opt": "c",
+        "optStr": "Policía de Tránsito"
+      },
+      {
+        "opt": "d",
+        "optStr": "Policía Estatal Única"
+      },
+      {
+        "opt": "e",
+        "optStr": "Policía Federal"
+      },
+      {
+        "opt": "f",
+        "optStr": "Marina"
+      },
+      {
+        "opt": "g",
+        "optStr": "Ejército"
+      },
+      {
+        "opt": "h",
+        "optStr": "Jueces"
+      },
+      {
+        "opt": "i",
+        "optStr": "Ministerios Públicos"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "24",
+    "qstnStr": "¿A qué motivo le atribuye la desconfianza a la autoridad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Son corruptos"
+      },
+      {
+        "opt": "b",
+        "optStr": "No cree en ellos"
+      },
+      {
+        "opt": "c",
+        "optStr": "No responden cuando se les necesita"
+      },
+      {
+        "opt": "d",
+        "optStr": "Mala atención a la sociedad"
+      },
+      {
+        "opt": "e",
+        "optStr": "Son ineficientes"
+      },
+      {
+        "opt": "f",
+        "optStr": "No cumplen con su deber"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "25",
+    "qstnStr": "¿Cómo es el patrullaje en su colonia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "A pie"
+      },
+      {
+        "opt": "b",
+        "optStr": "En autos/camionetas"
+      },
+      {
+        "opt": "c",
+        "optStr": "En motocicletas"
+      },
+      {
+        "opt": "d",
+        "optStr": "En bicicletas"
+      },
+      {
+        "opt": "e",
+        "optStr": "No hay patrullaje (Pase a la pregunta 28)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "26",
+    "qstnStr": "¿Con qué frecuencia ve los patrullajes en su colonia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Diario"
+      },
+      {
+        "opt": "b",
+        "optStr": "Una vez por semana"
+      },
+      {
+        "opt": "c",
+        "optStr": "Dos veces a la semana"
+      },
+      {
+        "opt": "d",
+        "optStr": "Una vez al mes"
+      },
+      {
+        "opt": "e",
+        "optStr": "Dos veces al mes"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "27",
+    "qstnStr": "¿Cuál autoridad de seguridad pública identifica en esos patrullajes?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Policía Municipal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Policía de Proximidad"
+      },
+      {
+        "opt": "c",
+        "optStr": "Policía de Tránsito"
+      },
+      {
+        "opt": "d",
+        "optStr": "Policía Estatal Única"
+      },
+      {
+        "opt": "e",
+        "optStr": "Policía Federal"
+      },
+      {
+        "opt": "f",
+        "optStr": "Marina"
+      },
+      {
+        "opt": "g",
+        "optStr": "Ejército"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "28",
+    "qstnStr": "¿Conoce de operativos que se hayan llevado a cabo en su colonia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 31)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "29",
+    "qstnStr": "¿Qué operativos reconoce?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Calles seguras"
+      },
+      {
+        "opt": "b",
+        "optStr": "Transporte seguro"
+      },
+      {
+        "opt": "c",
+        "optStr": "Operativos en mercados y tianguis"
+      },
+      {
+        "opt": "d",
+        "optStr": "Comunidad segura"
+      },
+      {
+        "opt": "e",
+        "optStr": "Rehabilitación de espacios públicos"
+      },
+      {
+        "opt": "f",
+        "optStr": "Retiro de vehículos abandonados"
+      },
+      {
+        "opt": "g",
+        "optStr": "Mejoramiento barrial"
+      },
+      {
+        "opt": "h",
+        "optStr": "Otro. Mencione cuál:",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "30",
+    "qstnStr": "¿Cómo valora estos operativos?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Muy efectivo"
+      },
+      {
+        "opt": "b",
+        "optStr": "Poco efectivo"
+      },
+      {
+        "opt": "c",
+        "optStr": "Nada efectivo"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "31",
+    "qstnStr": "¿Usted conoce el programa de canje de armas de fuego que realiza el municipio de Querétaro?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 34)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "32",
+    "qstnStr": "¿Usted ha participado en dicho programa?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "33",
+    "qstnStr": "¿Cómo valora la utilidad del programa?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Muy útil"
+      },
+      {
+        "opt": "b",
+        "optStr": "Poco útil"
+      },
+      {
+        "opt": "c",
+        "optStr": "Nada útil"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "34",
+    "qstnStr": "¿Conoce a alguien que haya participado en el programa de canje de armas de fuego?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "35",
+    "qstnStr": "Si sufre de algún problema de inseguridad, ¿a quién acude primero?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Policía Municipal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Policía de Proximidad"
+      },
+      {
+        "opt": "c",
+        "optStr": "Policía Estatal Única"
+      },
+      {
+        "opt": "d",
+        "optStr": "Policía Federal"
+      },
+      {
+        "opt": "e",
+        "optStr": "Marina"
+      },
+      {
+        "opt": "f",
+        "optStr": "Ejército"
+      },
+      {
+        "opt": "g",
+        "optStr": "Llamar a la línea de emergencia (911)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "36",
+    "qstnStr": "¿Existe algún tipo de punto de vigilancia (caseta, comandancia) de la policía en su colonia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 38)"
+      },
+      {
+        "opt": "c",
+        "optStr": "No sabe (Pase a la pregunta 38)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "37",
+    "qstnStr": "La caseta o comandancia en su colonia, ¿se encuentra en funcionamiento y cuenta con personal permanente?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "38",
+    "qstnStr": "Para usted, ¿Cuáles son las 3 principales causas de la inseguridad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Corrupción de las autoridades"
+      },
+      {
+        "opt": "b",
+        "optStr": "Desempleo"
+      },
+      {
+        "opt": "c",
+        "optStr": "Pobreza"
+      },
+      {
+        "opt": "d",
+        "optStr": "Falta de oportunidades para los jóvenes"
+      },
+      {
+        "opt": "e",
+        "optStr": "Ineficacia por parte de las autordades"
+      },
+      {
+        "opt": "f",
+        "optStr": "Consumo de drogas y alcohol"
+      },
+      {
+        "opt": "g",
+        "optStr": "Pandillas"
+      },
+      {
+        "opt": "h",
+        "optStr": "Otro. Mencione otra causa:",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "39",
+    "qstnStr": "Considera su colonia o comunidad:",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Muy segura"
+      },
+      {
+        "opt": "b",
+        "optStr": "Poco segura"
+      },
+      {
+        "opt": "c",
+        "optStr": "Poco insegura"
+      },
+      {
+        "opt": "d",
+        "optStr": "Muy insegura"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "40",
+    "qstnStr": "¿Ha escuchado sobre conflictos en su colonia o comunidad, que resulten en actos de violencia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "41",
+    "qstnStr": "¿Cuál es la principal causa por la cual sus vecinos se pelean?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Ruído"
+      },
+      {
+        "opt": "b",
+        "optStr": "Basura"
+      },
+      {
+        "opt": "c",
+        "optStr": "Por no participar en asuntos comunitarios"
+      },
+      {
+        "opt": "d",
+        "optStr": "Por los hijos"
+      },
+      {
+        "opt": "e",
+        "optStr": "Por temas religiosos"
+      },
+      {
+        "opt": "f",
+        "optStr": "Por diferencias políticas o electorales"
+      },
+      {
+        "opt": "g",
+        "optStr": "Deudas"
+      },
+      {
+        "opt": "h",
+        "optStr": "Consumo de drogas o alcohol"
+      },
+      {
+        "opt": "i",
+        "optStr": "Otros"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "42",
+    "qstnStr": "Usted o alguno de los integrantes de su familia, ¿ha tenido alguna diferencia con sus vecinos en los últimos 5 años?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 44)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "43",
+    "qstnStr": "¿Cuál es la principal causa de la diferencia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Ruído"
+      },
+      {
+        "opt": "b",
+        "optStr": "Basura"
+      },
+      {
+        "opt": "c",
+        "optStr": "Por no participar en asuntos comunitarios"
+      },
+      {
+        "opt": "d",
+        "optStr": "Por los hijos"
+      },
+      {
+        "opt": "e",
+        "optStr": "Por temas religiosos"
+      },
+      {
+        "opt": "f",
+        "optStr": "Por diferencias políticas o electorales"
+      },
+      {
+        "opt": "g",
+        "optStr": "Deudas"
+      },
+      {
+        "opt": "h",
+        "optStr": "Consumo de drogas o alcohol"
+      },
+      {
+        "opt": "i",
+        "optStr": "Otros"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "44",
+    "qstnStr": "¿Conoce a algún vecino que se dedique a robar?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "45",
+    "qstnStr": "¿Conoce a algún vecino que haya sido detenido y llevado preso por algún delito?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 47)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "46",
+    "qstnStr": "En caso de sí, ¿por cuál delito? (Puede seleccionar hasta 3 respuestas)",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Robo a negocio con violencia"
+      },
+      {
+        "opt": "b",
+        "optStr": "Robo a negocio sin violencia"
+      },
+      {
+        "opt": "c",
+        "optStr": "Robo a casa habitacion con violencia"
+      },
+      {
+        "opt": "d",
+        "optStr": "Robo a casa habitacion sin violencia"
+      },
+      {
+        "opt": "e",
+        "optStr": "Robo a transporte con violencia"
+      },
+      {
+        "opt": "f",
+        "optStr": "Robo a transporte sin violencia"
+      },
+      {
+        "opt": "g",
+        "optStr": "Robo de vehículo con violencia"
+      },
+      {
+        "opt": "h",
+        "optStr": "Robo de vehículo sin violencia"
+      },
+      {
+        "opt": "i",
+        "optStr": "Agresiones o lesiones con arma blanca o de fuego"
+      },
+      {
+        "opt": "j",
+        "optStr": "Homicidio"
+      },
+      {
+        "opt": "k",
+        "optStr": "Violación ó agresiones sexuales"
+      },
+      {
+        "opt": "l",
+        "optStr": "Secuestro"
+      },
+      {
+        "opt": "m",
+        "optStr": "Otros"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "47",
+    "qstnStr": "Usted, ¿ha sido víctima de algún delito?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 53)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "48",
+    "qstnStr": "¿Dónde sucedió el delito?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "En su comunidad o colonia"
+      },
+      {
+        "opt": "b",
+        "optStr": "Fuera de su comunidad o colonia"
+      },
+      {
+        "opt": "c",
+        "optStr": "En otro estado"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "49",
+    "qstnStr": "¿Qué tipo de delito?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Robo a negocio con violencia"
+      },
+      {
+        "opt": "b",
+        "optStr": "Robo a negocio sin violencia"
+      },
+      {
+        "opt": "c",
+        "optStr": "Robo a casa habitacion con violencia"
+      },
+      {
+        "opt": "d",
+        "optStr": "Robo a casa habitacion sin violencia"
+      },
+      {
+        "opt": "e",
+        "optStr": "Robo a transporte con violencia"
+      },
+      {
+        "opt": "f",
+        "optStr": "Robo a transporte sin violencia"
+      },
+      {
+        "opt": "g",
+        "optStr": "Robo de vehículo con violencia"
+      },
+      {
+        "opt": "h",
+        "optStr": "Robo de vehículo sin violencia"
+      },
+      {
+        "opt": "i",
+        "optStr": "Agresiones o lesiones con arma blanca o de fuego"
+      },
+      {
+        "opt": "j",
+        "optStr": "Homicidio"
+      },
+      {
+        "opt": "k",
+        "optStr": "Violación ó agresiones sexuales"
+      },
+      {
+        "opt": "l",
+        "optStr": "Secuestro"
+      },
+      {
+        "opt": "m",
+        "optStr": "Otros"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "50",
+    "qstnStr": "¿Denunció el delito?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí (Pase a la siguiente pregunta)"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 52)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "51",
+    "qstnStr": "¿Cuál fue el resultado de la denuncia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Ninguno"
+      },
+      {
+        "opt": "b",
+        "optStr": "Se resolvió (Pase a la pregunta 53)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "52",
+    "qstnStr": "En caso de que NO, ¿cuál fue el motivo para no denunciar?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Temor a represalias"
+      },
+      {
+        "opt": "b",
+        "optStr": "Es una perdida de tiempo"
+      },
+      {
+        "opt": "c",
+        "optStr": "Conocía a los delincuentes"
+      },
+      {
+        "opt": "d",
+        "optStr": "No se resuelve"
+      },
+      {
+        "opt": "e",
+        "optStr": "Desconfianza en las autoridades"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "53",
+    "qstnStr": "¿Conoce a algún familiar que haya sido víctima de algún delito?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 55)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "54",
+    "qstnStr": "¿Qué tipo de delito?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Robo a negocio con violencia"
+      },
+      {
+        "opt": "b",
+        "optStr": "Robo a negocio sin violencia"
+      },
+      {
+        "opt": "c",
+        "optStr": "Robo a casa habitacion con violencia"
+      },
+      {
+        "opt": "d",
+        "optStr": "Robo a casa habitacion sin violencia"
+      },
+      {
+        "opt": "e",
+        "optStr": "Robo a transporte con violencia"
+      },
+      {
+        "opt": "f",
+        "optStr": "Robo a transporte sin violencia"
+      },
+      {
+        "opt": "g",
+        "optStr": "Robo de vehículo con violencia"
+      },
+      {
+        "opt": "h",
+        "optStr": "Robo de vehículo sin violencia"
+      },
+      {
+        "opt": "i",
+        "optStr": "Agresiones o lesiones con arma blanca o de fuego"
+      },
+      {
+        "opt": "j",
+        "optStr": "Homicidio"
+      },
+      {
+        "opt": "k",
+        "optStr": "Violación ó agresiones sexuales"
+      },
+      {
+        "opt": "l",
+        "optStr": "Secuestro"
+      },
+      {
+        "opt": "m",
+        "optStr": "Otros"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "55",
+    "qstnStr": "Para usted, ¿cuál es el sitio con mayor inseguridad en la ciudad de Querétaro?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Delegación Centro Histórico"
+      },
+      {
+        "opt": "b",
+        "optStr": "Delegación Santa Rosa Jáuregui"
+      },
+      {
+        "opt": "c",
+        "optStr": "Delegación Villa Cayetano Rubio"
+      },
+      {
+        "opt": "d",
+        "optStr": "Delegación Josefa Vergara Hernández"
+      },
+      {
+        "opt": "e",
+        "optStr": "Delegación Epigmenio González"
+      },
+      {
+        "opt": "f",
+        "optStr": "Delegación Félix Osorio Sotomayor"
+      },
+      {
+        "opt": "g",
+        "optStr": "Colonia Felipe Carrillo Puerto"
+      },
+      {
+        "opt": "h",
+        "optStr": "Colonia Satélite"
+      },
+      {
+        "opt": "i",
+        "optStr": "Colonia Lomas de Casa Blanca"
+      },
+      {
+        "opt": "j",
+        "optStr": "Colonia El Tintero"
+      },
+      {
+        "opt": "k",
+        "optStr": "Colonia Mercurio"
+      },
+      {
+        "opt": "l",
+        "optStr": "Colonia Desarrollo San Pablo"
+      },
+      {
+        "opt": "m",
+        "optStr": "Colonia Cerrito Colorado"
+      },
+      {
+        "opt": "n",
+        "optStr": "Colonia San José el Alto"
+      },
+      {
+        "opt": "o",
+        "optStr": "Colonia Santa María Magdalena"
+      },
+      {
+        "opt": "p",
+        "optStr": "Colonia Montenegro"
+      },
+      {
+        "opt": "q",
+        "optStr": "Colonia Los Viñedos"
+      },
+      {
+        "opt": "r",
+        "optStr": "Colonia Santa Catarina"
+      },
+      {
+        "opt": "s",
+        "optStr": "Colonia Menchaca I, II ó III"
+      },
+      {
+        "opt": "t",
+        "optStr": "Otro. ¿Dónde?",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "56",
+    "qstnStr": "¿Qué hace para protegerse de los delitos?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Portar arma blanca"
+      },
+      {
+        "opt": "b",
+        "optStr": "Portar arma de fuego"
+      },
+      {
+        "opt": "c",
+        "optStr": "No usar joyería o relojes"
+      },
+      {
+        "opt": "d",
+        "optStr": "Evitar zonas de inseguridad"
+      },
+      {
+        "opt": "e",
+        "optStr": "Cambiar rutas de trabajo"
+      },
+      {
+        "opt": "f",
+        "optStr": "Nada"
+      },
+      {
+        "opt": "g",
+        "optStr": "No salir por la noche"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "57",
+    "qstnStr": "¿Qué es más probable que suceda en la calle?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Que lo asalten"
+      },
+      {
+        "opt": "b",
+        "optStr": "Que lo golpeen"
+      },
+      {
+        "opt": "c",
+        "optStr": "Que lo intimiden"
+      },
+      {
+        "opt": "d",
+        "optStr": "Que lo acosen sexualmente"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "58",
+    "qstnStr": "¿Conocen lugares para atender problemas de alcoholismo, drogadicción o cualquier otro tipo de adicciones en su comunidad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "59",
+    "qstnStr": "En su opinión, ¿Qué motiva a que las adolescentes se embaracen a temprana edad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Falta de información entre los adolescentes"
+      },
+      {
+        "opt": "b",
+        "optStr": "Poca atención familiar"
+      },
+      {
+        "opt": "c",
+        "optStr": "Matrimonios entre adolescentes"
+      },
+      {
+        "opt": "d",
+        "optStr": "Presión de amistades"
+      },
+      {
+        "opt": "e",
+        "optStr": "Falta de un proyecto de vida"
+      },
+      {
+        "opt": "f",
+        "optStr": "Ocio"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "60",
+    "qstnStr": "Cuando usted o alguno de los integrantes de su familia se enferma, ¿a dónde acuden?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Centro de salud comunitario"
+      },
+      {
+        "opt": "b",
+        "optStr": "Clínica del ISSSTE"
+      },
+      {
+        "opt": "c",
+        "optStr": "Clínica del IMSS"
+      },
+      {
+        "opt": "d",
+        "optStr": "Médico particular"
+      },
+      {
+        "opt": "e",
+        "optStr": "Se automedican/Medicina alternativa"
+      },
+      {
+        "opt": "f",
+        "optStr": "Seguro Popular"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "61",
+    "qstnStr": "¿Conoce algún lugar en su comunidad o colonia, dónde impartan clases de regularización para adultos?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "62",
+    "qstnStr": "Si tiene hijos, ¿acuden todos a la escuela?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "63",
+    "qstnStr": "En caso de que no acudan a la escuela, ¿cuál es el motivo?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "No alcanza el dinero"
+      },
+      {
+        "opt": "b",
+        "optStr": "No hay escuelas en donde habitan"
+      },
+      {
+        "opt": "c",
+        "optStr": "No quieren estudiar"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "64",
+    "qstnStr": "¿Ubica usted a algún representante de colonia o líder en su comunidad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "65",
+    "qstnStr": "¿En su colonia o comunidad, hay algún comité u otras formas de organización para tratar temas de importancia colectiva?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí (Pase a la pregunta 67)"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a siguiente pregunta (66))"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "66",
+    "qstnStr": "¿A qué le atribuye usted que no haya organización en su colonia o comunidad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Desinterés"
+      },
+      {
+        "opt": "b",
+        "optStr": "Apatía"
+      },
+      {
+        "opt": "c",
+        "optStr": "Individualismo"
+      },
+      {
+        "opt": "d",
+        "optStr": "Falta de comunicación"
+      },
+      {
+        "opt": "e",
+        "optStr": "No pasa nad importante para que tengan que organizarse"
+      },
+      {
+        "opt": "f",
+        "optStr": "No se llevan bien"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "67",
+    "qstnStr": "¿Cómo se organizan en su colonia para conocer más sobre temas de relevancia entre vecinos?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Comités de participación vecinal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Redes sociales (Grupo de Facebook)"
+      },
+      {
+        "opt": "c",
+        "optStr": "Grupo de Whatsapp"
+      },
+      {
+        "opt": "d",
+        "optStr": "Pláticas entre conocidos"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "68",
+    "qstnStr": "¿Usted participa en las reuniones de dicho Comité o forma de organización?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pasar a pregunta 69)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "69",
+    "qstnStr": "¿Por qué no participa?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Falta de tiempo"
+      },
+      {
+        "opt": "b",
+        "optStr": "Falta de interés"
+      },
+      {
+        "opt": "c",
+        "optStr": "Nada cambia"
+      },
+      {
+        "opt": "d",
+        "optStr": "Otra.",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "70",
+    "qstnStr": "¿Ha sucedido algún hecho relevante que haya obligado a su comunidad a organizarse para atender algún problema en específico?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí. ¿Cuál?",
+        "openOptFlag": true,
+        "openOptStr": null
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "71",
+    "qstnStr": "¿Conoce alguna organización social que se encuentre en su colonia o comunidad realizando talleres, pláticas o cursos?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "72",
+    "qstnStr": "¿Qué actividades realiza en su tiempo libre?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Culturales"
+      },
+      {
+        "opt": "b",
+        "optStr": "Deportivos"
+      },
+      {
+        "opt": "c",
+        "optStr": "Manualidades"
+      },
+      {
+        "opt": "d",
+        "optStr": "Ocio (tv, radio, redes sociales, internet)"
+      },
+      {
+        "opt": "e",
+        "optStr": "Ninguna"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "73",
+    "qstnStr": "¿Recibe usted algún tipo de apoyo de programa social?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 75)"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "74",
+    "qstnStr": "Señale el o los programas sociales que recibe:",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Prospera (Oportunidades)"
+      },
+      {
+        "opt": "b",
+        "optStr": "Seguro Popular"
+      },
+      {
+        "opt": "c",
+        "optStr": "65 y más (pensión para adultos mayores)"
+      },
+      {
+        "opt": "d",
+        "optStr": "Becas escolares de Gobierno Estatal o Municipal"
+      },
+      {
+        "opt": "e",
+        "optStr": "Apoyo productivo (SAGARPA, INAES, SEDESOL, SEMARNAT)"
+      },
+      {
+        "opt": "f",
+        "optStr": "Mejoramiento de Vivienda"
+      },
+      {
+        "opt": "g",
+        "optStr": "Otro. ¿Cuál?",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "75",
+    "qstnStr": "¿Qué considera usted qué hace falta para mejorar el lugar donde vive?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Recuperar espacios públicos"
+      },
+      {
+        "opt": "b",
+        "optStr": "Rehabilitar calles y avenidas"
+      },
+      {
+        "opt": "c",
+        "optStr": "Alumbrado público"
+      },
+      {
+        "opt": "d",
+        "optStr": "Drenaje, agua"
+      },
+      {
+        "opt": "e",
+        "optStr": "Crear empleos"
+      },
+      {
+        "opt": "f",
+        "optStr": "Confianza en las autoridades"
+      },
+      {
+        "opt": "g",
+        "optStr": "Nuevos espacios de convivencia",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "76",
+    "qstnStr": "¿Si tuviera la oportunidad de elegir en su colonia sobre las siguientes situaciones qué haría primero?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Ingresar servicios básicos (Drenaje, luz, agua, etc.)"
+      },
+      {
+        "opt": "b",
+        "optStr": "Invertir en escuelas y centros de salud"
+      },
+      {
+        "opt": "c",
+        "optStr": "Sacar a la delincuencia organizada, la venta de drogas y alcohol"
+      },
+      {
+        "opt": "d",
+        "optStr": "Crear empleos para que los jóvenes no ingresen al crimen o cometan delitos"
+      },
+      {
+        "opt": "e",
+        "optStr": "Rehabilitar espacios públicos"
+      }
+    ]
+  }
+]

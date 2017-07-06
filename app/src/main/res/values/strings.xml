@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Unodc</string>
+
+    <string name="start1">Agradecemos su colaboración y participación en este ejercicio.</string>
+    <string name="start2">Le reiteramos que toda la información contenida en el siguiente cuestionario es ANÓNIMA.</string>
+
+
+    <string-array name="answers_array">
+        <item>a) Opción 1</item>
+        <item>b) Opción 2</item>
+        <item>b) Opción 3</item>
+        <item>b) Opción 4</item>
+        <item>b) Opción 5</item>
+        <item>b) Opción 6</item>
+        <item>b) Opción 7</item>
+        <item>b) Opción 8</item>
+    </string-array>
+</resources>

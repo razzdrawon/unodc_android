@@ -1,0 +1,146 @@
+[
+  {
+    "qstnNbr": "1",
+    "qstnStr": "¿Cuál es su edad cumplida en años?",
+    "openOptFlag": true,
+    "openOptStr": null
+  },
+  {
+    "qstnNbr": "2",
+    "qstnStr": "Sexo",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Hombre"
+      },
+      {
+        "opt": "b",
+        "optStr": "Mujer"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "3",
+    "qstnStr": "Estado Civil",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Soltero (a)"
+      },
+      {
+        "opt": "b",
+        "optStr": "Casado (a)"
+      },
+      {
+        "opt": "c",
+        "optStr": "Unión libre"
+      },
+      {
+        "opt": "d",
+        "optStr": "Divorciado (a)"
+      },
+      {
+        "opt": "e",
+        "optStr": "Viudo (a)"
+      },
+      {
+        "opt": "f",
+        "optStr": "Otro"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "4",
+    "qstnStr": "¿Cuál es su religión?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Católica"
+      },
+      {
+        "opt": "b",
+        "optStr": "Cristiana"
+      },
+      {
+        "opt": "c",
+        "optStr": "Judía"
+      },
+      {
+        "opt": "d",
+        "optStr": "Mormón"
+      },
+      {
+        "opt": "e",
+        "optStr": "Testigo de Jehová"
+      },
+      {
+        "opt": "f",
+        "optStr": "Ateo"
+      },
+      {
+        "opt": "g",
+        "optStr": "Musulmán"
+      },
+      {
+        "opt": "h",
+        "optStr": "Otros. Especifique:",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": "5",
+    "qstnStr": "¿Cuál es su nivel de estudios?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Primaria incompleta"
+      },
+      {
+        "opt": "b",
+        "optStr": "Primaria completa"
+      },
+      {
+        "opt": "c",
+        "optStr": "Secundaria incompleta"
+      },
+      {
+        "opt": "d",
+        "optStr": "Secundaria completa"
+      },
+      {
+        "opt": "e",
+        "optStr": "Bachillerato incompleto"
+      },
+      {
+        "opt": "f",
+        "optStr": "Bachillerato completo"
+      },
+      {
+        "opt": "g",
+        "optStr": "Carrera técnica incompleta"
+      },
+      {
+        "opt": "h",
+        "optStr": "Carrera técnica completa"
+      },
+      {
+        "opt": "i",
+        "optStr": "Licenciatura incompleta"
+      },
+      {
+        "opt": "j",
+        "optStr": "Licenciatura completa"
+      },
+      {
+        "opt": "k",
+        "optStr": "Posgrado"
+      },
+      {
+        "opt": "l",
+        "optStr": "Sin estudios"
+      }
+    ]
+  }
+]
