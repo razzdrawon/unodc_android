@@ -36,7 +36,7 @@ public class FormActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new ItemAdapter(itemList);
+        mAdapter = new ItemAdapter(this, itemList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -51,7 +51,7 @@ public class FormActivity extends AppCompatActivity {
 
     private void prepareFormData() throws IOException {
 
-        InputStream is = getResources().openRawResource(R.raw.questions1);
+        InputStream is = getResources().openRawResource(R.raw.questions);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {

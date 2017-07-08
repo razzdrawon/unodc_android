@@ -3,6 +3,11 @@ package com.razzdrawon.unodc.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -13,14 +18,19 @@ import java.util.Set;
 public class Item {
     private String qstnNbr;
     private String qstnStr;
+
     @JsonProperty("openOptFlag")
     private Boolean openAnswerFlag = false;
     @JsonProperty("openOptStr")
     private String openAnswer;
-    @JsonProperty("options")
-    private Set<Option> multiChoiceAnwers;
+
+    private List<Option> options;
+    private Map<Integer, Option> optionsChosen = new HashMap<>();
+
     private String dependentOpenAnswer;
-    private Set<Option> dependentMultiChoiceAnwers;
+    private List<Option> dependentOptions;
+
+    private Boolean isShown = false;
 
     public Item() {
     }
@@ -30,14 +40,14 @@ public class Item {
         this.qstnStr = qstnStr;
     }
 
-    public Item(String qstnNbr, String qstnStr, Boolean openAnswerFlag, String openAnswer, Set<Option> multiChoiceAnwers, String dependentOpenAnswer, Set<Option> dependentMultiChoiceAnwers) {
+    public Item(String qstnNbr, String qstnStr, Boolean openAnswerFlag, String openAnswer, List<Option> options, String dependentOpenAnswer, List<Option> dependentOptions) {
         this.qstnNbr = qstnNbr;
         this.qstnStr = qstnStr;
         this.openAnswerFlag = openAnswerFlag;
         this.openAnswer = openAnswer;
-        this.multiChoiceAnwers = multiChoiceAnwers;
+        this.options = options;
         this.dependentOpenAnswer = dependentOpenAnswer;
-        this.dependentMultiChoiceAnwers = dependentMultiChoiceAnwers;
+        this.dependentOptions = dependentOptions;
     }
 
     public String getQstnNbr() {
@@ -72,12 +82,20 @@ public class Item {
         this.openAnswer = openAnswer;
     }
 
-    public Set<Option> getMultiChoiceAnwers() {
-        return multiChoiceAnwers;
+    public List<Option> getOptions() {
+        return options;
     }
 
-    public void setMultiChoiceAnwers(Set<Option> multiChoiceAnwers) {
-        this.multiChoiceAnwers = multiChoiceAnwers;
+    public void setOptions(List<Option> options) {
+        this.options = options;
+    }
+
+    public Map<Integer, Option> getOptionsChosen() {
+        return optionsChosen;
+    }
+
+    public void setOptionsChosen(Map<Integer, Option> optionsChosen) {
+        this.optionsChosen = optionsChosen;
     }
 
     public String getDependentOpenAnswer() {
@@ -88,11 +106,27 @@ public class Item {
         this.dependentOpenAnswer = dependentOpenAnswer;
     }
 
-    public Set<Option> getDependentMultiChoiceAnwers() {
-        return dependentMultiChoiceAnwers;
+    public List<Option> getDependentOptions() {
+        return dependentOptions;
     }
 
-    public void setDependentMultiChoiceAnwers(Set<Option> dependentMultiChoiceAnwers) {
-        this.dependentMultiChoiceAnwers = dependentMultiChoiceAnwers;
+    public void setDependentOptions(List<Option> dependentOptions) {
+        this.dependentOptions = dependentOptions;
+    }
+
+    public List<String> getOptionsByStrings(){
+        List<String> options = new ArrayList<String>();
+        for (Option opt: this.getOptions()) {
+            options.add(opt.getOpt() + ") " + opt.getOptStr());
+        }
+        return  options;
+    }
+
+    public Boolean getShown() {
+        return isShown;
+    }
+
+    public void setShown(Boolean shown) {
+        isShown = shown;
     }
 }
