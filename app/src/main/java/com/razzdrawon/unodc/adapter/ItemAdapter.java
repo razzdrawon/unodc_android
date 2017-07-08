@@ -68,19 +68,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         holder.qstnStr.setText(itemList.get(position).getQstnStr());
 
         //Is this item ready to show? (Answer following the order by number of question)
-        if(itemList.get(position).getShown() || itemList.get(position).getQstnNbr().equals("1")){
+        if (itemList.get(position).getShown() || itemList.get(position).getQstnNbr().equals("1")) {
             holder.qstnLayout.setVisibility(View.VISIBLE);
-        }
-        else{
+        } else {
             holder.qstnLayout.setVisibility(View.GONE);
         }
-
 
 
         //Doing validations to show only what is needed
 
         //Is it an open answer?
-        if(itemList.get(position).getOpenAnswerFlag()) {
+        if (itemList.get(position).getOpenAnswerFlag()) {
             holder.openAns.setVisibility(View.VISIBLE);
 
 //            if(itemList.get(position).getQstnNbr().equals("1") || itemList.get(position).getQstnNbr().equals("8")
@@ -94,7 +92,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 @Override
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                     boolean handled = false;
-                    if ( (actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_DOWN ))){
+                    if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_DOWN))) {
 //                        sendMessage();
                         itemList.get(position).setOpenAnswer(holder.openAns.getText().toString());
                         itemList.get(position + 1).setShown(true);
@@ -111,15 +109,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 }
             });
 
-        }
-        else {
+        } else {
             holder.openAns.setVisibility(View.GONE);
         }
 
 
-
         //Is it a multi option answer?
-        if(itemList.get(position).getOptions() != null) {
+        if (itemList.get(position).getOptions() != null) {
             holder.optsRadio.setVisibility(View.VISIBLE);
             holder.optsRadio.removeAllViews();
 
@@ -129,26 +125,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 radioButton.setText(itemList.get(position).getOptions().get(i).getOpt() + ") " + itemList.get(position).getOptions().get(i).getOptStr());
                 radioButton.setId(i);
 
-                if(itemList.get(position).getOptionsChosen().get(i) != null){
+                if (itemList.get(position).getOptionsChosen().get(i) != null) {
                     radioButton.setChecked(true);
                 }
 
                 holder.optsRadio.addView(radioButton);
             }
 
-            holder.optsRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-            {
-                public void onCheckedChanged(RadioGroup group, int checkedId)
-                {
+            holder.optsRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
                     // This will get the radiobutton that has changed in its check state
-                    RadioButton checkedRadioButton = (RadioButton)group.findViewById(checkedId);
+                    RadioButton checkedRadioButton = (RadioButton) group.findViewById(checkedId);
 
                     // This puts the value (true/false) into the variable
-                    if(checkedRadioButton != null){
+                    if (checkedRadioButton != null) {
                         boolean isChecked = checkedRadioButton.isChecked();
                         // If the radiobutton that has changed in check state is now checked...
-                        if (isChecked)
-                        {
+                        if (isChecked) {
                             itemList.get(position).getOptionsChosen().clear();
 
                             int idx = holder.optsRadio.indexOfChild(checkedRadioButton);
@@ -156,8 +149,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                             itemList.get(position + 1).setShown(true);
                             notifyDataSetChanged();
-                        }
-                        else{
+                        } else {
                             holder.optsRadio.clearCheck();
                         }
                     }
@@ -165,8 +157,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 }
             });
 
-        }
-        else {
+        } else {
             holder.optsRadio.setVisibility(View.GONE);
         }
 

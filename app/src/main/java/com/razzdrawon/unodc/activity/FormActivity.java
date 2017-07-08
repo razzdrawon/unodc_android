@@ -76,7 +76,7 @@ public class FormActivity extends AppCompatActivity {
     public void parseItems(String json) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = objectMapper.readTree(json);
-        for(JsonNode dataAuxNode : rootNode) {
+        for (JsonNode dataAuxNode : rootNode) {
             itemList.add(objectMapper.treeToValue(dataAuxNode, Item.class));
         }
         mAdapter.notifyDataSetChanged();

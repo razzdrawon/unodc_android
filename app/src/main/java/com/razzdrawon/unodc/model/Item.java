@@ -114,12 +114,12 @@ public class Item {
         this.dependentOptions = dependentOptions;
     }
 
-    public List<String> getOptionsByStrings(){
+    public List<String> getOptionsByStrings() {
         List<String> options = new ArrayList<String>();
-        for (Option opt: this.getOptions()) {
+        for (Option opt : this.getOptions()) {
             options.add(opt.getOpt() + ") " + opt.getOptStr());
         }
-        return  options;
+        return options;
     }
 
     public Boolean getShown() {
