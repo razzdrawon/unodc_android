@@ -25,7 +25,6 @@ public class Item {
     private String openAnswer;
 
     private List<Option> options;
-    private Map<Integer, Option> optionsChosen = new HashMap<>();
 
     private String dependentOpenAnswer;
     private List<Option> dependentOptions;
@@ -90,13 +89,13 @@ public class Item {
         this.options = options;
     }
 
-    public Map<Integer, Option> getOptionsChosen() {
-        return optionsChosen;
-    }
-
-    public void setOptionsChosen(Map<Integer, Option> optionsChosen) {
-        this.optionsChosen = optionsChosen;
-    }
+//    public Map<Integer, Option> getOptionsChosen() {
+//        return optionsChosen;
+//    }
+//
+//    public void setOptionsChosen(Map<Integer, Option> optionsChosen) {
+//        this.optionsChosen = optionsChosen;
+//    }
 
     public String getDependentOpenAnswer() {
         return dependentOpenAnswer;

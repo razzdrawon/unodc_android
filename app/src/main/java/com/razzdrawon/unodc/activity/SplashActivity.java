@@ -10,7 +10,7 @@ import com.razzdrawon.unodc.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final int SPLASH_DELAY = 2000;
+    private static final int SPLASH_DELAY = 1000;
     private Context context;
 
     @Override

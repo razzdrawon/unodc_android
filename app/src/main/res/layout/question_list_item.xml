@@ -65,6 +65,7 @@
                 <!--android:visibility="gone"></Spinner>-->
 
                 <LinearLayout
+                    android:id="@+id/opts_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -77,17 +78,32 @@
                         android:orientation="vertical"
                         android:textSize="@dimen/qstn_size" />
 
-                    <EditText
-                        android:id="@+id/details_et"
+                    <LinearLayout
+                        android:id="@+id/details_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="detalle aquí su respuesta"
-                        android:visibility="gone" />
+                        android:orientation="vertical">
 
-                    <RadioGroup
+                        <EditText
+                            android:id="@+id/details_et"
+                            android:inputType="text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="detalle aquí su respuesta"
+                            android:imeOptions="actionDone"
+                            android:maxLength="30"
+                            android:visibility="gone"/>
 
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"></RadioGroup>
+                        <Spinner
+                            android:id="@+id/det_opts_spn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/answers_array"
+                            android:spinnerMode="dialog"
+                            android:textSize="@dimen/qstn_size"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

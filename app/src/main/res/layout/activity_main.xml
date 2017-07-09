@@ -23,13 +23,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/unodc" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:paddingRight="50dp"
                 android:paddingLeft="50dp"
                 android:layout_gravity="center_horizontal"
@@ -61,6 +61,18 @@
                 android:textColor="@android:color/white"
                 android:background="@color/colorPrimary"
                 android:text="Comenzar cuestionario"/>
+
+            <Button
+                android:id="@+id/sync_btn"
+                android:layout_below="@+id/pass_login_ui"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:textSize="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:text="Sincronizar información"/>
 
         </LinearLayout>
 
