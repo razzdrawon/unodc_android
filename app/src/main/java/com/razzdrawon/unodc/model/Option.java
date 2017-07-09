@@ -12,7 +12,7 @@ import java.util.List;
 public class Option {
     private String opt;
     private String optStr;
-    private Boolean chosen = true;
+    private Boolean chosen = false;
     @JsonProperty("openOptFlag")
     private Boolean openAnswerFlag = false;
     @JsonProperty("openOptStr")
