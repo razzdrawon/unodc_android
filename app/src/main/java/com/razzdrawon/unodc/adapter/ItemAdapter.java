@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.razzdrawon.unodc.R;
+import com.razzdrawon.unodc.activity.FormActivity;
 import com.razzdrawon.unodc.model.Item;
 import com.razzdrawon.unodc.model.Option;
 
@@ -30,12 +31,13 @@ import java.util.List;
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     Context context;
-    List<Item> itemList;
+    List<Item> itemList, copyItemList;
     TextView.OnEditorActionListener mTextViewListener;
 
-    public ItemAdapter(Context context, List<Item> itemList) {
+    public ItemAdapter(Context context, List<Item> itemList, List<Item> copyItemList) {
         this.context = context;
         this.itemList = itemList;
+        this.copyItemList = copyItemList;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -62,7 +64,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             openAnsDetails = (EditText) itemView.findViewById(R.id.details_et);
             optsDetailsSpin = (Spinner) itemView.findViewById(R.id.det_opts_spn);
 
-            finishBtn = (Button) itemView.findViewById(R.id.finish_btn);
+            finishBtn = (Button) ((FormActivity)context).findViewById(R.id.finish_btn);
 
         }
     }
@@ -84,11 +86,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         holder.qstnStr.setText(itemList.get(position).getQstnStr());
 
         //Is this item ready to show? (Answer following the order by number of question)
-        if (itemList.get(position).getShown() || itemList.get(position).getQstnNbr().equals("1")) {
-            holder.qstnLayout.setVisibility(View.VISIBLE);
-        } else {
-            holder.qstnLayout.setVisibility(View.GONE);
-        }
+//        if (itemList.get(position).getShown() || itemList.get(position).getQstnNbr().equals("1")) {
+//            holder.qstnLayout.setVisibility(View.VISIBLE);
+//        } else {
+//            holder.qstnLayout.setVisibility(View.GONE);
+//        }
 
 
         //******************* Is it an open answer? **********************
@@ -104,7 +106,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     boolean handled = false;
                     if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_DOWN))) {
                         itemList.get(position).setOpenAnswer(holder.openAns.getText().toString());
-                        itemList.get(position + 1).setShown(true);
+
+                        itemList.add(copyItemList.get(position + 1));
+//                        itemList.get(position + 1).setShown(true);
+
                         notifyDataSetChanged();
 
                         //Hiding keyboard
@@ -190,8 +195,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             //************* if the option chosen has to specify somthing else... ***************
 
                             //************* if an open answer is needed **************
-
-
                             if (itemList.get(position).getOptions().get(idx).getOpenAnswerFlag()) {
                                 hasDetails[0] = true;
                                 holder.openAnsDetails.setVisibility(View.VISIBLE);
@@ -208,14 +211,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                                 holder.optsDetailsSpin.setVisibility(View.GONE);
                             }
 
-                            if(itemList.size() > (position + 1)){
-                                itemList.get(position + 1).setShown(true);
+
+
+                            if(copyItemList.size() > itemList.size()){
+                                itemList.add(copyItemList.get(position + 1));
                             }
-                            else  if (itemList.size() == (position + 1)){
-//                                holder.finishBtn.setVisibility(View.VISIBLE);
+                            else {
+                                holder.finishBtn.setVisibility(View.VISIBLE);
                             }
 
                             notifyDataSetChanged();
+
+
                         } else {
                             holder.optsRadio.clearCheck();
                         }
@@ -223,6 +230,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                 }
             });
+
+//            if (copyItemList.size() == itemList.size()) {
+//                holder.finishBtn.setVisibility(View.VISIBLE);
+//            }
 
             if(hasDetails[0])
                 holder.detailsLayout.setVisibility(View.VISIBLE);

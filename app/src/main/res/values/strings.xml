@@ -4,6 +4,10 @@
     <string name="start1">Agradecemos su colaboración y participación en este ejercicio.</string>
     <string name="start2">Le reiteramos que toda la información contenida en el siguiente cuestionario es ANÓNIMA.</string>
 
+    <string name="finish1">Usted ha finalizado el cuestionario.</string>
+    <string name="finish2">¡MUCHAS GRACIAS POR SU PARTICIPACIÓN!</string>
+    <string name="finish3">Favor de entregar la Tablet al personal encargado</string>
+    <string name="finish4">¡Que tenga excelente día!</string>
 
     <string-array name="answers_array">
         <item>a) Opción 1</item>
