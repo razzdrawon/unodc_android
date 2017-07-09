@@ -1,7 +1,6 @@
 package com.razzdrawon.unodc.adapter;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
