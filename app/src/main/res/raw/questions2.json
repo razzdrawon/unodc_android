@@ -1,0 +1,27 @@
+[
+  {
+    "qstnNbr": 1,
+    "openAns": "27",
+    "options": null,
+    "depOpenAns": null,
+    "depOpt": null
+  },
+  {
+    "qstnNbr": 2,
+    "openAns": null,
+    "options": [
+      "a"
+    ],
+    "depOpenAns": "Este es mi especifique",
+    "depOpt": null
+  },
+  {
+    "qstnNbr": 3,
+    "openAns": null,
+    "options": [
+      "f"
+    ],
+    "depOpenAns": null,
+    "depOpt": 5
+  }
+]

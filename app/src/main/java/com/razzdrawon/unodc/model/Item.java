@@ -29,8 +29,6 @@ public class Item {
     private String dependentOpenAnswer;
     private List<Option> dependentOptions;
 
-    private Boolean isShown = false;
-
     public Item() {
     }
 
@@ -89,14 +87,6 @@ public class Item {
         this.options = options;
     }
 
-//    public Map<Integer, Option> getOptionsChosen() {
-//        return optionsChosen;
-//    }
-//
-//    public void setOptionsChosen(Map<Integer, Option> optionsChosen) {
-//        this.optionsChosen = optionsChosen;
-//    }
-
     public String getDependentOpenAnswer() {
         return dependentOpenAnswer;
     }
@@ -121,11 +111,4 @@ public class Item {
         return options;
     }
 
-    public Boolean getShown() {
-        return isShown;
-    }
-
-    public void setShown(Boolean shown) {
-        isShown = shown;
-    }
 }

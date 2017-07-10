@@ -17,8 +17,8 @@ public class Option {
     private Boolean openAnswerFlag = false;
     @JsonProperty("openOptStr")
     private String openAnswer;
-    private List<String> options;
-    private String dependentChosen;
+    private List<DepOption> options;
+    private Integer dependentChosen;
 
 
     public Option() {
@@ -27,6 +27,16 @@ public class Option {
     public Option(String opt, String strOpt) {
         this.opt = opt;
         this.optStr = strOpt;
+    }
+
+    public Option(String opt, String optStr, Boolean chosen, Boolean openAnswerFlag, String openAnswer, List<DepOption> options, Integer dependentChosen) {
+        this.opt = opt;
+        this.optStr = optStr;
+        this.chosen = chosen;
+        this.openAnswerFlag = openAnswerFlag;
+        this.openAnswer = openAnswer;
+        this.options = options;
+        this.dependentChosen = dependentChosen;
     }
 
     public String getOpt() {
@@ -69,11 +79,19 @@ public class Option {
         this.openAnswer = openAnswer;
     }
 
-    public List<String> getOptions() {
+    public List<DepOption> getOptions() {
         return options;
     }
 
-    public void setOptions(List<String> options) {
+    public void setOptions(List<DepOption> options) {
         this.options = options;
+    }
+
+    public Integer getDependentChosen() {
+        return dependentChosen;
+    }
+
+    public void setDependentChosen(Integer dependentChosen) {
+        this.dependentChosen = dependentChosen;
     }
 }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -30,7 +31,8 @@ import java.util.List;
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     Context context;
-    List<Item> itemList, copyItemList;
+    List<Item> itemList;
+    List<Item> copyItemList;
     TextView.OnEditorActionListener mTextViewListener;
 
     public ItemAdapter(Context context, List<Item> itemList, List<Item> copyItemList) {
@@ -84,14 +86,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         holder.qstnNbr.setText(itemList.get(position).getQstnNbr() + ".- ");
         holder.qstnStr.setText(itemList.get(position).getQstnStr());
 
-        //Is this item ready to show? (Answer following the order by number of question)
-//        if (itemList.get(position).getShown() || itemList.get(position).getQstnNbr().equals("1")) {
-//            holder.qstnLayout.setVisibility(View.VISIBLE);
-//        } else {
-//            holder.qstnLayout.setVisibility(View.GONE);
-//        }
-
-
         //******************* Is it an open answer? **********************
         //******************* Set visible edittext, place listener to make sure it is answered, get the string to store it, make next question visible **********************
 
@@ -107,7 +101,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         itemList.get(position).setOpenAnswer(holder.openAns.getText().toString());
 
                         itemList.add(copyItemList.get(position + 1));
-//                        itemList.get(position + 1).setShown(true);
 
                         notifyDataSetChanged();
 
@@ -204,6 +197,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                             //************* if a multi opt is needed **************
                             if (itemList.get(position).getOptions().get(idx).getOptions() != null) {
+
+                                ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(context,
+                                        android.R.layout.simple_spinner_item, itemList.get(position).getOptions().get(idx).getOptions());
+
+                                holder.optsDetailsSpin.setAdapter(spinnerArrayAdapter);
+
                                 hasDetails[0] = true;
                                 holder.optsDetailsSpin.setVisibility(View.VISIBLE);
                             } else {
@@ -229,10 +228,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                 }
             });
-
-//            if (copyItemList.size() == itemList.size()) {
-//                holder.finishBtn.setVisibility(View.VISIBLE);
-//            }
 
             if(hasDetails[0])
                 holder.detailsLayout.setVisibility(View.VISIBLE);

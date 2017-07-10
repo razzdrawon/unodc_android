@@ -1,91 +1,255 @@
 [
   {
     "qstnNbr": "1",
-    "qstnStr": "¿Cuál es su edad cumplida en años?",
-    "openOptFlag": true,
-    "openOptStr": null
-  },
-  {
-    "qstnNbr": "2",
-    "qstnStr": "Sexo",
+    "qstnStr": "¿Dónde nació usted?",
     "options": [
       {
         "opt": "a",
-        "optStr": "Hombre"
+        "optStr": "Municipio de Querétaro (Pasar a la pregunta 16)"
       },
       {
         "opt": "b",
-        "optStr": "Mujer"
+        "optStr": "Otro municipio en el estado de Querétaro. Seleccione cuál: (pasar a la siguiente pregunta)",
+        "options": [
+          {
+            "opt": 1,
+            "optStr": "Amealco de Bonfil"
+          },
+          {
+            "opt": 2,
+            "optStr": "Pinal de Amoles"
+          },
+          {
+            "opt": 3,
+            "optStr": "Arroyo Seco"
+          },
+          {
+            "opt": 4,
+            "optStr": "Cadereyta de Montes"
+          },
+          {
+            "opt": 5,
+            "optStr": "Colón"
+          },
+          {
+            "opt": 6,
+            "optStr": "Corregidora"
+          },
+          {
+            "opt": 7,
+            "optStr": "Ezequiel Montes"
+          },
+          {
+            "opt": 8,
+            "optStr": "Huimilpan"
+          },
+          {
+            "opt": 9,
+            "optStr": "Jalpan de Serra"
+          },
+          {
+            "opt": 10,
+            "optStr": "Landa de Matamoros"
+          },
+          {
+            "opt": 11,
+            "optStr": "El Marqués"
+          },
+          {
+            "opt": 12,
+            "optStr": "Pedro Escobedo"
+          },
+          {
+            "opt": 13,
+            "optStr": "Peñamiller"
+          },
+          {
+            "opt": 14,
+            "optStr": "San Joaquín"
+          },
+          {
+            "opt": 15,
+            "optStr": "San Juan del Río"
+          },
+          {
+            "opt": 16,
+            "optStr": "Tequisquiapan"
+          },
+          {
+            "opt": 17,
+            "optStr": "Tolimán"
+          }
+        ]
+      },
+      {
+        "opt": "c",
+        "optStr": "Otro estado. Seleccione cuál: (Pasar a la siguiente pregunta)",
+        "options": [
+          {
+            "opt": 1,
+            "optStr": "Aguascalientes"
+          },
+          {
+            "opt": 2,
+            "optStr": "Baja California"
+          },
+          {
+            "opt": 3,
+            "optStr": "Baja California Sur"
+          },
+          {
+            "opt": 4,
+            "optStr": "Campeche"
+          },
+          {
+            "opt": 5,
+            "optStr": "Chiapas"
+          },
+          {
+            "opt": 6,
+            "optStr": "Chihuahua"
+          },
+          {
+            "opt": 7,
+            "optStr": "Ciudad de México"
+          },
+          {
+            "opt": 8,
+            "optStr": "Coahuila"
+          },
+          {
+            "opt": 9,
+            "optStr": "Colima"
+          },
+          {
+            "opt": 10,
+            "optStr": "Durango"
+          },
+          {
+            "opt": 11,
+            "optStr": "Estado de México"
+          },
+          {
+            "opt": 12,
+            "optStr": "Guanajuato"
+          },
+          {
+            "opt": 13,
+            "optStr": "Guerrero"
+          },
+          {
+            "opt": 14,
+            "optStr": "Hidalgo"
+          },
+          {
+            "opt": 15,
+            "optStr": "Jalisco"
+          },
+          {
+            "opt": 16,
+            "optStr": "Michoacán"
+          },
+          {
+            "opt": 17,
+            "optStr": "Morelos"
+          },
+          {
+            "opt": 18,
+            "optStr": "Nayarit"
+          },
+          {
+            "opt": 19,
+            "optStr": "Nuevo León"
+          },
+          {
+            "opt": 20,
+            "optStr": "Oaxaca"
+          },
+          {
+            "opt": 21,
+            "optStr": "Puebla"
+          },
+          {
+            "opt": 22,
+            "optStr": "Quintana Roo"
+          },
+          {
+            "opt": 23,
+            "optStr": "San Luis Potosí"
+          },
+          {
+            "opt": 24,
+            "optStr": "Sin Localidad"
+          },
+          {
+            "opt": 25,
+            "optStr": "Sinaloa"
+          },
+          {
+            "opt": 26,
+            "optStr": "Sonora"
+          },
+          {
+            "opt": 27,
+            "optStr": "Tabasco"
+          },
+          {
+            "opt": 28,
+            "optStr": "Tamaulipaz"
+          },
+          {
+            "opt": 29,
+            "optStr": "Tlaxcala"
+          },
+          {
+            "opt": 30,
+            "optStr": "Veracruz"
+          },
+          {
+            "opt": 31,
+            "optStr": "Yucatán"
+          },
+          {
+            "opt": 32,
+            "optStr": "Zacatecas"
+          }
+        ]
+      },
+      {
+        "opt": "d",
+        "optStr": "Otro país:"
+      }
+    ]
+  },
+  {
+    "qstnNbr": "2",
+    "qstnStr": "En caso de no haber nacido en el municipio de Querétaro, ¿cuánto tiempo tiene que llegó a esta ciudad?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "De 1 a 5 años"
+      },
+      {
+        "opt": "b",
+        "optStr": "De 6 a 10 años"
+      },
+      {
+        "opt": "c",
+        "optStr": "Más de 10 años"
       }
     ]
   },
   {
     "qstnNbr": "3",
-    "qstnStr": "Estado Civil",
+    "qstnStr": "¿Tiene familiares que hayan migrado del estado?",
     "options": [
       {
         "opt": "a",
-        "optStr": "Soltero (a)"
+        "optStr": "Sí (Pasar a la siguiente pregunta)"
       },
       {
         "opt": "b",
-        "optStr": "Casado (a)"
-      },
-      {
-        "opt": "c",
-        "optStr": "Unión libre"
-      },
-      {
-        "opt": "d",
-        "optStr": "Divorciado (a)"
-      },
-      {
-        "opt": "e",
-        "optStr": "Viudo (a)"
-      },
-      {
-        "opt": "f",
-        "optStr": "Otro"
-      }
-    ]
-  },
-  {
-    "qstnNbr": "4",
-    "qstnStr": "¿Cuál es su religión?",
-    "options": [
-      {
-        "opt": "a",
-        "optStr": "Católica"
-      },
-      {
-        "opt": "b",
-        "optStr": "Cristiana"
-      },
-      {
-        "opt": "c",
-        "optStr": "Judía"
-      },
-      {
-        "opt": "d",
-        "optStr": "Mormón"
-      },
-      {
-        "opt": "e",
-        "optStr": "Testigo de Jehová"
-      },
-      {
-        "opt": "f",
-        "optStr": "Ateo"
-      },
-      {
-        "opt": "g",
-        "optStr": "Musulmán"
-      },
-      {
-        "opt": "h",
-        "optStr": "Otros. Especifique:",
-        "openOptFlag": true,
-        "openOptStr": null
+        "optStr": "No (Pasar a la pregunta 20)"
       }
     ]
   }

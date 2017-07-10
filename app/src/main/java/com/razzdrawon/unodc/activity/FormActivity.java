@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.razzdrawon.unodc.R;
 import com.razzdrawon.unodc.adapter.ItemAdapter;
 import com.razzdrawon.unodc.model.Item;
+import com.razzdrawon.unodc.util.JsonParser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,7 +32,7 @@ import java.util.List;
 public class FormActivity extends AppCompatActivity {
 
     private List<Item> itemList = new ArrayList<>();
-    private List<Item> copyItemList = new ArrayList<>();
+    private List<Item> copyItemList;
     private RecyclerView recyclerView;
     private ItemAdapter mAdapter;
     private Button finishBtn;
@@ -44,14 +45,10 @@ public class FormActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         finishBtn = (Button) findViewById(R.id.finish_btn);
 
-        mAdapter = new ItemAdapter(this, itemList, copyItemList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+
 
         try {
-            prepareFormData();
+            readJsonFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,7 +59,7 @@ public class FormActivity extends AppCompatActivity {
 
                 //This List is gonaa be stored
                 mAdapter.getItemList();
-
+//                JsonParser.
 
                 //Here we implement SQLite
 
@@ -78,7 +75,7 @@ public class FormActivity extends AppCompatActivity {
 
     }
 
-    private void prepareFormData() throws IOException {
+    private void readJsonFile() throws IOException {
 
         InputStream is = getResources().openRawResource(R.raw.questions1);
         Writer writer = new StringWriter();
@@ -99,28 +96,18 @@ public class FormActivity extends AppCompatActivity {
 
         String jsonString = writer.toString();
 
-        parseItems(jsonString);
-    }
+        copyItemList = JsonParser.parseItems(jsonString);
 
-    public void parseItems(String json) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode rootNode = objectMapper.readTree(json);
-        for (JsonNode dataAuxNode : rootNode) {
-            copyItemList.add(objectMapper.treeToValue(dataAuxNode, Item.class));
+        if(copyItemList != null && copyItemList.size()>0) {
+            itemList.add(copyItemList.get(0));
         }
 
-        if(copyItemList != null && copyItemList.size()>0)
-        itemList.add(copyItemList.get(0));
+        mAdapter = new ItemAdapter(this, itemList, copyItemList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
 
-        mAdapter.notifyDataSetChanged();
-    }
-
-    public List<Item> getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(List<Item> itemList) {
-        this.itemList = itemList;
     }
 
     @Override
