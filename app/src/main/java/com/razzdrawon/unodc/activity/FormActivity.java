@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -77,7 +78,7 @@ public class FormActivity extends AppCompatActivity {
 
     private void readJsonFile() throws IOException {
 
-        InputStream is = getResources().openRawResource(R.raw.questions1);
+        InputStream is = getResources().openRawResource(R.raw.questions);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {
@@ -103,9 +104,6 @@ public class FormActivity extends AppCompatActivity {
         }
 
         mAdapter = new ItemAdapter(this, itemList, copyItemList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
     }

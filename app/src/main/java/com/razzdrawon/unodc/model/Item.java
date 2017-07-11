@@ -16,7 +16,7 @@ import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Item {
-    private String qstnNbr;
+    private Integer qstnNbr;
     private String qstnStr;
 
     @JsonProperty("openOptFlag")
@@ -29,15 +29,17 @@ public class Item {
     private String dependentOpenAnswer;
     private List<Option> dependentOptions;
 
+    private Boolean isAnswered = false;
+
     public Item() {
     }
 
-    public Item(String qstnNbr, String qstnStr) {
+    public Item(Integer qstnNbr, String qstnStr) {
         this.qstnNbr = qstnNbr;
         this.qstnStr = qstnStr;
     }
 
-    public Item(String qstnNbr, String qstnStr, Boolean openAnswerFlag, String openAnswer, List<Option> options, String dependentOpenAnswer, List<Option> dependentOptions) {
+    public Item(Integer qstnNbr, String qstnStr, Boolean openAnswerFlag, String openAnswer, List<Option> options, String dependentOpenAnswer, List<Option> dependentOptions) {
         this.qstnNbr = qstnNbr;
         this.qstnStr = qstnStr;
         this.openAnswerFlag = openAnswerFlag;
@@ -47,11 +49,11 @@ public class Item {
         this.dependentOptions = dependentOptions;
     }
 
-    public String getQstnNbr() {
+    public Integer getQstnNbr() {
         return qstnNbr;
     }
 
-    public void setQstnNbr(String qstnNbr) {
+    public void setQstnNbr(Integer qstnNbr) {
         this.qstnNbr = qstnNbr;
     }
 
@@ -111,4 +113,11 @@ public class Item {
         return options;
     }
 
+    public Boolean getAnswered() {
+        return isAnswered;
+    }
+
+    public void setAnswered(Boolean answered) {
+        isAnswered = answered;
+    }
 }

@@ -18,6 +18,7 @@ public class Option {
     @JsonProperty("openOptStr")
     private String openAnswer;
     private List<DepOption> options;
+    private Integer nextQstn;
     private Integer dependentChosen;
 
 
@@ -85,6 +86,14 @@ public class Option {
 
     public void setOptions(List<DepOption> options) {
         this.options = options;
+    }
+
+    public Integer getNextQstn() {
+        return nextQstn;
+    }
+
+    public void setNextQstn(Integer nextQstn) {
+        this.nextQstn = nextQstn;
     }
 
     public Integer getDependentChosen() {

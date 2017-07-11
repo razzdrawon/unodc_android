@@ -7,13 +7,13 @@
     android:orientation="vertical"
     tools:context="com.razzdrawon.unodc.activity.FormActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -34,8 +34,8 @@
                 android:text="Terminar"
                 android:visibility="gone"/>
 
-        </LinearLayout>
-    </ScrollView>
+        <!--</LinearLayout>-->
+    <!--</ScrollView>-->
 
 
 

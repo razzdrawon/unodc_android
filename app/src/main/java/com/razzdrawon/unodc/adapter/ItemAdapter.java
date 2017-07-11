@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,7 +34,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     Context context;
     List<Item> itemList;
     List<Item> copyItemList;
-    TextView.OnEditorActionListener mTextViewListener;
+//    public static final int TOTAL_NBR_QSTN = 76;
 
     public ItemAdapter(Context context, List<Item> itemList, List<Item> copyItemList) {
         this.context = context;
@@ -86,6 +87,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         holder.qstnNbr.setText(itemList.get(position).getQstnNbr() + ".- ");
         holder.qstnStr.setText(itemList.get(position).getQstnStr());
 
+
+        // Verifying if the next question has to be answered
+
+
         //******************* Is it an open answer? **********************
         //******************* Set visible edittext, place listener to make sure it is answered, get the string to store it, make next question visible **********************
 
@@ -100,7 +105,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_DOWN))) {
                         itemList.get(position).setOpenAnswer(holder.openAns.getText().toString());
 
-                        itemList.add(copyItemList.get(position + 1));
+                        // Adding the new item and make the question answered
+                        if(!itemList.get(position).getAnswered()){
+//                            itemList.add(copyItemList.get(itemList.get(position).getQstnNbr()));
+                            itemList.add(copyItemList.get(position + 1));
+                            itemList.get(position).setAnswered(true);
+                        }
 
                         notifyDataSetChanged();
 
@@ -131,7 +141,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
             final Boolean[] hasDetails = {false};
 
-            //create radio buttons -- initializing what is already answered
+            //create radio buttons -- initializing what is already answered for all the options
             for (int i = 0; i < itemList.get(position).getOptions().size(); i++) {
                 RadioButton radioButton = new RadioButton(context);
                 radioButton.setText(itemList.get(position).getOptions().get(i).getOpt() + ") " + itemList.get(position).getOptions().get(i).getOptStr());
@@ -141,6 +151,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 if (itemList.get(position).getOptions().get(i).getChosen()) {
                     radioButton.setChecked(true);
 
+                    //Does it have open answer details? set the text and show ET
                     if(itemList.get(position).getOptions().get(i).getOpenAnswerFlag()) {
                         hasDetails[0] = true;
                         holder.openAnsDetails.setVisibility(View.VISIBLE);
@@ -150,21 +161,31 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         holder.openAnsDetails.setVisibility(View.GONE);
                     }
 
+
+                    //Does it have dependent options? Populate spinner
                     if(itemList.get(position).getOptions().get(i).getOptions() != null){
                         hasDetails[0] = true;
                         holder.optsDetailsSpin.setVisibility(View.VISIBLE);
+
+                        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(context,
+                                android.R.layout.simple_spinner_item, itemList.get(position).getOptions().get(i).getOptions());
+
+                        holder.optsDetailsSpin.setAdapter(spinnerArrayAdapter);
+
+                        if(itemList.get(position).getOptions().get(i).getDependentChosen() != null)
+                            holder.optsDetailsSpin.setSelection(itemList.get(position).getOptions().get(i).getDependentChosen() - 1);
+
                     }
                     else {
                         holder.optsDetailsSpin.setVisibility(View.GONE);
                     }
 
-
                 }
-
                 holder.optsRadio.addView(radioButton);
             }
 
-            setOnEnter(holder.openAnsDetails, position, holder.optsRadio.getCheckedRadioButtonId(), holder);
+            setListenerDetailsEdtTxt(holder.openAnsDetails, position, holder.optsRadio.getCheckedRadioButtonId(), holder);
+            setListenerDetailsSpin(holder.optsDetailsSpin, position, holder.optsRadio.getCheckedRadioButtonId(), holder);
 
             holder.optsRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -209,18 +230,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                                 holder.optsDetailsSpin.setVisibility(View.GONE);
                             }
 
-
-
-                            if(copyItemList.size() > itemList.size()){
+                            // Adding the new item
+                            if(!itemList.get(position).getAnswered() && position < copyItemList.size() -1){
                                 itemList.add(copyItemList.get(position + 1));
+                                itemList.get(position).setAnswered(true);
                             }
-                            else {
+
+                            // Just in case this is the last question:
+                            if (itemList.size() == copyItemList.size()){
                                 holder.finishBtn.setVisibility(View.VISIBLE);
                             }
 
                             notifyDataSetChanged();
-
-
                         } else {
                             holder.optsRadio.clearCheck();
                         }
@@ -251,7 +272,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return itemList;
     }
 
-    private void setOnEnter(final EditText et, final int position, final int idx, final ItemAdapter.ViewHolder holder){
+    private void setListenerDetailsEdtTxt(final EditText et, final int position, final int idx, final ItemAdapter.ViewHolder holder){
         et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -268,6 +289,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     handled = true;
                 }
                 return handled;
+            }
+        });
+    }
+
+    private void setListenerDetailsSpin(final Spinner spn, final int position, final int idx, final ItemAdapter.ViewHolder holder){
+        spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int positionSpin, long id) {
+                itemList.get(position).getOptions().get(idx).setDependentChosen(positionSpin + 1);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }

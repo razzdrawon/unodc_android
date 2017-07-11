@@ -1,12 +1,12 @@
 [
   {
-    "qstnNbr": "1",
+    "qstnNbr": 1,
     "qstnStr": "¿Cuál es su edad cumplida en años?",
     "openOptFlag": true,
     "openOptStr": null
   },
   {
-    "qstnNbr": "2",
+    "qstnNbr": 2,
     "qstnStr": "Sexo",
     "options": [
       {
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "qstnNbr": "3",
+    "qstnNbr": 3,
     "qstnStr": "Estado Civil",
     "options": [
       {
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "qstnNbr": "4",
+    "qstnNbr": 4,
     "qstnStr": "¿Cuál es su religión?",
     "options": [
       {
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "qstnNbr": "5",
+    "qstnNbr": 5,
     "qstnStr": "¿Cuál es su nivel de estudios?",
     "options": [
       {
@@ -144,7 +144,7 @@
     ]
   },
   {
-    "qstnNbr": "6",
+    "qstnNbr": 6,
     "qstnStr": "¿Cuál es su ocupación?",
     "options": [
       {
@@ -188,7 +188,7 @@
     ]
   },
   {
-    "qstnNbr": "7",
+    "qstnNbr": 7,
     "qstnStr": "¿Cuál es su colonia de residencia?",
     "options": [
       {
@@ -276,19 +276,19 @@
     ]
   },
   {
-    "qstnNbr": "8",
+    "qstnNbr": 8,
     "qstnStr": "¿Cuántos hijos tiene?",
     "openOptFlag": true,
     "openOptStr": null
   },
   {
-    "qstnNbr": "9",
+    "qstnNbr": 9,
     "qstnStr": "¿Cuántas personas habitan en su hogar?",
     "openOptFlag": true,
     "openOptStr": null
   },
   {
-    "qstnNbr": "10",
+    "qstnNbr": 10,
     "qstnStr": "En su hogar, ¿quién es el jefe(a) de familia?",
     "options": [
       {
@@ -314,13 +314,13 @@
     ]
   },
   {
-    "qstnNbr": "11",
+    "qstnNbr": 11,
     "qstnStr": "¿Cuántas personas aportan al gasto familiar en su hogar?",
     "openOptFlag": true,
     "openOptStr": null
   },
   {
-    "qstnNbr": "12",
+    "qstnNbr": 12,
     "qstnStr": "¿Cuál es el ingreso mensual en su hogar?",
     "options": [
       {
@@ -354,7 +354,7 @@
     ]
   },
   {
-    "qstnNbr": "13",
+    "qstnNbr": 13,
     "qstnStr": "Su vivienda es:",
     "options": [
       {
@@ -378,12 +378,13 @@
     ]
   },
   {
-    "qstnNbr": "14",
+    "qstnNbr": 14,
     "qstnStr": "¿Dónde nació usted?",
     "options": [
       {
         "opt": "a",
-        "optStr": "Municipio de Querétaro (Pasar a la pregunta 16)"
+        "optStr": "Municipio de Querétaro (Pasar a la pregunta 16)",
+        "nextQstn": 16
       },
       {
         "opt": "b",
@@ -573,7 +574,7 @@
           },
           {
             "opt": 28,
-            "optStr": "Tamaulipaz"
+            "optStr": "Tamaulipas"
           },
           {
             "opt": 29,
@@ -595,12 +596,12 @@
       },
       {
         "opt": "d",
-        "optStr": "Otro país:"
+        "optStr": "Otro país."
       }
     ]
   },
   {
-    "qstnNbr": "15",
+    "qstnNbr": 15,
     "qstnStr": "En caso de no haber nacido en el municipio de Querétaro, ¿cuánto tiempo tiene que llegó a esta ciudad?",
     "options": [
       {
@@ -618,7 +619,7 @@
     ]
   },
   {
-    "qstnNbr": "16",
+    "qstnNbr": 16,
     "qstnStr": "¿Tiene familiares que hayan migrado del estado?",
     "options": [
       {
@@ -627,12 +628,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pasar a la pregunta 20)"
+        "optStr": "No (Pasar a la pregunta 20)",
+        "nextQstn": 20
       }
     ]
   },
   {
-    "qstnNbr": "17",
+    "qstnNbr": 17,
     "qstnStr": "¿Hacia dónde migró su familiar?",
     "options": [
       {
@@ -823,7 +825,7 @@
           },
           {
             "opt": 28,
-            "optStr": "Tamaulipaz"
+            "optStr": "Tamaulipas"
           },
           {
             "opt": 29,
@@ -854,7 +856,7 @@
     ]
   },
   {
-    "qstnNbr": "18",
+    "qstnNbr": 18,
     "qstnStr": "¿Cuál es la causa por la que migraron sus familiares?",
     "options": [
       {
@@ -886,7 +888,7 @@
     ]
   },
   {
-    "qstnNbr": "19",
+    "qstnNbr": 19,
     "qstnStr": "El estado en el que su familiar migro:",
     "options": [
       {
@@ -908,7 +910,7 @@
     ]
   },
   {
-    "qstnNbr": "20",
+    "qstnNbr": 20,
     "qstnStr": "En su opinión, ¿quién es responsable de la seguridad de su colonia o comunidad?",
     "options": [
       {
@@ -938,7 +940,7 @@
     ]
   },
   {
-    "qstnNbr": "21",
+    "qstnNbr": 21,
     "qstnStr": "¿Cuál de las siguientes autoridades conoce? (Puede seleccionar más de una opción)",
     "options": [
       {
@@ -968,7 +970,7 @@
     ]
   },
   {
-    "qstnNbr": "22",
+    "qstnNbr": 22,
     "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor confianza?",
     "options": [
       {
@@ -1010,7 +1012,7 @@
     ]
   },
   {
-    "qstnNbr": "23",
+    "qstnNbr": 23,
     "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor desconfianza?",
     "options": [
       {
@@ -1052,7 +1054,7 @@
     ]
   },
   {
-    "qstnNbr": "24",
+    "qstnNbr": 24,
     "qstnStr": "¿A qué motivo le atribuye la desconfianza a la autoridad?",
     "options": [
       {
@@ -1082,7 +1084,7 @@
     ]
   },
   {
-    "qstnNbr": "25",
+    "qstnNbr": 25,
     "qstnStr": "¿Cómo es el patrullaje en su colonia?",
     "options": [
       {
@@ -1103,12 +1105,13 @@
       },
       {
         "opt": "e",
-        "optStr": "No hay patrullaje (Pase a la pregunta 28)"
+        "optStr": "No hay patrullaje (Pase a la pregunta 28)",
+        "nextQstn": 28
       }
     ]
   },
   {
-    "qstnNbr": "26",
+    "qstnNbr": 26,
     "qstnStr": "¿Con qué frecuencia ve los patrullajes en su colonia?",
     "options": [
       {
@@ -1134,7 +1137,7 @@
     ]
   },
   {
-    "qstnNbr": "27",
+    "qstnNbr": 27,
     "qstnStr": "¿Cuál autoridad de seguridad pública identifica en esos patrullajes?",
     "options": [
       {
@@ -1168,7 +1171,7 @@
     ]
   },
   {
-    "qstnNbr": "28",
+    "qstnNbr": 28,
     "qstnStr": "¿Conoce de operativos que se hayan llevado a cabo en su colonia?",
     "options": [
       {
@@ -1177,12 +1180,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 31)"
+        "optStr": "No (Pase a la pregunta 31)",
+        "nextQstn": 31
       }
     ]
   },
   {
-    "qstnNbr": "29",
+    "qstnNbr": 29,
     "qstnStr": "¿Qué operativos reconoce?",
     "options": [
       {
@@ -1222,7 +1226,7 @@
     ]
   },
   {
-    "qstnNbr": "30",
+    "qstnNbr": 30,
     "qstnStr": "¿Cómo valora estos operativos?",
     "options": [
       {
@@ -1240,7 +1244,7 @@
     ]
   },
   {
-    "qstnNbr": "31",
+    "qstnNbr": 31,
     "qstnStr": "¿Usted conoce el programa de canje de armas de fuego que realiza el municipio de Querétaro?",
     "options": [
       {
@@ -1249,12 +1253,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 34)"
+        "optStr": "No (Pase a la pregunta 34)",
+        "nextQstn": 34
       }
     ]
   },
   {
-    "qstnNbr": "32",
+    "qstnNbr": 32,
     "qstnStr": "¿Usted ha participado en dicho programa?",
     "options": [
       {
@@ -1268,7 +1273,7 @@
     ]
   },
   {
-    "qstnNbr": "33",
+    "qstnNbr": 33,
     "qstnStr": "¿Cómo valora la utilidad del programa?",
     "options": [
       {
@@ -1286,7 +1291,7 @@
     ]
   },
   {
-    "qstnNbr": "34",
+    "qstnNbr": 34,
     "qstnStr": "¿Conoce a alguien que haya participado en el programa de canje de armas de fuego?",
     "options": [
       {
@@ -1300,7 +1305,7 @@
     ]
   },
   {
-    "qstnNbr": "35",
+    "qstnNbr": 35,
     "qstnStr": "Si sufre de algún problema de inseguridad, ¿a quién acude primero?",
     "options": [
       {
@@ -1334,7 +1339,7 @@
     ]
   },
   {
-    "qstnNbr": "36",
+    "qstnNbr": 36,
     "qstnStr": "¿Existe algún tipo de punto de vigilancia (caseta, comandancia) de la policía en su colonia?",
     "options": [
       {
@@ -1343,16 +1348,18 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 38)"
+        "optStr": "No (Pase a la pregunta 38)",
+        "nextQstn": 38
       },
       {
         "opt": "c",
-        "optStr": "No sabe (Pase a la pregunta 38)"
+        "optStr": "No sabe (Pase a la pregunta 38)",
+        "nextQstn": 38
       }
     ]
   },
   {
-    "qstnNbr": "37",
+    "qstnNbr": 37,
     "qstnStr": "La caseta o comandancia en su colonia, ¿se encuentra en funcionamiento y cuenta con personal permanente?",
     "options": [
       {
@@ -1366,7 +1373,7 @@
     ]
   },
   {
-    "qstnNbr": "38",
+    "qstnNbr": 38,
     "qstnStr": "Para usted, ¿Cuáles son las 3 principales causas de la inseguridad?",
     "options": [
       {
@@ -1406,7 +1413,7 @@
     ]
   },
   {
-    "qstnNbr": "39",
+    "qstnNbr": 39,
     "qstnStr": "Considera su colonia o comunidad:",
     "options": [
       {
@@ -1428,7 +1435,7 @@
     ]
   },
   {
-    "qstnNbr": "40",
+    "qstnNbr": 40,
     "qstnStr": "¿Ha escuchado sobre conflictos en su colonia o comunidad, que resulten en actos de violencia?",
     "options": [
       {
@@ -1442,7 +1449,7 @@
     ]
   },
   {
-    "qstnNbr": "41",
+    "qstnNbr": 41,
     "qstnStr": "¿Cuál es la principal causa por la cual sus vecinos se pelean?",
     "options": [
       {
@@ -1484,7 +1491,7 @@
     ]
   },
   {
-    "qstnNbr": "42",
+    "qstnNbr": 42,
     "qstnStr": "Usted o alguno de los integrantes de su familia, ¿ha tenido alguna diferencia con sus vecinos en los últimos 5 años?",
     "options": [
       {
@@ -1493,12 +1500,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 44)"
+        "optStr": "No (Pase a la pregunta 44)",
+        "nextQstn": 44
       }
     ]
   },
   {
-    "qstnNbr": "43",
+    "qstnNbr": 43,
     "qstnStr": "¿Cuál es la principal causa de la diferencia?",
     "options": [
       {
@@ -1540,7 +1548,7 @@
     ]
   },
   {
-    "qstnNbr": "44",
+    "qstnNbr": 44,
     "qstnStr": "¿Conoce a algún vecino que se dedique a robar?",
     "options": [
       {
@@ -1554,7 +1562,7 @@
     ]
   },
   {
-    "qstnNbr": "45",
+    "qstnNbr": 45,
     "qstnStr": "¿Conoce a algún vecino que haya sido detenido y llevado preso por algún delito?",
     "options": [
       {
@@ -1563,12 +1571,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 47)"
+        "optStr": "No (Pase a la pregunta 47)",
+        "nextQstn": 47
       }
     ]
   },
   {
-    "qstnNbr": "46",
+    "qstnNbr": 46,
     "qstnStr": "En caso de sí, ¿por cuál delito? (Puede seleccionar hasta 3 respuestas)",
     "options": [
       {
@@ -1626,7 +1635,7 @@
     ]
   },
   {
-    "qstnNbr": "47",
+    "qstnNbr": 47,
     "qstnStr": "Usted, ¿ha sido víctima de algún delito?",
     "options": [
       {
@@ -1635,12 +1644,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 53)"
+        "optStr": "No (Pase a la pregunta 53)",
+        "nextQstn": 53
       }
     ]
   },
   {
-    "qstnNbr": "48",
+    "qstnNbr": 48,
     "qstnStr": "¿Dónde sucedió el delito?",
     "options": [
       {
@@ -1658,7 +1668,7 @@
     ]
   },
   {
-    "qstnNbr": "49",
+    "qstnNbr": 49,
     "qstnStr": "¿Qué tipo de delito?",
     "options": [
       {
@@ -1716,7 +1726,7 @@
     ]
   },
   {
-    "qstnNbr": "50",
+    "qstnNbr": 50,
     "qstnStr": "¿Denunció el delito?",
     "options": [
       {
@@ -1725,12 +1735,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 52)"
+        "optStr": "No (Pase a la pregunta 52)",
+        "nextQstn": 52
       }
     ]
   },
   {
-    "qstnNbr": "51",
+    "qstnNbr": 51,
     "qstnStr": "¿Cuál fue el resultado de la denuncia?",
     "options": [
       {
@@ -1739,12 +1750,13 @@
       },
       {
         "opt": "b",
-        "optStr": "Se resolvió (Pase a la pregunta 53)"
+        "optStr": "Se resolvió (Pase a la pregunta 53)",
+        "nextQstn": 53
       }
     ]
   },
   {
-    "qstnNbr": "52",
+    "qstnNbr": 52,
     "qstnStr": "En caso de que NO, ¿cuál fue el motivo para no denunciar?",
     "options": [
       {
@@ -1770,7 +1782,7 @@
     ]
   },
   {
-    "qstnNbr": "53",
+    "qstnNbr": 53,
     "qstnStr": "¿Conoce a algún familiar que haya sido víctima de algún delito?",
     "options": [
       {
@@ -1779,12 +1791,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 55)"
+        "optStr": "No (Pase a la pregunta 55)",
+        "nextQstn": 55
       }
     ]
   },
   {
-    "qstnNbr": "54",
+    "qstnNbr": 54,
     "qstnStr": "¿Qué tipo de delito?",
     "options": [
       {
@@ -1842,7 +1855,7 @@
     ]
   },
   {
-    "qstnNbr": "55",
+    "qstnNbr": 55,
     "qstnStr": "Para usted, ¿cuál es el sitio con mayor inseguridad en la ciudad de Querétaro?",
     "options": [
       {
@@ -1930,7 +1943,7 @@
     ]
   },
   {
-    "qstnNbr": "56",
+    "qstnNbr": 56,
     "qstnStr": "¿Qué hace para protegerse de los delitos?",
     "options": [
       {
@@ -1964,7 +1977,7 @@
     ]
   },
   {
-    "qstnNbr": "57",
+    "qstnNbr": 57,
     "qstnStr": "¿Qué es más probable que suceda en la calle?",
     "options": [
       {
@@ -1986,7 +1999,7 @@
     ]
   },
   {
-    "qstnNbr": "58",
+    "qstnNbr": 58,
     "qstnStr": "¿Conocen lugares para atender problemas de alcoholismo, drogadicción o cualquier otro tipo de adicciones en su comunidad?",
     "options": [
       {
@@ -2000,7 +2013,7 @@
     ]
   },
   {
-    "qstnNbr": "59",
+    "qstnNbr": 59,
     "qstnStr": "En su opinión, ¿Qué motiva a que las adolescentes se embaracen a temprana edad?",
     "options": [
       {
@@ -2030,7 +2043,7 @@
     ]
   },
   {
-    "qstnNbr": "60",
+    "qstnNbr": 60,
     "qstnStr": "Cuando usted o alguno de los integrantes de su familia se enferma, ¿a dónde acuden?",
     "options": [
       {
@@ -2060,7 +2073,7 @@
     ]
   },
   {
-    "qstnNbr": "61",
+    "qstnNbr": 61,
     "qstnStr": "¿Conoce algún lugar en su comunidad o colonia, dónde impartan clases de regularización para adultos?",
     "options": [
       {
@@ -2074,7 +2087,7 @@
     ]
   },
   {
-    "qstnNbr": "62",
+    "qstnNbr": 62,
     "qstnStr": "Si tiene hijos, ¿acuden todos a la escuela?",
     "options": [
       {
@@ -2088,7 +2101,7 @@
     ]
   },
   {
-    "qstnNbr": "63",
+    "qstnNbr": 63,
     "qstnStr": "En caso de que no acudan a la escuela, ¿cuál es el motivo?",
     "options": [
       {
@@ -2106,7 +2119,7 @@
     ]
   },
   {
-    "qstnNbr": "64",
+    "qstnNbr": 64,
     "qstnStr": "¿Ubica usted a algún representante de colonia o líder en su comunidad?",
     "options": [
       {
@@ -2120,12 +2133,13 @@
     ]
   },
   {
-    "qstnNbr": "65",
+    "qstnNbr": 65,
     "qstnStr": "¿En su colonia o comunidad, hay algún comité u otras formas de organización para tratar temas de importancia colectiva?",
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí (Pase a la pregunta 67)"
+        "optStr": "Sí (Pase a la pregunta 67)",
+        "nextQstn": 67
       },
       {
         "opt": "b",
@@ -2134,7 +2148,7 @@
     ]
   },
   {
-    "qstnNbr": "66",
+    "qstnNbr": 66,
     "qstnStr": "¿A qué le atribuye usted que no haya organización en su colonia o comunidad?",
     "options": [
       {
@@ -2164,7 +2178,7 @@
     ]
   },
   {
-    "qstnNbr": "67",
+    "qstnNbr": 67,
     "qstnStr": "¿Cómo se organizan en su colonia para conocer más sobre temas de relevancia entre vecinos?",
     "options": [
       {
@@ -2186,7 +2200,7 @@
     ]
   },
   {
-    "qstnNbr": "68",
+    "qstnNbr": 68,
     "qstnStr": "¿Usted participa en las reuniones de dicho Comité o forma de organización?",
     "options": [
       {
@@ -2200,7 +2214,7 @@
     ]
   },
   {
-    "qstnNbr": "69",
+    "qstnNbr": 69,
     "qstnStr": "¿Por qué no participa?",
     "options": [
       {
@@ -2224,7 +2238,7 @@
     ]
   },
   {
-    "qstnNbr": "70",
+    "qstnNbr": 70,
     "qstnStr": "¿Ha sucedido algún hecho relevante que haya obligado a su comunidad a organizarse para atender algún problema en específico?",
     "options": [
       {
@@ -2240,7 +2254,7 @@
     ]
   },
   {
-    "qstnNbr": "71",
+    "qstnNbr": 71,
     "qstnStr": "¿Conoce alguna organización social que se encuentre en su colonia o comunidad realizando talleres, pláticas o cursos?",
     "options": [
       {
@@ -2254,7 +2268,7 @@
     ]
   },
   {
-    "qstnNbr": "72",
+    "qstnNbr": 72,
     "qstnStr": "¿Qué actividades realiza en su tiempo libre?",
     "options": [
       {
@@ -2280,7 +2294,7 @@
     ]
   },
   {
-    "qstnNbr": "73",
+    "qstnNbr": 73,
     "qstnStr": "¿Recibe usted algún tipo de apoyo de programa social?",
     "options": [
       {
@@ -2289,12 +2303,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 75)"
+        "optStr": "No (Pase a la pregunta 75)",
+        "nextQstn": 75
       }
     ]
   },
   {
-    "qstnNbr": "74",
+    "qstnNbr": 74,
     "qstnStr": "Señale el o los programas sociales que recibe:",
     "options": [
       {
@@ -2330,7 +2345,7 @@
     ]
   },
   {
-    "qstnNbr": "75",
+    "qstnNbr": 75,
     "qstnStr": "¿Qué considera usted qué hace falta para mejorar el lugar donde vive?",
     "options": [
       {
@@ -2366,7 +2381,7 @@
     ]
   },
   {
-    "qstnNbr": "76",
+    "qstnNbr": 76,
     "qstnStr": "¿Si tuviera la oportunidad de elegir en su colonia sobre las siguientes situaciones qué haría primero?",
     "options": [
       {
