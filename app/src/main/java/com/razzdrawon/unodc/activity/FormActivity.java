@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class FormActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ItemAdapter mAdapter;
     private Button finishBtn;
+//    public RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,8 @@ public class FormActivity extends AppCompatActivity {
         }
 
         mAdapter = new ItemAdapter(this, itemList, copyItemList);
+//        mLayoutManager = new LinearLayoutManager(getApplicationContext());
+//        recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
 
     }
@@ -136,4 +140,9 @@ public class FormActivity extends AppCompatActivity {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
+
+    public ItemAdapter getmAdapter() {
+        return mAdapter;
+    }
+
 }

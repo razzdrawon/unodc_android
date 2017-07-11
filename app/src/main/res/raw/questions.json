@@ -384,7 +384,9 @@
       {
         "opt": "a",
         "optStr": "Municipio de Querétaro (Pasar a la pregunta 16)",
-        "nextQstn": 16
+        "block": [
+          15
+        ]
       },
       {
         "opt": "b",

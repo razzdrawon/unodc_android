@@ -34,7 +34,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     Context context;
     List<Item> itemList;
     List<Item> copyItemList;
-//    public static final int TOTAL_NBR_QSTN = 76;
 
     public ItemAdapter(Context context, List<Item> itemList, List<Item> copyItemList) {
         this.context = context;
@@ -242,6 +241,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             }
 
                             notifyDataSetChanged();
+
+
+
                         } else {
                             holder.optsRadio.clearCheck();
                         }
