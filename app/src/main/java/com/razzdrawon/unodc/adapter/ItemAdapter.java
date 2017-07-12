@@ -50,6 +50,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         public EditText openAns, openAnsDetails;
         public RadioGroup optsRadio;
         public Spinner optsDetailsSpin;
+        public RecyclerView rv;
         public Button finishBtn;
         public TextView detailsTv;
 
@@ -69,6 +70,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             openAnsDetails = (EditText) itemView.findViewById(R.id.details_et);
             optsDetailsSpin = (Spinner) itemView.findViewById(R.id.det_opts_spn);
 
+            rv = (RecyclerView) ((FormActivity)context).findViewById(R.id.recycler_view);
             finishBtn = (Button) ((FormActivity)context).findViewById(R.id.finish_btn);
 
         }
@@ -251,7 +253,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             }
 
                             // Just in case this is the last question:
-                            if (itemList.size() == copyItemList.size()){
+                            if ((itemList.get(position).getQstnNbr()) == copyItemList.size()){
+                                ViewGroup.MarginLayoutParams marginLayoutParams =
+                                        (ViewGroup.MarginLayoutParams) holder.rv.getLayoutParams();
+                                marginLayoutParams.setMargins(0, 0, 0, 500);
+                                holder.rv.setLayoutParams(marginLayoutParams);
+
                                 holder.finishBtn.setVisibility(View.VISIBLE);
                             }
 

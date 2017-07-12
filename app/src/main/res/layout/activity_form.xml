@@ -15,11 +15,17 @@
             <!--android:layout_height="wrap_content"-->
             <!--android:orientation="vertical">-->
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar"
+        ></include>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/question_list_item"
                 >
             </android.support.v7.widget.RecyclerView>
 

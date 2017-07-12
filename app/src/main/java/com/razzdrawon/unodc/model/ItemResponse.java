@@ -11,14 +11,18 @@ public class ItemResponse {
     private Integer qstnNbr;
     private String openAns;
     private List<String> optsAns;
-//    private String depOpenAns
+    private String depOpenAns;
+    private Integer depOpt;
 
     public ItemResponse() {
     }
 
-    public ItemResponse(Integer qstnNbr, String openAns) {
+    public ItemResponse(Integer qstnNbr, String openAns, List<String> optsAns, String depOpenAns, Integer depOpt) {
         this.qstnNbr = qstnNbr;
         this.openAns = openAns;
+        this.optsAns = optsAns;
+        this.depOpenAns = depOpenAns;
+        this.depOpt = depOpt;
     }
 
     public Integer getQstnNbr() {
@@ -37,4 +41,27 @@ public class ItemResponse {
         this.openAns = openAns;
     }
 
+    public List<String> getOptsAns() {
+        return optsAns;
+    }
+
+    public void setOptsAns(List<String> optsAns) {
+        this.optsAns = optsAns;
+    }
+
+    public String getDepOpenAns() {
+        return depOpenAns;
+    }
+
+    public void setDepOpenAns(String depOpenAns) {
+        this.depOpenAns = depOpenAns;
+    }
+
+    public Integer getDepOpt() {
+        return depOpt;
+    }
+
+    public void setDepOpt(Integer depOpt) {
+        this.depOpt = depOpt;
+    }
 }

@@ -3,25 +3,33 @@ package com.razzdrawon.unodc.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.razzdrawon.unodc.R;
+import com.razzdrawon.unodc.dbhelper.ItemSQLiteHelper;
 import com.razzdrawon.unodc.model.ObjectSync;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
 
     private Button startBtn;
+    private ItemSQLiteHelper db;
+    private Button syncBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        db = new ItemSQLiteHelper(this);
+
         startBtn = (Button) findViewById(R.id.start_btn);
+        syncBtn = (Button) findViewById(R.id.sync_btn);
 
 
         startBtn.setOnClickListener(new View.OnClickListener() {
@@ -33,33 +41,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-    }
-
-    private Button syncBtn;
-
-
-    private  void sync(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        syncBtn = (Button) findViewById(R.id.sync_btn);
-
-
         syncBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                ArrayList<ObjectSync> items  = obtineElementosSyn();
+                List<ObjectSync> items  = db.getAllItems();
 
-
-
+                items.size();
 
             }
         });
 
 
     }
+
 
 
 

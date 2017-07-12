@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.FormActivity" />
+        <activity android:name=".activity.FormActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.ThanksActivity"></activity>
     </application>
 

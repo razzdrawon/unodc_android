@@ -274,43 +274,5 @@
         "openOptStr": null
       }
     ]
-  },
-  {
-    "qstnNbr": 8,
-    "qstnStr": "¿Cuántos hijos tiene?",
-    "openOptFlag": true,
-    "openOptStr": null
-  },
-  {
-    "qstnNbr": 9,
-    "qstnStr": "¿Cuántas personas habitan en su hogar?",
-    "openOptFlag": true,
-    "openOptStr": null
-  },
-  {
-    "qstnNbr": 10,
-    "qstnStr": "En su hogar, ¿quién es el jefe(a) de familia?",
-    "options": [
-      {
-        "opt": "a",
-        "optStr": "Padre"
-      },
-      {
-        "opt": "b",
-        "optStr": "Madre"
-      },
-      {
-        "opt": "c",
-        "optStr": "Esposo(a)/Conyugue"
-      },
-      {
-        "opt": "d",
-        "optStr": "Hijo (a)"
-      },
-      {
-        "opt": "e",
-        "optStr": "Otro"
-      }
-    ]
   }
 ]

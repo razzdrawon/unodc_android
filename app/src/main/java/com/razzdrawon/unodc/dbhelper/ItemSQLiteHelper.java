@@ -2,11 +2,15 @@ package com.razzdrawon.unodc.dbhelper;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.razzdrawon.unodc.model.Item;
+import com.razzdrawon.unodc.model.ItemResponse;
+import com.razzdrawon.unodc.model.ObjectSync;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -72,10 +76,34 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
 //
 //    }
 //
-//    // Getting All Contacts
-//    public List<Item> getAllItems() {
-//
-//    }
+    // Getting All Contacts
+    public List<ObjectSync> getAllItems() {
+        List<ObjectSync> objSyncList = new ArrayList<>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_ITEMS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                ObjectSync objSync = new ObjectSync();
+                objSync.setId(Integer.parseInt(cursor.getString(0)));
+                objSync.setJson(cursor.getString(1));
+                int bool = Integer.parseInt(cursor.getString(2));
+                if(bool == 0)
+                    objSync.setSync(false);
+                else
+                    objSync.setSync(true);
+                // Adding contact to list
+                objSyncList.add(objSync);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return objSyncList;
+    }
 //
 //    // Getting contacts Count
 //    public int getItemsCount() {

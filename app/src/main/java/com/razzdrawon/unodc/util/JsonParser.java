@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.razzdrawon.unodc.model.Item;
 import com.razzdrawon.unodc.model.ItemResponse;
+import com.razzdrawon.unodc.model.Option;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,11 +26,39 @@ public class JsonParser {
         return items;
     }
 
-//    public static String parseFromItemToString (List<Item> items) throws IOException {
-//        List<ItemResponse> itemResp = new ArrayList<>();
-//        for (Item item: items) {
-//
-//        }
-//    }
+    public static String parseFromItemsToResponse (List<Item> items) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+
+        List<ItemResponse> itemResp = new ArrayList<>();
+        for (Item item: items) {
+            ItemResponse ir = new ItemResponse();
+            ir.setQstnNbr(item.getQstnNbr());
+
+            if(item.getOpenAnswer() != null)
+            ir.setOpenAns(item.getOpenAnswer());
+
+
+            List<String> opts = new ArrayList<>();
+
+            if(item.getOptions() != null && item.getOptions().size() > 0) {
+                for(Option opt : item.getOptions()){
+                    if(opt.getChosen()) {
+                        opts.add(opt.getOpt());
+                        if (opt.getDependentChosen() != null){
+                            ir.setDepOpt(opt.getDependentChosen());
+                        }
+                    }
+                }
+            }
+            ir.setOptsAns(opts);
+
+            itemResp.add(ir);
+        }
+
+        String jsonResp = objectMapper.writeValueAsString(itemResp);
+
+        return jsonResp;
+    }
 
 }
