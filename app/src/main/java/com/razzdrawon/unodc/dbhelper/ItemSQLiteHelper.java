@@ -110,10 +110,25 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
 //
 //    }
 //
-//    // Updating single contact
-//    public int updateItem(Item item) {
-//
-//    }
+    // Updating single contact
+    public int updateItem(ObjectSync objSync) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+//        values.put(KEY_JSONITEM, objSync.getJson());
+        if(objSync.getSync()){
+            values.put(KEY_FLAG_SYNC, 1);
+        }
+        else {
+            values.put(KEY_FLAG_SYNC, 0);
+        }
+
+
+
+        // updating row
+        return db.update(TABLE_ITEMS, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(objSync.getId()) });
+    }
 //
 //    // Deleting single contact
 //    public void deleteItem(Item item) {

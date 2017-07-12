@@ -1,7 +1,5 @@
-package com.razzdrawon.unodc.wshelper;
+package com.razzdrawon.unodc.ws;
 
-import com.android.volley.*;
-import com.android.volley.toolbox.StringRequest;
 import com.razzdrawon.unodc.model.ObjectSync;
 
 /**

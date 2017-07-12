@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.razzdrawon.unodc.model.Item;
 import com.razzdrawon.unodc.model.ItemResponse;
+import com.razzdrawon.unodc.model.ObjectSync;
 import com.razzdrawon.unodc.model.Option;
 
 import java.io.IOException;
@@ -58,6 +59,18 @@ public class JsonParser {
 
         String jsonResp = objectMapper.writeValueAsString(itemResp);
 
+        return jsonResp;
+    }
+
+    public static ObjectSync parseObjSync(String json) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectSync objSync = (objectMapper.readValue(json, ObjectSync.class));
+        return objSync;
+    }
+
+    public static String parseObjSynctoString(ObjectSync item) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonResp = objectMapper.writeValueAsString(item);
         return jsonResp;
     }
 
