@@ -44,7 +44,7 @@ public class FormActivity extends AppCompatActivity {
     private ItemAdapter mAdapter;
     private Button finishBtn;
     private ItemSQLiteHelper db;
-//    public RecyclerView.LayoutManager mLayoutManager;
+    private Menu mMenu = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,8 +122,6 @@ public class FormActivity extends AppCompatActivity {
         }
 
         mAdapter = new ItemAdapter(this, itemList, copyItemList);
-//        mLayoutManager = new LinearLayoutManager(getApplicationContext());
-//        recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
 
     }
@@ -203,8 +201,15 @@ public class FormActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public ItemAdapter getmAdapter() {
-        return mAdapter;
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        mMenu = menu;
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    public Menu getMenu()
+    {
+        return mMenu;
     }
 
 
@@ -212,6 +217,9 @@ public class FormActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_form, menu);
+
+        menu.getItem(0).setVisible(false);
+
         return true;
     }
 

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -250,15 +252,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             if(!itemList.get(position).getAnswered() && position < copyItemList.size() -1){
                                 itemList.add(copyItemList.get(position + 1));
                                 itemList.get(position).setAnswered(true);
+
                             }
 
                             // Just in case this is the last question:
                             if ((itemList.get(position).getQstnNbr()) == copyItemList.size()){
-                                ViewGroup.MarginLayoutParams marginLayoutParams =
-                                        (ViewGroup.MarginLayoutParams) holder.rv.getLayoutParams();
-                                marginLayoutParams.setMargins(0, 0, 0, 500);
-                                holder.rv.setLayoutParams(marginLayoutParams);
 
+                                Menu menu = ((FormActivity)context).getMenu();
+                                menu.getItem(0).setVisible(true);
                                 holder.finishBtn.setVisibility(View.VISIBLE);
                             }
 
