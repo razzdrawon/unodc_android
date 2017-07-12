@@ -18,13 +18,14 @@
 
             <ImageView
                 android:id="@+id/image_login"
-                android:layout_width="550dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="493dp"
+                android:layout_height="113dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/unodc" />
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/unodc_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,21 +35,9 @@
                 android:paddingLeft="50dp"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:textColor="@android:color/holo_green_dark"
                 android:text="@string/finish1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingRight="50dp"
-                android:paddingLeft="50dp"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
-                android:textSize="35dp"
-                android:textColor="@android:color/holo_green_dark"
-                android:text="@string/finish2"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,30 +47,32 @@
                 android:paddingLeft="50dp"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:textSize="20dp"
                 android:textColor="@android:color/holo_green_dark"
-                android:text="@string/finish3"/>
+                android:text="@string/finish2"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="40dp"
                 android:paddingRight="50dp"
                 android:paddingLeft="50dp"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textSize="30dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:textColor="@android:color/holo_green_dark"
-                android:text="@string/finish4"/>
+                android:text="@string/finish3"/>
+
+
 
             <Button
                 android:id="@+id/getBack_btn"
                 android:layout_below="@+id/pass_login_ui"
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:textSize="30dp"
+                android:layout_width="269dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="40dp"
+                android:textSize="20dp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/white"
                 android:background="@color/colorPrimary"

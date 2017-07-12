@@ -1,13 +1,18 @@
 <resources>
-    <string name="app_name">Unodc</string>
+    <string name="app_name">Autidoría local de seguridad Querétaro</string>
 
-    <string name="start1">Agradecemos su colaboración y participación en este ejercicio.</string>
-    <string name="start2">Le reiteramos que toda la información contenida en el siguiente cuestionario es ANÓNIMA.</string>
 
-    <string name="finish1">Usted ha finalizado el cuestionario.</string>
-    <string name="finish2">¡MUCHAS GRACIAS POR SU PARTICIPACIÓN!</string>
-    <string name="finish3">Favor de entregar la Tablet al personal encargado</string>
-    <string name="finish4">¡Que tenga excelente día!</string>
+    <string name="start1">¡Bienvenido!</string>
+    <string name="start2">Aquí encontrará una serie de preguntas</string>
+    <string name="start3">Este es un ejercicio anónimo e individual, siéntase en la libertad de contestar con la seguridad de que sólo usted conocerá las elecciones que haga para cada pregunta.</string>
+    <string name="start4">Sus respuestas nos ayudarán a conocer más sobre su colonia y comunidad.</string>
+    <string name="start5">Si tiene dudas, pregunte a alguno de los facilitadores.</string>
+    <string name="start6">¡Agradecemos su participación!</string>
+
+    <string name="finish1">Usted ha finalizado este cuestionario.</string>
+    <string name="finish2">Favor de entregar la tableta electrónica a los facilitadores</string>
+    <string name="finish3">¡Gracias por su participación!</string>
+    <string name="finish4"></string>
 
     <string-array name="answers_array">
         <item>a) Opción 1</item>
