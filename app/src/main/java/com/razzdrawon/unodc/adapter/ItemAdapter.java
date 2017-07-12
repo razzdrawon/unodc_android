@@ -23,6 +23,8 @@ import com.razzdrawon.unodc.activity.FormActivity;
 import com.razzdrawon.unodc.model.Item;
 import com.razzdrawon.unodc.model.Option;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -49,6 +51,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         public RadioGroup optsRadio;
         public Spinner optsDetailsSpin;
         public Button finishBtn;
+        public TextView detailsTv;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -62,6 +65,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             openAns = (EditText) itemView.findViewById(R.id.open_answer_et);
             optsRadio = (RadioGroup) itemView.findViewById(R.id.opts_rb);
 
+            detailsTv = (TextView) itemView.findViewById(R.id.detail_tv);
             openAnsDetails = (EditText) itemView.findViewById(R.id.details_et);
             optsDetailsSpin = (Spinner) itemView.findViewById(R.id.det_opts_spn);
 
@@ -145,15 +149,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 RadioButton radioButton = new RadioButton(context);
                 radioButton.setText(itemList.get(position).getOptions().get(i).getOpt() + ") " + itemList.get(position).getOptions().get(i).getOptStr());
                 radioButton.setId(i);
+                radioButton.setTextAppearance(context, android.R.style.TextAppearance_Large);
+
 
                 // Check if it was choosen
                 if (itemList.get(position).getOptions().get(i).getChosen()) {
                     radioButton.setChecked(true);
-
+                    radioButton.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
                     //Does it have open answer details? set the text and show ET
                     if(itemList.get(position).getOptions().get(i).getOpenAnswerFlag()) {
                         hasDetails[0] = true;
                         holder.openAnsDetails.setVisibility(View.VISIBLE);
+                        holder.detailsTv.setVisibility(View.VISIBLE);
                         holder.openAnsDetails.setText(itemList.get(position).getOptions().get(i).getOpenAnswer());
                     }
                     else {
@@ -165,10 +172,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     if(itemList.get(position).getOptions().get(i).getOptions() != null){
                         hasDetails[0] = true;
                         holder.optsDetailsSpin.setVisibility(View.VISIBLE);
+                        holder.detailsTv.setVisibility(View.VISIBLE);
 
                         ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(context,
-                                android.R.layout.simple_spinner_item, itemList.get(position).getOptions().get(i).getOptions());
+                                R.layout.spinner_dropdown_layout, itemList.get(position).getOptions().get(i).getOptions());
 
+//                        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
                         holder.optsDetailsSpin.setAdapter(spinnerArrayAdapter);
 
                         if(itemList.get(position).getOptions().get(i).getDependentChosen() != null)
@@ -200,8 +209,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             for (Option opt: itemList.get(position).getOptions()) {
                                 opt.setChosen(false);
                             }
-
                             final int idx = holder.optsRadio.indexOfChild(checkedRadioButton);
+
+                            RadioButton rb = (RadioButton)  holder.optsRadio.getChildAt(idx);
+                            rb.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
+
                             itemList.get(position).getOptions().get(idx).setChosen(true);
 
                             //************* if the option chosen has to specify somthing else... ***************
@@ -210,6 +222,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             if (itemList.get(position).getOptions().get(idx).getOpenAnswerFlag()) {
                                 hasDetails[0] = true;
                                 holder.openAnsDetails.setVisibility(View.VISIBLE);
+                                holder.detailsTv.setVisibility(View.VISIBLE);
 
                             } else {
                                 holder.openAnsDetails.setVisibility(View.GONE);
@@ -219,12 +232,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             if (itemList.get(position).getOptions().get(idx).getOptions() != null) {
 
                                 ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(context,
-                                        android.R.layout.simple_spinner_item, itemList.get(position).getOptions().get(idx).getOptions());
+                                        R.layout.spinner_layout, itemList.get(position).getOptions().get(idx).getOptions());
 
+                                spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
                                 holder.optsDetailsSpin.setAdapter(spinnerArrayAdapter);
 
                                 hasDetails[0] = true;
                                 holder.optsDetailsSpin.setVisibility(View.VISIBLE);
+                                holder.detailsTv.setVisibility(View.VISIBLE);
                             } else {
                                 holder.optsDetailsSpin.setVisibility(View.GONE);
                             }
@@ -252,10 +267,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 }
             });
 
-            if(hasDetails[0])
+            if(hasDetails[0]) {
                 holder.detailsLayout.setVisibility(View.VISIBLE);
-            else
+                holder.detailsTv.setVisibility(View.VISIBLE);
+            }
+            else {
                 holder.detailsLayout.setVisibility(View.GONE);
+                holder.detailsTv.setVisibility(View.GONE);
+            }
 
         } else {
             holder.optsLayout.setVisibility(View.GONE);
