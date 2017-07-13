@@ -49,6 +49,9 @@ public class JsonParser {
                         if (opt.getDependentChosen() != null){
                             ir.setDepOpt(opt.getDependentChosen());
                         }
+                        if (opt.getOpenAnswer() != null){
+                            ir.setDepOpenAns(opt.getOpenAnswer());
+                        }
                     }
                 }
             }
