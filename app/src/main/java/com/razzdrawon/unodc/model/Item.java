@@ -31,6 +31,8 @@ public class Item {
 
     private Boolean isAnswered = false;
 
+    private Boolean isBlocked = false;
+
     public Item() {
     }
 
@@ -119,5 +121,13 @@ public class Item {
 
     public void setAnswered(Boolean answered) {
         isAnswered = answered;
+    }
+
+    public Boolean getBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(Boolean blocked) {
+        isBlocked = blocked;
     }
 }

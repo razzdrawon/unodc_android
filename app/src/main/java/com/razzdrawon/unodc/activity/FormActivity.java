@@ -96,7 +96,7 @@ public class FormActivity extends AppCompatActivity {
 
     private void readJsonFile() throws IOException {
 
-        InputStream is = getResources().openRawResource(R.raw.questions);
+        InputStream is = getResources().openRawResource(R.raw.questions1);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {

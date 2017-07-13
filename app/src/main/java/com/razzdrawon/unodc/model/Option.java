@@ -18,8 +18,12 @@ public class Option {
     @JsonProperty("openOptStr")
     private String openAnswer;
     private List<DepOption> options;
-    private Integer nextQstn;
     private Integer dependentChosen;
+
+    private Integer nextQstn;
+    private List<Integer> blocks;
+    private List<Integer> enables;
+
 
 
     public Option() {
@@ -88,6 +92,14 @@ public class Option {
         this.options = options;
     }
 
+    public Integer getDependentChosen() {
+        return dependentChosen;
+    }
+
+    public void setDependentChosen(Integer dependentChosen) {
+        this.dependentChosen = dependentChosen;
+    }
+
     public Integer getNextQstn() {
         return nextQstn;
     }
@@ -96,11 +108,19 @@ public class Option {
         this.nextQstn = nextQstn;
     }
 
-    public Integer getDependentChosen() {
-        return dependentChosen;
+    public List<Integer> getBlocks() {
+        return blocks;
     }
 
-    public void setDependentChosen(Integer dependentChosen) {
-        this.dependentChosen = dependentChosen;
+    public void setBlocks(List<Integer> blocks) {
+        this.blocks = blocks;
+    }
+
+    public List<Integer> getEnables() {
+        return enables;
+    }
+
+    public void setEnables(List<Integer> enables) {
+        this.enables = enables;
     }
 }

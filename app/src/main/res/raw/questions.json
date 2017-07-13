@@ -45,7 +45,9 @@
       },
       {
         "opt": "f",
-        "optStr": "Otro"
+        "optStr": "Otro",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
@@ -75,7 +77,7 @@
       },
       {
         "opt": "f",
-        "optStr": "Ateo"
+        "optStr": "Ninguna"
       },
       {
         "opt": "g",
@@ -83,7 +85,7 @@
       },
       {
         "opt": "h",
-        "optStr": "Otros. Especifique:",
+        "optStr": "Otra. Especifique:",
         "openOptFlag": true,
         "openOptStr": null
       }
@@ -384,9 +386,7 @@
       {
         "opt": "a",
         "optStr": "Municipio de Querétaro (Pasar a la pregunta 16)",
-        "block": [
-          15
-        ]
+        "blocks": [15]
       },
       {
         "opt": "b",
@@ -460,7 +460,8 @@
             "opt": 17,
             "optStr": "Tolimán"
           }
-        ]
+        ],
+        "enables": [15]
       },
       {
         "opt": "c",
@@ -594,11 +595,13 @@
             "opt": 32,
             "optStr": "Zacatecas"
           }
-        ]
+        ],
+        "enables": [15]
       },
       {
         "opt": "d",
-        "optStr": "Otro país."
+        "optStr": "Otro país.",
+        "enables": [15]
       }
     ]
   },
@@ -626,11 +629,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí (Pasar a la siguiente pregunta)"
+        "optStr": "Sí (Pasar a la siguiente pregunta)",
+        "enables": [17, 18, 19]
       },
       {
         "opt": "b",
         "optStr": "No (Pasar a la pregunta 20)",
+        "blocks": [17, 18, 19],
         "nextQstn": 20
       }
     ]
@@ -1091,23 +1096,28 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "A pie"
+        "optStr": "A pie",
+        "enables": [26, 27]
       },
       {
         "opt": "b",
-        "optStr": "En autos/camionetas"
+        "optStr": "En autos/camionetas",
+        "enables": [26, 27]
       },
       {
         "opt": "c",
-        "optStr": "En motocicletas"
+        "optStr": "En motocicletas",
+        "enables": [26, 27]
       },
       {
         "opt": "d",
-        "optStr": "En bicicletas"
+        "optStr": "En bicicletas",
+        "enables": [26, 27]
       },
       {
         "opt": "e",
         "optStr": "No hay patrullaje (Pase a la pregunta 28)",
+        "blocks": [26, 27],
         "nextQstn": 28
       }
     ]
@@ -1178,11 +1188,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [29, 30]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 31)",
+        "blocks": [29, 30],
         "nextQstn": 31
       }
     ]
@@ -1251,11 +1263,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [32, 33]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 34)",
+        "blocks": [32, 33],
         "nextQstn": 34
       }
     ]
@@ -1346,16 +1360,19 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [37]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 38)",
+        "blocks": [37],
         "nextQstn": 38
       },
       {
         "opt": "c",
         "optStr": "No sabe (Pase a la pregunta 38)",
+        "blocks": [37],
         "nextQstn": 38
       }
     ]
@@ -1498,11 +1515,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [37]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 44)",
+        "blocks": [43],
         "nextQstn": 44
       }
     ]
@@ -1569,11 +1588,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [46]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 47)",
+        "blocks": [46],
         "nextQstn": 47
       }
     ]
@@ -1642,11 +1663,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [48, 49, 50, 51, 52]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 53)",
+        "blocks": [48, 49, 50, 51, 52],
         "nextQstn": 53
       }
     ]
@@ -1733,11 +1756,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí (Pase a la siguiente pregunta)"
+        "optStr": "Sí (Pase a la siguiente pregunta)",
+        "enables": [51]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 52)",
+        "blocks": [51],
         "nextQstn": 52
       }
     ]
@@ -1748,11 +1773,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Ninguno"
+        "optStr": "Ninguno",
+        "enables": [52]
       },
       {
         "opt": "b",
         "optStr": "Se resolvió (Pase a la pregunta 53)",
+        "blocks": [52],
         "nextQstn": 53
       }
     ]
@@ -1789,11 +1816,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [54]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 55)",
+        "blocks": [54],
         "nextQstn": 55
       }
     ]
@@ -2141,11 +2170,13 @@
       {
         "opt": "a",
         "optStr": "Sí (Pase a la pregunta 67)",
+        "blocks": [66],
         "nextQstn": 67
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a siguiente pregunta (66))"
+        "optStr": "No (Pase a siguiente pregunta (66))",
+        "enables": [66]
       }
     ]
   },
@@ -2301,11 +2332,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [74]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 75)",
+        "blocks": [74],
         "nextQstn": 75
       }
     ]

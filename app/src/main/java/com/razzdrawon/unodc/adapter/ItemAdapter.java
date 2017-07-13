@@ -1,11 +1,11 @@
 package com.razzdrawon.unodc.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -24,8 +24,6 @@ import com.razzdrawon.unodc.R;
 import com.razzdrawon.unodc.activity.FormActivity;
 import com.razzdrawon.unodc.model.Item;
 import com.razzdrawon.unodc.model.Option;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -48,6 +46,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public LinearLayout qstnLayout, optsLayout, detailsLayout;
+        public CardView qstnCard;
         public TextView qstnNbr, qstnStr;
         public EditText openAns, openAnsDetails;
         public RadioGroup optsRadio;
@@ -59,6 +58,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
             qstnLayout = (LinearLayout) itemView.findViewById(R.id.qstn_layout);
+            qstnCard = (CardView) itemView.findViewById(R.id.card_view);
             optsLayout = (LinearLayout) itemView.findViewById(R.id.opts_layout);
             detailsLayout = (LinearLayout) itemView.findViewById(R.id.details_layout);
 
@@ -89,6 +89,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ItemAdapter.ViewHolder holder, final int position) {
 //        final Item item = itemList.get(position);
+
+        if(itemList.get(position).getBlocked()) {
+            holder.qstnCard.setBackgroundColor(context.getResources().getColor(R.color.card_gray));
+            holder.qstnNbr.setTextColor(context.getResources().getColor(R.color.text_gray));
+            holder.qstnStr.setTextColor(context.getResources().getColor(R.color.text_gray));
+        }
+        else {
+            holder.qstnCard.setBackgroundColor(context.getResources().getColor(android.R.color.white));
+            holder.qstnNbr.setTextColor(context.getResources().getColor(android.R.color.holo_blue_dark));
+            holder.qstnStr.setTextColor(context.getResources().getColor(android.R.color.holo_blue_dark));
+        }
 
         //Adding Question Info
         holder.qstnNbr.setText(itemList.get(position).getQstnNbr() + ".- ");
@@ -155,6 +166,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 radioButton.setId(i);
                 radioButton.setTextAppearance(context, android.R.style.TextAppearance_Large);
 
+                if(itemList.get(position).getBlocked()) {
+                    radioButton.setEnabled(false);
+                    radioButton.setTextColor(context.getResources().getColor(R.color.text_gray));
+                }
 
                 // Check if it was choosen
                 if (itemList.get(position).getOptions().get(i).getChosen()) {
@@ -248,12 +263,87 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                                 holder.optsDetailsSpin.setVisibility(View.GONE);
                             }
 
-                            // Adding the new item
-                            if(!itemList.get(position).getAnswered() && position < copyItemList.size() -1){
-                                itemList.add(copyItemList.get(position + 1));
-                                itemList.get(position).setAnswered(true);
+
+
+                            //When it was already answered
+                            if (itemList.get(position).getAnswered() && position < copyItemList.size() - 1) {
+                                //If we need to block some questions
+                                if(itemList.get(position).getOptions().get(idx).getBlocks() != null){
+                                    for (Integer block: itemList.get(position).getOptions().get(idx).getBlocks()) {
+
+                                        //validating the items to block if they exist just block them or if they dont, create them as blocked
+                                        if(itemList.size() >= block){
+//                                            itemList.get(block - 1).getOptions().get(idx).setChosen(false);
+                                            itemList.get(block - 1).setBlocked(true);
+                                            itemList.get(block - 1).setAnswered(true);
+                                        }
+                                        else {
+                                            itemList.add(copyItemList.get(block - 1));
+                                            itemList.get(itemList.size() - 1).setAnswered(true);
+                                            itemList.get(itemList.size() - 1).setBlocked(true);
+                                        }
+
+                                    }
+                                    //validating the item after blocks if it exists just block it or if it doesn't, create it as non-blocked
+                                    if(itemList.size() > (position + itemList.get(position).getOptions().get(idx).getBlocks().size() + 1)){
+                                        itemList.get(position + itemList.get(position).getOptions().get(idx).getBlocks().size() + 1);
+                                    }
+                                    else {
+                                        itemList.add(copyItemList.get(position + itemList.get(position).getOptions().get(idx).getBlocks().size() + 1));
+                                    }
+
+                                }
+                                //If we need to enable some questions
+                                if(itemList.get(position).getOptions().get(idx).getEnables() != null){
+                                    for (Integer enable: itemList.get(position).getOptions().get(idx).getEnables()) {
+
+                                        //validating the items to block if they exist just enable them or if they dont, create them as blocked
+                                        if(itemList.get(enable - 1) != null){
+                                            itemList.get(enable - 1).setBlocked(false);
+                                        }
+                                        else {
+                                            itemList.add(copyItemList.get(enable - 1));
+                                            itemList.get(itemList.size() - 1).setAnswered(true);
+                                            itemList.get(itemList.size() - 1).setBlocked(false);
+                                        }
+
+                                    }
+                                    //validating the item after blocks if it exists just enable it or if it doesn't, create it as non-blocked
+                                    if(itemList.size() > (position + itemList.get(position).getOptions().get(idx).getEnables().size() + 1)){
+                                        itemList.get(position + itemList.get(position).getOptions().get(idx).getEnables().size() + 1);
+                                    }
+                                    else {
+                                        itemList.add(copyItemList.get(position + itemList.get(position).getOptions().get(idx).getEnables().size() + 1));
+                                    }
+
+                                }
 
                             }
+
+
+
+
+
+                            // Adding the new items (if needed) when the item was selected for the first time
+                            if(!itemList.get(position).getAnswered() && position < copyItemList.size() -1){
+
+                                //If we need to block some questions
+                                if(itemList.get(position).getOptions().get(idx).getBlocks() != null){
+                                    for (Integer block: itemList.get(position).getOptions().get(idx).getBlocks()) {
+                                        itemList.add(copyItemList.get(block - 1));
+                                        itemList.get(itemList.size() - 1).setAnswered(true);
+                                        itemList.get(itemList.size() - 1).setBlocked(true);
+                                    }
+                                    itemList.add(copyItemList.get(itemList.size()));
+                                    itemList.get(position).setAnswered(true);
+                                }
+                                else {
+                                    itemList.add(copyItemList.get(position + 1));
+                                    itemList.get(position).setAnswered(true);
+                                }
+
+                            }
+
 
                             // Just in case this is the last question:
                             if ((itemList.get(position).getQstnNbr()) == copyItemList.size()){
