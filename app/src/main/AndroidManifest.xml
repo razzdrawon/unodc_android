@@ -20,10 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activity.FormActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activity.ThanksActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ThanksActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

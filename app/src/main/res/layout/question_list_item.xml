@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="5dp"
-        android:elevation="4dp"
+        android:elevation="10dp"
         card_view:cardCornerRadius="3dp">
 
         <LinearLayout
@@ -23,23 +23,37 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:padding="7dp"
+                android:background="@drawable/rounded_corners_primary_back"
+                >
 
                 <TextView
                     android:id="@+id/qstn_nbr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.- "
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="@dimen/qstn_size" />
+                    android:text="1. "
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/qstn_size"
+                    android:gravity="center_vertical|end"
+                    android:layout_weight="1"
+                    android:maxLines="1"/>
 
                 <TextView
                     android:id="@+id/qstn_str"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pregunta"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="@dimen/qstn_size" />
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/qstn_size"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:maxLines="3"/>
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -52,10 +66,17 @@
                     android:id="@+id/open_answer_et"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Toque aquí para responder"
+                    android:hint="00"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
                     android:imeOptions="actionDone"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:maxLength="2"
+                    android:background="@drawable/rounded_corners_accent_border_white_back"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"/>
 
                 <!--<Spinner-->
                 <!--android:id="@+id/opts_spn"-->
@@ -90,7 +111,10 @@
                             android:id="@+id/detail_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="18dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
                             android:text="Especifique aquí su respuesta:"
                             android:visibility="gone"/>
 
@@ -99,11 +123,13 @@
                             android:inputType="text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="detalle aquí su respuesta"
+                            android:hint="Toque aquí para responder"
                             android:imeOptions="actionDone"
                             android:maxLength="30"
                             android:layout_marginTop="5dp"
-                            android:visibility="gone"/>
+                            android:visibility="gone"
+                            android:background="@drawable/rounded_corners_accent_border_white_back"
+                            android:padding="7dp"/>
 
                         <Spinner
                             android:id="@+id/det_opts_spn"
@@ -113,7 +139,9 @@
                             android:spinnerMode="dialog"
                             android:textSize="@dimen/qstn_size"
                             android:layout_marginTop="5dp"
-                            android:visibility="gone"/>
+                            android:visibility="gone"
+                            android:layout_gravity="center_horizontal"
+                            style="@style/spinner_style"/>
 
                     </LinearLayout>
                 </LinearLayout>
