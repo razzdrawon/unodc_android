@@ -19,6 +19,9 @@ public class Item {
     private Integer qstnNbr;
     private String qstnStr;
 
+    @JsonProperty("check")
+    private Integer maxCheck;
+
     @JsonProperty("openOptFlag")
     private Boolean openAnswerFlag = false;
     @JsonProperty("openOptStr")
@@ -65,6 +68,14 @@ public class Item {
 
     public void setQstnStr(String qstnStr) {
         this.qstnStr = qstnStr;
+    }
+
+    public Integer getMaxCheck() {
+        return maxCheck;
+    }
+
+    public void setMaxCheck(Integer maxCheck) {
+        this.maxCheck = maxCheck;
     }
 
     public Boolean getOpenAnswerFlag() {

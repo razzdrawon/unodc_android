@@ -13,6 +13,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -45,9 +47,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public LinearLayout qstnLayout, optsLayout, detailsLayout;
+        public LinearLayout qstnLayout, optsLayout, detailsLayout, chkBoxLayout;
         public CardView qstnCard;
-        public TextView qstnNbr, qstnStr;
+        public TextView qstnNbr, qstnStr, notAns;
         public EditText openAns, openAnsDetails;
         public RadioGroup optsRadio;
         public Spinner optsDetailsSpin;
@@ -61,9 +63,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             qstnCard = (CardView) itemView.findViewById(R.id.card_view);
             optsLayout = (LinearLayout) itemView.findViewById(R.id.opts_layout);
             detailsLayout = (LinearLayout) itemView.findViewById(R.id.details_layout);
+            chkBoxLayout = (LinearLayout) itemView.findViewById(R.id.checkBox_layout);
 
             qstnNbr = (TextView) itemView.findViewById(R.id.qstn_nbr);
             qstnStr = (TextView) itemView.findViewById(R.id.qstn_str);
+            notAns = (TextView) itemView.findViewById(R.id.missing_message);
 
             openAns = (EditText) itemView.findViewById(R.id.open_answer_et);
             optsRadio = (RadioGroup) itemView.findViewById(R.id.opts_rb);
@@ -114,6 +118,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
         if (itemList.get(position).getOpenAnswerFlag()) {
             holder.openAns.setVisibility(View.VISIBLE);
+            holder.notAns.setVisibility(View.GONE);
             holder.openAns.setText(itemList.get(position).getOpenAnswer());
 
             holder.openAns.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -148,14 +153,72 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         }
 
 
+        //******************* Is it an open answer? **********************
+        //******************* Set visible edittext, place listener to make sure it is answered, get the string to store it, make next question visible **********************
+        if(itemList.get(position).getMaxCheck() != null && itemList.get(position).getOptions() != null){
+            holder.chkBoxLayout.setVisibility(View.VISIBLE);
+            holder.chkBoxLayout.removeAllViews();
+
+            Boolean hasDetails = false;
+            for(final Option opt: itemList.get(position).getOptions()) {
+                CheckBox cb = new CheckBox(context);
+                cb.setText(opt.getOptStr());
+                holder.chkBoxLayout.addView(cb);
+                if(opt.getChosen())
+                    cb.setChecked(true);
+
+
+                Boolean isOneChecked = false;
+
+                for (Option o: itemList.get(position).getOptions()) {
+                    if(o.getChosen()){
+                        isOneChecked = true;
+                    }
+                }
+
+                if(isOneChecked == false){
+                    holder.notAns.setVisibility(View.VISIBLE);
+                }
+                else {
+                    holder.notAns.setVisibility(View.GONE);
+                }
+
+                cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                        if(isChecked) {
+                            opt.setChosen(true);
+                            if (!itemList.get(position).getAnswered()) {
+                                itemList.get(position).setAnswered(true);
+                                itemList.add(copyItemList.get(itemList.get(position).getQstnNbr()));
+//                                notifyDataSetChanged();
+                            }
+                        }
+                        else {
+                            opt.setChosen(false);
+                        }
+
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+        }
+        else {
+            holder.chkBoxLayout.setVisibility(View.GONE);
+        }
+
+//        notifyDataSetChanged();
+
         //******************* Is it a multi option answer? **********************
         //******************* Set visible radiogroup, place listener to make sure it is answered, get option to store it, make next question visible **********************
 
-        if (itemList.get(position).getOptions() != null) {
+        if (itemList.get(position).getOptions() != null && itemList.get(position).getMaxCheck() == null) {
             holder.optsRadio.removeAllViews();
             holder.optsRadio.clearCheck();
             holder.optsLayout.setVisibility(View.VISIBLE);
             holder.optsRadio.setVisibility(View.VISIBLE);
+            holder.notAns.setVisibility(View.GONE);
 
             final Boolean[] hasDetails = {false};
 
@@ -211,9 +274,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 holder.optsRadio.addView(radioButton);
             }
 
+
+            //Listener for EditText (level 2 Details)
             setListenerDetailsEdtTxt(holder.openAnsDetails, position, holder.optsRadio.getCheckedRadioButtonId(), holder);
+            //Listener for Spinner (level 2 Details)
             setListenerDetailsSpin(holder.optsDetailsSpin, position, holder.optsRadio.getCheckedRadioButtonId(), holder);
 
+
+            //Listener for RadioGroup
             holder.optsRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
                     // This will get the radiobutton that has changed in its check state
