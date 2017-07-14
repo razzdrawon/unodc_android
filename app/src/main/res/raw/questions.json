@@ -21,6 +21,32 @@
   },
   {
     "qstnNbr": 3,
+    "qstnStr": "Género",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Heterosexual"
+      },
+      {
+        "opt": "b",
+        "optStr": "Homosexual"
+      },
+      {
+        "opt": "d",
+        "optStr": "Bisexual"
+      },
+      {
+        "opt": "d",
+        "optStr": "Transexual"
+      },
+      {
+        "opt": "e",
+        "optStr": "Asexual"
+      }
+    ]
+  },
+  {
+    "qstnNbr": 4,
     "qstnStr": "Estado Civil",
     "options": [
       {
@@ -52,7 +78,7 @@
     ]
   },
   {
-    "qstnNbr": 4,
+    "qstnNbr": 5,
     "qstnStr": "¿Cuál es su religión?",
     "options": [
       {
@@ -77,7 +103,7 @@
       },
       {
         "opt": "f",
-        "optStr": "Ninguna"
+        "optStr": "Ateo/Ninguna"
       },
       {
         "opt": "g",
@@ -92,7 +118,7 @@
     ]
   },
   {
-    "qstnNbr": 5,
+    "qstnNbr": 6,
     "qstnStr": "¿Cuál es su nivel de estudios?",
     "options": [
       {
@@ -146,7 +172,7 @@
     ]
   },
   {
-    "qstnNbr": 6,
+    "qstnNbr": 7,
     "qstnStr": "¿Cuál es su ocupación?",
     "options": [
       {
@@ -182,7 +208,16 @@
         "optStr": "Obrero (a)"
       },
       {
-        "opt": "i",
+        "opt": "j",
+        "optStr": "Desempleado (a)"
+      },
+      {
+        "opt": "k",
+        "optStr": "Otro"
+      },
+
+      {
+        "opt": "l",
         "optStr": "Otro. Especifique:",
         "openOptFlag": true,
         "openOptStr": null
@@ -190,7 +225,7 @@
     ]
   },
   {
-    "qstnNbr": 7,
+    "qstnNbr": 8,
     "qstnStr": "¿Cuál es su colonia de residencia?",
     "options": [
       {
@@ -255,42 +290,50 @@
       },
       {
         "opt": "p",
-        "optStr": "Milenio III"
+        "optStr": "Menchaca II"
       },
       {
         "opt": "q",
-        "optStr": "Tlacote el Pajo"
+        "optStr": "Menchaca III"
       },
       {
         "opt": "r",
-        "optStr": "Ejido Modelo"
+        "optStr": "Milenio III"
       },
       {
         "opt": "s",
-        "optStr": "Jofrito"
+        "optStr": "Tlacote el Bajo"
       },
       {
         "opt": "t",
-        "optStr": "Otra. ¿Cuál?",
+        "optStr": "Ejido Modelo"
+      },
+      {
+        "opt": "u",
+        "optStr": "Jofrito"
+      },
+      {
+        "opt": "v",
+        "optStr": "Otra. Especificar",
         "openOptFlag": true,
         "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 8,
+    "qstnNbr": 9,
     "qstnStr": "¿Cuántos hijos tiene?",
     "openOptFlag": true,
     "openOptStr": null
   },
   {
-    "qstnNbr": 9,
+    "qstnNbr": 10,
     "qstnStr": "¿Cuántas personas habitan en su hogar?",
     "openOptFlag": true,
     "openOptStr": null
   },
   {
-    "qstnNbr": 10,
+    "qstnNbr": 11,
     "qstnStr": "En su hogar, ¿quién es el jefe(a) de familia?",
     "options": [
       {
@@ -311,18 +354,18 @@
       },
       {
         "opt": "e",
-        "optStr": "Otro"
+        "optStr": "Otro. Especificar"
       }
     ]
   },
   {
-    "qstnNbr": 11,
+    "qstnNbr": 12,
     "qstnStr": "¿Cuántas personas aportan al gasto familiar en su hogar?",
     "openOptFlag": true,
     "openOptStr": null
   },
   {
-    "qstnNbr": 12,
+    "qstnNbr": 13,
     "qstnStr": "¿Cuál es el ingreso mensual en su hogar?",
     "options": [
       {
@@ -356,7 +399,7 @@
     ]
   },
   {
-    "qstnNbr": 13,
+    "qstnNbr": 14,
     "qstnStr": "Su vivienda es:",
     "options": [
       {
@@ -380,13 +423,13 @@
     ]
   },
   {
-    "qstnNbr": 14,
+    "qstnNbr": 15,
     "qstnStr": "¿Dónde nació usted?",
     "options": [
       {
         "opt": "a",
-        "optStr": "Municipio de Querétaro (Pasar a la pregunta 16)",
-        "blocks": [15]
+        "optStr": "Municipio de Querétaro (Pasar a la pregunta 17)",
+        "blocks": [16]
       },
       {
         "opt": "b",
@@ -461,7 +504,7 @@
             "optStr": "Tolimán"
           }
         ],
-        "enables": [15]
+        "enables": [16]
       },
       {
         "opt": "c",
@@ -596,17 +639,17 @@
             "optStr": "Zacatecas"
           }
         ],
-        "enables": [15]
+        "enables": [16]
       },
       {
         "opt": "d",
         "optStr": "Otro país.",
-        "enables": [15]
+        "enables": [16]
       }
     ]
   },
   {
-    "qstnNbr": 15,
+    "qstnNbr": 16,
     "qstnStr": "En caso de no haber nacido en el municipio de Querétaro, ¿cuánto tiempo tiene que llegó a esta ciudad?",
     "options": [
       {
@@ -624,24 +667,24 @@
     ]
   },
   {
-    "qstnNbr": 16,
+    "qstnNbr": 17,
     "qstnStr": "¿Tiene familiares que hayan migrado del estado?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí (Pasar a la siguiente pregunta)",
-        "enables": [17, 18, 19]
+        "enables": [18, 19, 20]
       },
       {
         "opt": "b",
         "optStr": "No (Pasar a la pregunta 20)",
-        "blocks": [17, 18, 19],
-        "nextQstn": 20
+        "blocks": [18, 19, 20],
+        "nextQstn": 21
       }
     ]
   },
   {
-    "qstnNbr": 17,
+    "qstnNbr": 18,
     "qstnStr": "¿Hacia dónde migró su familiar?",
     "options": [
       {
@@ -863,7 +906,7 @@
     ]
   },
   {
-    "qstnNbr": 18,
+    "qstnNbr": 19,
     "qstnStr": "¿Cuál es la causa por la que migraron sus familiares?",
     "options": [
       {
@@ -888,15 +931,15 @@
       },
       {
         "opt": "f",
-        "optStr": "Otra causa. ¿Cuál?",
+        "optStr": "Otra causa. Especificar",
         "openOptFlag": true,
         "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 19,
-    "qstnStr": "El estado en el que su familiar migro:",
+    "qstnNbr": 20,
+    "qstnStr": " ¿De qué forma migraron sus familiares?",
     "options": [
       {
         "opt": "a",
@@ -917,7 +960,7 @@
     ]
   },
   {
-    "qstnNbr": 20,
+    "qstnNbr": 21,
     "qstnStr": "En su opinión, ¿quién es responsable de la seguridad de su colonia o comunidad?",
     "options": [
       {
@@ -943,11 +986,21 @@
       {
         "opt": "f",
         "optStr": "Todos"
+      },
+      {
+        "opt": "g",
+        "optStr": "La Policía"
+      },
+      {
+        "opt": "h",
+        "optStr": "Otra causa. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 21,
+    "qstnNbr": 22,
     "qstnStr": "¿Cuál de las siguientes autoridades conoce? (Puede seleccionar más de una opción)",
     "options": [
       {
@@ -977,7 +1030,7 @@
     ]
   },
   {
-    "qstnNbr": 22,
+    "qstnNbr": 23,
     "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor confianza?",
     "options": [
       {
@@ -1015,11 +1068,21 @@
       {
         "opt": "i",
         "optStr": "Ministerios Públicos"
+      },
+      {
+        "opt": "j",
+        "optStr": "Servidores Públicos"
+      },
+      {
+        "opt": "k",
+        "optStr": "Otros. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 23,
+    "qstnNbr": 24,
     "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor desconfianza?",
     "options": [
       {
@@ -1057,11 +1120,21 @@
       {
         "opt": "i",
         "optStr": "Ministerios Públicos"
+      },
+      {
+        "opt": "j",
+        "optStr": "Servidores Públicos"
+      },
+      {
+        "opt": "k",
+        "optStr": "Otros. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 24,
+    "qstnNbr": 25,
     "qstnStr": "¿A qué motivo le atribuye la desconfianza a la autoridad?",
     "options": [
       {
@@ -1087,43 +1160,49 @@
       {
         "opt": "f",
         "optStr": "No cumplen con su deber"
-      }
-    ]
-  },
-  {
-    "qstnNbr": 25,
-    "qstnStr": "¿Cómo es el patrullaje en su colonia?",
-    "options": [
-      {
-        "opt": "a",
-        "optStr": "A pie",
-        "enables": [26, 27]
       },
       {
-        "opt": "b",
-        "optStr": "En autos/camionetas",
-        "enables": [26, 27]
-      },
-      {
-        "opt": "c",
-        "optStr": "En motocicletas",
-        "enables": [26, 27]
-      },
-      {
-        "opt": "d",
-        "optStr": "En bicicletas",
-        "enables": [26, 27]
-      },
-      {
-        "opt": "e",
-        "optStr": "No hay patrullaje (Pase a la pregunta 28)",
-        "blocks": [26, 27],
-        "nextQstn": 28
+        "opt": "g",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
     "qstnNbr": 26,
+    "qstnStr": "¿Cómo es el patrullaje en su colonia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "A pie",
+        "enables": [27, 28]
+      },
+      {
+        "opt": "b",
+        "optStr": "En autos/camionetas",
+        "enables": [27, 28]
+      },
+      {
+        "opt": "c",
+        "optStr": "En motocicletas",
+        "enables": [27, 28]
+      },
+      {
+        "opt": "d",
+        "optStr": "En bicicletas",
+        "enables": [27, 28]
+      },
+      {
+        "opt": "e",
+        "optStr": "No hay patrullaje (Pase a la pregunta 29)",
+        "blocks": [27, 28],
+        "nextQstn": 29
+      }
+    ]
+  },
+  {
+    "qstnNbr": 27,
     "qstnStr": "¿Con qué frecuencia ve los patrullajes en su colonia?",
     "options": [
       {
@@ -1149,7 +1228,7 @@
     ]
   },
   {
-    "qstnNbr": 27,
+    "qstnNbr": 28,
     "qstnStr": "¿Cuál autoridad de seguridad pública identifica en esos patrullajes?",
     "options": [
       {
@@ -1179,28 +1258,32 @@
       {
         "opt": "g",
         "optStr": "Ejército"
-      }
-    ]
-  },
-  {
-    "qstnNbr": 28,
-    "qstnStr": "¿Conoce de operativos que se hayan llevado a cabo en su colonia?",
-    "options": [
-      {
-        "opt": "a",
-        "optStr": "Sí",
-        "enables": [29, 30]
       },
       {
-        "opt": "b",
-        "optStr": "No (Pase a la pregunta 31)",
-        "blocks": [29, 30],
-        "nextQstn": 31
+        "opt": "h",
+        "optStr": "Seguridad Privada"
       }
     ]
   },
   {
     "qstnNbr": 29,
+    "qstnStr": "¿Conoce de operativos que se hayan llevado a cabo en su colonia?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí",
+        "enables": [30, 31]
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 32)",
+        "blocks": [30, 31],
+        "nextQstn": 32
+      }
+    ]
+  },
+  {
+    "qstnNbr": 30,
     "qstnStr": "¿Qué operativos reconoce?",
     "options": [
       {
@@ -1240,7 +1323,7 @@
     ]
   },
   {
-    "qstnNbr": 30,
+    "qstnNbr": 31,
     "qstnStr": "¿Cómo valora estos operativos?",
     "options": [
       {
@@ -1254,29 +1337,16 @@
       {
         "opt": "c",
         "optStr": "Nada efectivo"
-      }
-    ]
-  },
-  {
-    "qstnNbr": 31,
-    "qstnStr": "¿Usted conoce el programa de canje de armas de fuego que realiza el municipio de Querétaro?",
-    "options": [
-      {
-        "opt": "a",
-        "optStr": "Sí",
-        "enables": [32, 33]
       },
       {
-        "opt": "b",
-        "optStr": "No (Pase a la pregunta 34)",
-        "blocks": [32, 33],
-        "nextQstn": 34
+        "opt": "d",
+        "optStr": "Existe corrupción"
       }
     ]
   },
   {
     "qstnNbr": 32,
-    "qstnStr": "¿Usted ha participado en dicho programa?",
+    "qstnStr": "¿En su comunidad existe venta de armas de fuego?",
     "options": [
       {
         "opt": "a",
@@ -1290,6 +1360,37 @@
   },
   {
     "qstnNbr": 33,
+    "qstnStr": "¿Usted conoce el programa de canje de armas de fuego que realiza el municipio de Querétaro?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí",
+        "enables": [34, 35]
+      },
+      {
+        "opt": "b",
+        "optStr": "No (Pase a la pregunta 36)",
+        "blocks": [34, 35],
+        "nextQstn": 36
+      }
+    ]
+  },
+  {
+    "qstnNbr": 34,
+    "qstnStr": "¿Usted ha participado en dicho programa?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí"
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": 35,
     "qstnStr": "¿Cómo valora la utilidad del programa?",
     "options": [
       {
@@ -1307,7 +1408,7 @@
     ]
   },
   {
-    "qstnNbr": 34,
+    "qstnNbr": 36,
     "qstnStr": "¿Conoce a alguien que haya participado en el programa de canje de armas de fuego?",
     "options": [
       {
@@ -1321,7 +1422,7 @@
     ]
   },
   {
-    "qstnNbr": 35,
+    "qstnNbr": 37,
     "qstnStr": "Si sufre de algún problema de inseguridad, ¿a quién acude primero?",
     "options": [
       {
@@ -1345,40 +1446,54 @@
         "optStr": "Marina"
       },
       {
-        "opt": "f",
+        "opt": "g",
         "optStr": "Ejército"
       },
       {
-        "opt": "g",
+        "opt": "h",
         "optStr": "Llamar a la línea de emergencia (911)"
+      },
+      {
+        "opt": "i",
+        "optStr": "Particular"
+      },
+      {
+        "opt": "j",
+        "optStr": "Seguridad privada"
+      },
+      {
+        "opt": "k",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 36,
+    "qstnNbr": 38,
     "qstnStr": "¿Existe algún tipo de punto de vigilancia (caseta, comandancia) de la policía en su colonia?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí",
-        "enables": [37]
+        "enables": [39]
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 38)",
-        "blocks": [37],
-        "nextQstn": 38
+        "optStr": "No (Pase a la pregunta 40)",
+        "blocks": [39],
+        "nextQstn": 40
       },
       {
         "opt": "c",
-        "optStr": "No sabe (Pase a la pregunta 38)",
-        "blocks": [37],
-        "nextQstn": 38
+        "optStr": "No sabe (Pase a la pregunta 40)",
+        "blocks": [39],
+        "nextQstn": 40
       }
     ]
   },
   {
-    "qstnNbr": 37,
+    "qstnNbr": 39,
     "qstnStr": "La caseta o comandancia en su colonia, ¿se encuentra en funcionamiento y cuenta con personal permanente?",
     "options": [
       {
@@ -1391,8 +1506,30 @@
       }
     ]
   },
+
   {
-    "qstnNbr": 38,
+    "qstnNbr": 40,
+    "qstnStr": "¿Cómo es la efectividad de la caseta?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Muy Efectiva"
+      },
+      {
+        "opt": "b",
+        "optStr": "Poco Efectiva"
+      },{
+        "opt": "c",
+        "optStr": "Nada"
+      },
+      {
+        "opt": "d",
+        "optStr": "Existe corrupción"
+      }
+    ]
+  },
+  {
+    "qstnNbr": 41,
     "qstnStr": "Para usted, ¿Cuáles son las 3 principales causas de la inseguridad?",
     "options": [
       {
@@ -1421,19 +1558,32 @@
       },
       {
         "opt": "g",
-        "optStr": "Pandillas"
+        "optStr": "Existen Pandillas"
       },
       {
         "opt": "h",
-        "optStr": "Otro. Mencione otra causa:",
+        "optStr": "Venta de drogas"
+      },
+      {
+        "opt": "i",
+        "optStr": "Venta de armas"
+      },
+      {
+        "opt": "j",
+        "optStr": "Tolerancia al delito"
+      },
+      {
+        "opt": "k",
+        "optStr": "Otro. Especificar",
         "openOptFlag": true,
         "openOptStr": null
       }
     ]
   },
+
   {
-    "qstnNbr": 39,
-    "qstnStr": "Considera su colonia o comunidad:",
+    "qstnNbr": 42,
+    "qstnStr": "Si alguien le hace una consulta sobre cómo es su colonia para vivir, diría que es:",
     "options": [
       {
         "opt": "a",
@@ -1441,20 +1591,22 @@
       },
       {
         "opt": "b",
-        "optStr": "Poco segura"
+        "optStr": "Segura"
       },
       {
         "opt": "c",
-        "optStr": "Poco insegura"
+        "optStr": "Poco Segura"
       },
       {
         "opt": "d",
-        "optStr": "Muy insegura"
+        "optStr": "Insegura"
       }
     ]
   },
+
+
   {
-    "qstnNbr": 40,
+    "qstnNbr": 43,
     "qstnStr": "¿Ha escuchado sobre conflictos en su colonia o comunidad, que resulten en actos de violencia?",
     "options": [
       {
@@ -1468,7 +1620,7 @@
     ]
   },
   {
-    "qstnNbr": 41,
+    "qstnNbr": 44,
     "qstnStr": "¿Cuál es la principal causa por la cual sus vecinos se pelean?",
     "options": [
       {
@@ -1497,37 +1649,51 @@
       },
       {
         "opt": "g",
-        "optStr": "Deudas"
+        "optStr": "Por las mascotas"
       },
       {
         "opt": "h",
-        "optStr": "Consumo de drogas o alcohol"
+        "optStr": "Por el estacionamiento"
       },
       {
         "opt": "i",
-        "optStr": "Otros"
+        "optStr": "Deudas"
+      },
+      {
+        "opt": "j",
+        "optStr": "Consumo de drogas o alcohol"
+      },
+      {
+        "opt": "k",
+        "optStr": "No hay peleas"
+      },
+      {
+        "opt": "l",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 42,
-    "qstnStr": "Usted o alguno de los integrantes de su familia, ¿ha tenido alguna diferencia con sus vecinos en los últimos 5 años?",
+    "qstnNbr": 45,
+    "qstnStr": "Usted o alguno de los integrantes de su familia, ¿ha tenido algun problema con sus vecinos en los últimos  años?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí",
-        "enables": [37]
+        "enables": [46]
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 44)",
-        "blocks": [43],
-        "nextQstn": 44
+        "optStr": "No (Pase a la pregunta 47)",
+        "blocks": [46],
+        "nextQstn": 47
       }
     ]
   },
   {
-    "qstnNbr": 43,
+    "qstnNbr": 46,
     "qstnStr": "¿Cuál es la principal causa de la diferencia?",
     "options": [
       {
@@ -1556,20 +1722,30 @@
       },
       {
         "opt": "g",
-        "optStr": "Deudas"
+        "optStr": "Por las mascotas"
       },
       {
         "opt": "h",
-        "optStr": "Consumo de drogas o alcohol"
+        "optStr": "Por el estacionamiento"
       },
       {
         "opt": "i",
-        "optStr": "Otros"
+        "optStr": "Deudas"
+      },
+      {
+        "opt": "j",
+        "optStr": "Consumo de drogas o alcohol"
+      },
+      {
+        "opt": "l",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 44,
+    "qstnNbr": 47,
     "qstnStr": "¿Conoce a algún vecino que se dedique a robar?",
     "options": [
       {
@@ -1583,24 +1759,24 @@
     ]
   },
   {
-    "qstnNbr": 45,
+    "qstnNbr": 48,
     "qstnStr": "¿Conoce a algún vecino que haya sido detenido y llevado preso por algún delito?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí",
-        "enables": [46]
+        "enables": [49]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 47)",
-        "blocks": [46],
-        "nextQstn": 47
+        "blocks": [49],
+        "nextQstn": 50
       }
     ]
   },
   {
-    "qstnNbr": 46,
+    "qstnNbr": 49,
     "qstnStr": "En caso de sí, ¿por cuál delito? (Puede seleccionar hasta 3 respuestas)",
     "options": [
       {
@@ -1649,33 +1825,51 @@
       },
       {
         "opt": "l",
-        "optStr": "Secuestro"
+        "optStr": "Delitos relacionados con tráfico o venta de drogas"
       },
       {
         "opt": "m",
-        "optStr": "Otros"
+        "optStr": "PMaltrato animal"
+      },
+      {
+        "opt": "n",
+        "optStr": "Víolencia intrafamiliar"
+      },
+      {
+        "opt": "o",
+        "optStr": "Robo de celular"
+      },
+      {
+        "opt": "p",
+        "optStr": "Secuestro"
+      },
+      {
+        "opt": "q",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 47,
+    "qstnNbr": 50,
     "qstnStr": "Usted, ¿ha sido víctima de algún delito?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí",
-        "enables": [48, 49, 50, 51, 52]
+        "enables": [51, 52, 53, 54, 55]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 53)",
-        "blocks": [48, 49, 50, 51, 52],
-        "nextQstn": 53
+        "blocks": [51, 52, 53, 54, 55],
+        "nextQstn": 56
       }
     ]
   },
   {
-    "qstnNbr": 48,
+    "qstnNbr": 51,
     "qstnStr": "¿Dónde sucedió el delito?",
     "options": [
       {
@@ -1693,7 +1887,7 @@
     ]
   },
   {
-    "qstnNbr": 49,
+    "qstnNbr": 52,
     "qstnStr": "¿Qué tipo de delito?",
     "options": [
       {
@@ -1742,33 +1936,51 @@
       },
       {
         "opt": "l",
-        "optStr": "Secuestro"
+        "optStr": "Delitos relacionados con tráfico o venta de drogas"
       },
       {
         "opt": "m",
-        "optStr": "Otros"
+        "optStr": "Maltrato animal"
+      },
+      {
+        "opt": "n",
+        "optStr": "Víolencia intrafamiliar"
+      },
+      {
+        "opt": "o",
+        "optStr": "Robo de celular"
+      },
+      {
+        "opt": "p",
+        "optStr": "Secuestro"
+      },
+      {
+        "opt": "q",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 50,
+    "qstnNbr": 53,
     "qstnStr": "¿Denunció el delito?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí (Pase a la siguiente pregunta)",
-        "enables": [51]
+        "enables": [54]
       },
       {
         "opt": "b",
         "optStr": "No (Pase a la pregunta 52)",
-        "blocks": [51],
-        "nextQstn": 52
+        "blocks": [54],
+        "nextQstn": 55
       }
     ]
   },
   {
-    "qstnNbr": 51,
+    "qstnNbr": 54,
     "qstnStr": "¿Cuál fue el resultado de la denuncia?",
     "options": [
       {
@@ -1785,7 +1997,7 @@
     ]
   },
   {
-    "qstnNbr": 52,
+    "qstnNbr": 55,
     "qstnStr": "En caso de que NO, ¿cuál fue el motivo para no denunciar?",
     "options": [
       {
@@ -1811,24 +2023,24 @@
     ]
   },
   {
-    "qstnNbr": 53,
+    "qstnNbr": 56,
     "qstnStr": "¿Conoce a algún familiar que haya sido víctima de algún delito?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí",
-        "enables": [54]
+        "enables": [57]
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 55)",
-        "blocks": [54],
-        "nextQstn": 55
+        "optStr": "No (Pase a la pregunta 58)",
+        "blocks": [57],
+        "nextQstn": 58
       }
     ]
   },
   {
-    "qstnNbr": 54,
+    "qstnNbr": 57,
     "qstnStr": "¿Qué tipo de delito?",
     "options": [
       {
@@ -1877,16 +2089,34 @@
       },
       {
         "opt": "l",
-        "optStr": "Secuestro"
+        "optStr": "Delitos relacionados con tráfico o venta de drogas"
       },
       {
         "opt": "m",
-        "optStr": "Otros"
+        "optStr": "Maltrato animal"
+      },
+      {
+        "opt": "n",
+        "optStr": "Víolencia intrafamiliar"
+      },
+      {
+        "opt": "o",
+        "optStr": "Robo de celular"
+      },
+      {
+        "opt": "p",
+        "optStr": "Secuestro"
+      },
+      {
+        "opt": "q",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 55,
+    "qstnNbr": 58,
     "qstnStr": "Para usted, ¿cuál es el sitio con mayor inseguridad en la ciudad de Querétaro?",
     "options": [
       {
@@ -1974,7 +2204,7 @@
     ]
   },
   {
-    "qstnNbr": 56,
+    "qstnNbr": 59,
     "qstnStr": "¿Qué hace para protegerse de los delitos?",
     "options": [
       {
@@ -2004,11 +2234,17 @@
       {
         "opt": "g",
         "optStr": "No salir por la noche"
+      },
+      {
+        "opt": "h",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 57,
+    "qstnNbr": 60,
     "qstnStr": "¿Qué es más probable que suceda en la calle?",
     "options": [
       {
@@ -2026,11 +2262,25 @@
       {
         "opt": "d",
         "optStr": "Que lo acosen sexualmente"
+      },
+      {
+        "opt": "e",
+        "optStr": "Violación o agresión sexual"
+      },
+      {
+        "opt": "f",
+        "optStr": "Nada malo"
+      },
+      {
+        "opt": "g",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 58,
+    "qstnNbr": 61,
     "qstnStr": "¿Conocen lugares para atender problemas de alcoholismo, drogadicción o cualquier otro tipo de adicciones en su comunidad?",
     "options": [
       {
@@ -2044,7 +2294,7 @@
     ]
   },
   {
-    "qstnNbr": 59,
+    "qstnNbr": 62,
     "qstnStr": "En su opinión, ¿Qué motiva a que las adolescentes se embaracen a temprana edad?",
     "options": [
       {
@@ -2070,11 +2320,19 @@
       {
         "opt": "f",
         "optStr": "Ocio"
+      },
+      {
+        "opt": "g",
+        "optStr": "Cultura"
+      },
+      {
+        "opt": "h",
+        "optStr": "Accidental"
       }
     ]
   },
   {
-    "qstnNbr": 60,
+    "qstnNbr": 63,
     "qstnStr": "Cuando usted o alguno de los integrantes de su familia se enferma, ¿a dónde acuden?",
     "options": [
       {
@@ -2104,7 +2362,7 @@
     ]
   },
   {
-    "qstnNbr": 61,
+    "qstnNbr": 64,
     "qstnStr": "¿Conoce algún lugar en su comunidad o colonia, dónde impartan clases de regularización para adultos?",
     "options": [
       {
@@ -2118,7 +2376,7 @@
     ]
   },
   {
-    "qstnNbr": 62,
+    "qstnNbr": 65,
     "qstnStr": "Si tiene hijos, ¿acuden todos a la escuela?",
     "options": [
       {
@@ -2132,7 +2390,7 @@
     ]
   },
   {
-    "qstnNbr": 63,
+    "qstnNbr": 66,
     "qstnStr": "En caso de que no acudan a la escuela, ¿cuál es el motivo?",
     "options": [
       {
@@ -2146,11 +2404,19 @@
       {
         "opt": "c",
         "optStr": "No quieren estudiar"
+      },
+      {
+        "opt": "d",
+        "optStr": "Tiene que trabajar"
+      },
+      {
+        "opt": "e",
+        "optStr": "Prefiere trabajar"
       }
     ]
   },
   {
-    "qstnNbr": 64,
+    "qstnNbr": 67,
     "qstnStr": "¿Ubica usted a algún representante de colonia o líder en su comunidad?",
     "options": [
       {
@@ -2164,24 +2430,24 @@
     ]
   },
   {
-    "qstnNbr": 65,
+    "qstnNbr": 68,
     "qstnStr": "¿En su colonia o comunidad, hay algún comité u otras formas de organización para tratar temas de importancia colectiva?",
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí (Pase a la pregunta 67)",
-        "blocks": [66],
-        "nextQstn": 67
+        "optStr": "Sí (Pase a la pregunta 70)",
+        "blocks": [69],
+        "nextQstn": 70
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a siguiente pregunta (66))",
-        "enables": [66]
+        "optStr": "No (Pase a siguiente pregunta (69))",
+        "enables": [69]
       }
     ]
   },
   {
-    "qstnNbr": 66,
+    "qstnNbr": 69,
     "qstnStr": "¿A qué le atribuye usted que no haya organización en su colonia o comunidad?",
     "options": [
       {
@@ -2194,24 +2460,28 @@
       },
       {
         "opt": "c",
-        "optStr": "Individualismo"
+        "optStr": "Está prohibido"
       },
       {
         "opt": "d",
-        "optStr": "Falta de comunicación"
+        "optStr": "Existen grupos que controlan"
       },
       {
         "opt": "e",
-        "optStr": "No pasa nad importante para que tengan que organizarse"
+        "optStr": "Pruebe haber replresalias"
       },
       {
         "opt": "f",
-        "optStr": "No se llevan bien"
+        "optStr": "No es bien visto"
+      },
+      {
+        "opt": "g",
+        "optStr": "No pasa nada importante para que tenga que organizarse"
       }
     ]
   },
   {
-    "qstnNbr": 67,
+    "qstnNbr": 70,
     "qstnStr": "¿Cómo se organizan en su colonia para conocer más sobre temas de relevancia entre vecinos?",
     "options": [
       {
@@ -2229,25 +2499,34 @@
       {
         "opt": "d",
         "optStr": "Pláticas entre conocidos"
+      },
+      {
+        "opt": "e",
+        "optStr": "Otro. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 68,
+    "qstnNbr": 71,
     "qstnStr": "¿Usted participa en las reuniones de dicho Comité o forma de organización?",
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "blocks": [72],
+        "nextQstn": 73
       },
       {
         "opt": "b",
-        "optStr": "No (Pasar a pregunta 69)"
+        "optStr": "No (Pasar a pregunta 72)",
+        "enables": [72]
       }
     ]
   },
   {
-    "qstnNbr": 69,
+    "qstnNbr": 72,
     "qstnStr": "¿Por qué no participa?",
     "options": [
       {
@@ -2271,24 +2550,8 @@
     ]
   },
   {
-    "qstnNbr": 70,
+    "qstnNbr": 73,
     "qstnStr": "¿Ha sucedido algún hecho relevante que haya obligado a su comunidad a organizarse para atender algún problema en específico?",
-    "options": [
-      {
-        "opt": "a",
-        "optStr": "Sí. ¿Cuál?",
-        "openOptFlag": true,
-        "openOptStr": null
-      },
-      {
-        "opt": "b",
-        "optStr": "No"
-      }
-    ]
-  },
-  {
-    "qstnNbr": 71,
-    "qstnStr": "¿Conoce alguna organización social que se encuentre en su colonia o comunidad realizando talleres, pláticas o cursos?",
     "options": [
       {
         "opt": "a",
@@ -2301,7 +2564,23 @@
     ]
   },
   {
-    "qstnNbr": 72,
+    "qstnNbr": 74,
+    "qstnStr": "¿Conoce alguna organización social que se encuentre en su colonia o comunidad realizando talleres, pláticas o cursos?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Sí. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
+      },
+      {
+        "opt": "b",
+        "optStr": "No"
+      }
+    ]
+  },
+  {
+    "qstnNbr": 75,
     "qstnStr": "¿Qué actividades realiza en su tiempo libre?",
     "options": [
       {
@@ -2323,28 +2602,34 @@
       {
         "opt": "e",
         "optStr": "Ninguna"
+      },
+      {
+        "opt": "f",
+        "optStr": "Otra. Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 73,
+    "qstnNbr": 76,
     "qstnStr": "¿Recibe usted algún tipo de apoyo de programa social?",
     "options": [
       {
         "opt": "a",
         "optStr": "Sí",
-        "enables": [74]
+        "enables": [77]
       },
       {
         "opt": "b",
-        "optStr": "No (Pase a la pregunta 75)",
-        "blocks": [74],
-        "nextQstn": 75
+        "optStr": "No (Pase a la pregunta 78)",
+        "blocks": [77],
+        "nextQstn": 78
       }
     ]
   },
   {
-    "qstnNbr": 74,
+    "qstnNbr": 77,
     "qstnStr": "Señale el o los programas sociales que recibe:",
     "options": [
       {
@@ -2373,14 +2658,14 @@
       },
       {
         "opt": "g",
-        "optStr": "Otro. ¿Cuál?",
+        "optStr": "Otro. Especificar",
         "openOptFlag": true,
         "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 75,
+    "qstnNbr": 78,
     "qstnStr": "¿Qué considera usted qué hace falta para mejorar el lugar donde vive?",
     "options": [
       {
@@ -2412,11 +2697,17 @@
         "optStr": "Nuevos espacios de convivencia",
         "openOptFlag": true,
         "openOptStr": null
+      },
+      {
+        "opt": "h",
+        "optStr": "Mejorar la seguridad",
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
   {
-    "qstnNbr": 76,
+    "qstnNbr": 79,
     "qstnStr": "¿Si tuviera la oportunidad de elegir en su colonia sobre las siguientes situaciones qué haría primero?",
     "options": [
       {
