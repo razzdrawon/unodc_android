@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 for (ObjectSync item: items){
                     if(!item.getSync()) {
                         try {
-                            makeLoginRequest(item);
+                            makSyncRequest(item);
                             isAvailabletoSync = true;
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void makeLoginRequest(ObjectSync obj) throws IOException, JSONException {
+    private void makSyncRequest(ObjectSync obj) throws IOException, JSONException {
 //        pDialog = new ProgressDialog(this);
 //        pDialog.setTitle("Login in");
 //        pDialog.setMessage("Wait a moment...");

@@ -211,7 +211,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             if (!itemList.get(position).getAnswered()) {
                                 itemList.get(position).setAnswered(true);
                                 itemList.add(copyItemList.get(itemList.get(position).getQstnNbr()));
-//                                notifyDataSetChanged();
                             }
                         }
                         else {
@@ -329,18 +328,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     boolean isChecked = checkedRadioButton.isChecked();
                     // If the radiobutton that has changed in check state is now checked...
                     if (isChecked) {
-
                         for (Option opt: itemList.get(position).getOptions()) {
                             opt.setChosen(false);
                         }
                         final int idx = holder.optsRadio.indexOfChild(checkedRadioButton);
-
                         RadioButton rb = (RadioButton)  holder.optsRadio.getChildAt(idx);
                         rb.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
 
                         itemList.get(position).getOptions().get(idx).setChosen(true);
 
-                        //************* if the option chosen has to specify somthing else... ***************
+
+                        //*********************************** if the option chosen has to specify somthing else... *****************************
 
                         //************* if an open answer is needed **************
                         if (itemList.get(position).getOptions().get(idx).getOpenAnswerFlag()) {
@@ -370,13 +368,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                         //When it was already answered
                         if (itemList.get(position).getAnswered() && position < copyItemList.size() - 1) {
+
                             //If we need to block some questions
                             if(itemList.get(position).getOptions().get(idx).getBlocks() != null){
                                 for (Integer block: itemList.get(position).getOptions().get(idx).getBlocks()) {
 
                                     //validating the items to block if they exist just block them or if they dont, create them as blocked
                                     if(itemList.size() >= block){
-//                                            itemList.get(block - 1).getOptions().get(idx).setChosen(false);
                                         itemList.get(block - 1).setBlocked(true);
                                         itemList.get(block - 1).setAnswered(true);
                                     }
@@ -396,6 +394,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                                 }
 
                             }
+
+
                             //If we need to enable some questions
                             if(itemList.get(position).getOptions().get(idx).getEnables() != null){
                                 for (Integer enable: itemList.get(position).getOptions().get(idx).getEnables()) {
@@ -424,9 +424,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         }
 
 
-
-
-
                         // Adding the new items (if needed) when the item was selected for the first time
                         if(!itemList.get(position).getAnswered() && position < copyItemList.size() -1){
 
@@ -447,7 +444,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                         }
 
-
                         // Just in case this is the last question:
                         if ((itemList.get(position).getQstnNbr()) == copyItemList.size()){
 
@@ -457,8 +453,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         }
 
                         notifyDataSetChanged();
-
-
 
                     } else {
                         holder.optsRadio.clearCheck();
