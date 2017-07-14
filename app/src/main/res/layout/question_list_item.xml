@@ -139,7 +139,7 @@
                             android:spinnerMode="dialog"
                             android:textSize="@dimen/qstn_size"
                             android:layout_marginTop="5dp"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             android:layout_gravity="center_horizontal"
                             style="@style/spinner_style"/>
 

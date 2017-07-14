@@ -3,6 +3,7 @@ package com.razzdrawon.unodc.adapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -117,7 +118,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     private void validateBlockedItems(int position, ViewHolder holder) {
         if(itemList.get(position).getBlocked()) {
-            holder.qstnCard.setBackgroundColor(context.getResources().getColor(R.color.text_gray));
+            holder.qstnCard.setBackgroundColor(context.getResources().getColor(R.color.card_gray));
             holder.qstnNbr.setTextColor(context.getResources().getColor(R.color.text_gray));
             holder.qstnStr.setTextColor(context.getResources().getColor(R.color.text_gray));
             holder.detailsTv.setTextColor(context.getResources().getColor(R.color.text_gray));
@@ -184,10 +185,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
             for(final Option opt: itemList.get(position).getOptions()) {
                 CheckBox cb = new CheckBox(context);
-                cb.setText(opt.getOptStr());
+                cb.setText(opt.getOpt() + ") " + opt.getOptStr());
+                cb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+
                 holder.chkBoxLayout.addView(cb);
-                if(opt.getChosen())
+                if(opt.getChosen()) {
                     cb.setChecked(true);
+                    cb.setTextColor(context.getResources().getColor(R.color.colorAccent));
+                }
+                else{
+                    cb.setChecked(false);
+                    cb.setTextColor(context.getResources().getColor(android.R.color.black));
+                }
 
 
                 Boolean isOneChecked = false;
@@ -210,6 +219,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                         if(isChecked) {
+
                             opt.setChosen(true);
                             if (!itemList.get(position).getAnswered()) {
                                 itemList.get(position).setAnswered(true);
