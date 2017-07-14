@@ -38,7 +38,9 @@
                     android:textStyle="bold"
                     android:textSize="@dimen/qstn_size"
                     android:gravity="center_vertical|end"
+                    android:paddingLeft="10dp"
                     android:layout_weight="1"
+
                     android:maxLines="1"/>
 
                 <TextView
@@ -50,7 +52,8 @@
                     android:textStyle="bold"
                     android:textSize="@dimen/qstn_size"
                     android:gravity="center_vertical"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="9"
                     android:maxLines="3"/>
 
 

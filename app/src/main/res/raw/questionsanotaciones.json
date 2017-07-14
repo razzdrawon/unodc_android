@@ -427,12 +427,12 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Municipio de Querétaro",
+        "optStr": "Municipio de Querétaro (Pasar a la pregunta 17)",
         "blocks": [16]
       },
       {
         "opt": "b",
-        "optStr": "Otro municipio en el estado de Querétaro. Seleccione cuál:",
+        "optStr": "Otro municipio en el estado de Querétaro. Seleccione cuál: (pasar a la siguiente pregunta)",
         "options": [
           {
             "opt": 1,
@@ -507,7 +507,7 @@
       },
       {
         "opt": "c",
-        "optStr": "Otro estado. Seleccione cuál:",
+        "optStr": "Otro estado. Seleccione cuál: (Pasar a la siguiente pregunta)",
         "options": [
           {
             "opt": 1,
@@ -671,12 +671,12 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí",
+        "optStr": "Sí (Pasar a la siguiente pregunta)",
         "enables": [18, 19, 20]
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pasar a la pregunta 20)",
         "blocks": [18, 19, 20],
         "nextQstn": 21
       }
@@ -1195,7 +1195,7 @@
       },
       {
         "opt": "e",
-        "optStr": "No hay patrullaje",
+        "optStr": "No hay patrullaje (Pase a la pregunta 29)",
         "blocks": [27, 28],
         "nextQstn": 29
       }
@@ -1276,7 +1276,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 32)",
         "blocks": [30, 31],
         "nextQstn": 32
       }
@@ -1369,7 +1369,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 36)",
         "blocks": [34, 35],
         "nextQstn": 36
       }
@@ -1480,13 +1480,13 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 40)",
         "blocks": [39],
         "nextQstn": 40
       },
       {
         "opt": "c",
-        "optStr": "No sabe",
+        "optStr": "No sabe (Pase a la pregunta 40)",
         "blocks": [39],
         "nextQstn": 40
       }
@@ -1686,7 +1686,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 47)",
         "blocks": [46],
         "nextQstn": 47
       }
@@ -1769,7 +1769,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 47)",
         "blocks": [49],
         "nextQstn": 50
       }
@@ -1863,7 +1863,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 53)",
         "blocks": [51, 52, 53, 54, 55],
         "nextQstn": 56
       }
@@ -1969,12 +1969,12 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí",
+        "optStr": "Sí (Pase a la siguiente pregunta)",
         "enables": [54]
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 52)",
         "blocks": [54],
         "nextQstn": 55
       }
@@ -1991,7 +1991,7 @@
       },
       {
         "opt": "b",
-        "optStr": "Se resolvió",
+        "optStr": "Se resolvió (Pase a la pregunta 53)",
         "blocks": [52],
         "nextQstn": 53
       }
@@ -2034,7 +2034,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 58)",
         "blocks": [57],
         "nextQstn": 58
       }
@@ -2436,13 +2436,13 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí",
+        "optStr": "Sí (Pase a la pregunta 70)",
         "blocks": [69],
         "nextQstn": 70
       },
       {
         "opt": "b",
-        "optStr": "No ",
+        "optStr": "No (Pase a siguiente pregunta (69))",
         "enables": [69]
       }
     ]
@@ -2521,7 +2521,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pasar a pregunta 72)",
         "enables": [72]
       }
     ]
@@ -2623,7 +2623,7 @@
       },
       {
         "opt": "b",
-        "optStr": "No",
+        "optStr": "No (Pase a la pregunta 78)",
         "blocks": [77],
         "nextQstn": 78
       }

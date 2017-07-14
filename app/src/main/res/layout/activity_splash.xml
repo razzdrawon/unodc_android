@@ -14,4 +14,15 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp" />
 
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_green_dark"
+
+        android:paddingLeft="0dp"
+        android:paddingBottom="1dp"
+        android:text="Versión 1.0.1"/>
+
 </RelativeLayout>
