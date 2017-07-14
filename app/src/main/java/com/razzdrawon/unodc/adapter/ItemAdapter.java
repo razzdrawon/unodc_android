@@ -113,6 +113,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     }
 
+
     private void validateBlockedItems(int position, ViewHolder holder) {
         if(itemList.get(position).getBlocked()) {
             holder.qstnCard.setBackgroundColor(context.getResources().getColor(R.color.card_gray));
