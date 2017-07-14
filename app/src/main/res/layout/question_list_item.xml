@@ -90,7 +90,10 @@
                             android:id="@+id/detail_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="18dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
                             android:text="Especifique aquí su respuesta:"
                             android:visibility="gone"/>
 
@@ -99,7 +102,7 @@
                             android:inputType="text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="detalle aquí su respuesta"
+                            android:hint="Toque aquí para responder"
                             android:imeOptions="actionDone"
                             android:maxLength="30"
                             android:layout_marginTop="5dp"
