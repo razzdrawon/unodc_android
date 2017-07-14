@@ -100,7 +100,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         validateBlockedItems(position, holder);
 
         //Adding Question Info
-        holder.qstnNbr.setText(itemList.get(position).getQstnNbr() + ".- ");
+        holder.qstnNbr.setText(itemList.get(position).getQstnNbr() + ". ");
         holder.qstnStr.setText(itemList.get(position).getQstnStr());
 
         //Initialize all for OpenAnswers
@@ -117,14 +117,16 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     private void validateBlockedItems(int position, ViewHolder holder) {
         if(itemList.get(position).getBlocked()) {
-            holder.qstnCard.setBackgroundColor(context.getResources().getColor(R.color.card_gray));
+            holder.qstnCard.setBackgroundColor(context.getResources().getColor(R.color.text_gray));
             holder.qstnNbr.setTextColor(context.getResources().getColor(R.color.text_gray));
             holder.qstnStr.setTextColor(context.getResources().getColor(R.color.text_gray));
+            holder.detailsTv.setTextColor(context.getResources().getColor(R.color.text_gray));
         }
         else {
             holder.qstnCard.setBackgroundColor(context.getResources().getColor(android.R.color.white));
-            holder.qstnNbr.setTextColor(context.getResources().getColor(android.R.color.holo_blue_dark));
-            holder.qstnStr.setTextColor(context.getResources().getColor(android.R.color.holo_blue_dark));
+            holder.qstnNbr.setTextColor(context.getResources().getColor(android.R.color.white));
+            holder.qstnStr.setTextColor(context.getResources().getColor(android.R.color.white));
+            holder.detailsTv.setTextColor(context.getResources().getColor(R.color.colorAccent));
         }
     }
 
