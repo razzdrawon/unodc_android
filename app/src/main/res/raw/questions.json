@@ -651,16 +651,22 @@
     "qstnNbr": 16,
     "qstnStr": "En caso de no haber nacido en el municipio de Querétaro, ¿cuánto tiempo tiene que llegó a esta ciudad?",
     "options": [
+
+
       {
         "opt": "a",
-        "optStr": "De 1 a 5 años"
+        "optStr": "Menos de un año"
       },
       {
         "opt": "b",
-        "optStr": "De 6 a 10 años"
+        "optStr": "De 1 a 5 años"
       },
       {
         "opt": "c",
+        "optStr": "De 6 a 10 años"
+      },
+      {
+        "opt": "d",
         "optStr": "Más de 10 años"
       }
     ]
@@ -682,13 +688,47 @@
       }
     ]
   },
+
   {
     "qstnNbr": 18,
+    "qstnStr": "¿Cuál es la causa por la que migraron sus familiares?",
+    "options": [
+      {
+        "opt": "a",
+        "optStr": "Situación conyugal"
+      },
+      {
+        "opt": "b",
+        "optStr": "Inseguridad"
+      },
+      {
+        "opt": "c",
+        "optStr": "Factores económicos"
+      },
+      {
+        "opt": "d",
+        "optStr": "Intereses laborales"
+      },
+      {
+        "opt": "e",
+        "optStr": "Estudios"
+      },
+      {
+        "opt": "f",
+        "optStr": "Otra causa. Especificar:",
+        "openOptFlag": true,
+        "openOptStr": null
+      }
+    ]
+  },
+  {
+    "qstnNbr": 19,
     "qstnStr": "¿Hacia dónde migró su familiar?",
     "options": [
       {
         "opt": "a",
         "optStr": "Otro municipio del estado",
+        "enables": [20],
         "options": [
           {
             "opt": 1,
@@ -763,6 +803,7 @@
       {
         "opt": "b",
         "optStr": "Otro estado",
+        "enables": [20],
         "options": [
           {
             "opt": 1,
@@ -896,41 +937,15 @@
       },
       {
         "opt": "c",
-        "optStr": "Estados Unidos"
+        "optStr": "Estados Unidos",
+        "blocks": [20],
+        "nextQstn": 21
       },
       {
         "opt": "d",
-        "optStr": "Otro país"
-      }
-    ]
-  },
-  {
-    "qstnNbr": 19,
-    "qstnStr": "¿Cuál es la causa por la que migraron sus familiares?",
-    "options": [
-      {
-        "opt": "a",
-        "optStr": "Situación conyugal"
-      },
-      {
-        "opt": "b",
-        "optStr": "Inseguridad"
-      },
-      {
-        "opt": "c",
-        "optStr": "Factores económicos"
-      },
-      {
-        "opt": "d",
-        "optStr": "Intereses laborales"
-      },
-      {
-        "opt": "e",
-        "optStr": "Estudios"
-      },
-      {
-        "opt": "f",
-        "optStr": "Otra causa. Especificar:",
+        "optStr": "Otro país",
+        "blocks": [20],
+        "nextQstn": 21,
         "openOptFlag": true,
         "openOptStr": null
       }
@@ -1364,14 +1379,12 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí",
-        "enables": [34, 35]
+        "optStr": "Sí"
+
       },
       {
         "opt": "b",
-        "optStr": "No",
-        "blocks": [34, 35],
-        "nextQstn": 36
+        "optStr": "No"
       }
     ]
   },
@@ -1381,11 +1394,14 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [35]
       },
       {
         "opt": "b",
-        "optStr": "No"
+        "optStr": "No",
+        "blocks": [35],
+        "nextQstn": 36
       }
     ]
   },
@@ -1476,19 +1492,19 @@
       {
         "opt": "a",
         "optStr": "Sí",
-        "enables": [39]
+        "enables": [39,40]
       },
       {
         "opt": "b",
         "optStr": "No",
-        "blocks": [39],
-        "nextQstn": 40
+        "blocks": [39,40],
+        "nextQstn": 41
       },
       {
         "opt": "c",
         "optStr": "No sabe",
-        "blocks": [39],
-        "nextQstn": 40
+        "blocks": [39,40],
+        "nextQstn": 41
       }
     ]
   },
@@ -2382,11 +2398,14 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "blocks": [66],
+        "nextQstn": 67
       },
       {
         "opt": "b",
-        "optStr": "No"
+        "optStr": "No",
+        "enables": [66]
       }
     ]
   },
