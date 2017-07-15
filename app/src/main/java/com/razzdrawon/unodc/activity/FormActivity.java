@@ -155,11 +155,12 @@ public class FormActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void showFinishDialog(String mensaje){
+    public void showFinishDialog(String mensaje){
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         alertDialogBuilder
+                .setCancelable(false)
                 .setTitle("Usted ha terminado")
                 .setMessage(mensaje)
                 .setPositiveButton("Terminar",new DialogInterface.OnClickListener() {
@@ -189,12 +190,12 @@ public class FormActivity extends AppCompatActivity {
 
                         finish();
                     }
-                })
-                .setNegativeButton("Revisar", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
                 });
+//                .setNegativeButton("Revisar", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        dialog.cancel();
+//                    }
+//                });
 
 
         AlertDialog alertDialog = alertDialogBuilder.create();

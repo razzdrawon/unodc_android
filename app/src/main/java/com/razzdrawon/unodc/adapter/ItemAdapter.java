@@ -513,6 +513,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             Menu menu = ((FormActivity)context).getMenu();
                             menu.getItem(0).setVisible(true);
                             holder.finishBtn.setVisibility(View.VISIBLE);
+
+                            ((FormActivity)context).showFinishDialog("¡Muchas gracias por participar!");
+
                         }
 
                         notifyDataSetChanged();
