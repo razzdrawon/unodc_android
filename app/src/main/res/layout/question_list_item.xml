@@ -34,13 +34,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1. "
+                    android:layout_marginLeft="5dp"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:textSize="@dimen/qstn_size"
                     android:gravity="center_vertical|end"
-                    android:paddingLeft="10dp"
-                    android:layout_weight="1"
-
                     android:maxLines="1"/>
 
                 <TextView
@@ -52,10 +50,8 @@
                     android:textStyle="bold"
                     android:textSize="@dimen/qstn_size"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="9"
-                    android:maxLines="3"/>
-
+                    android:layout_marginLeft="7dp"
+                    android:maxLines="4"/>
 
             </LinearLayout>
 

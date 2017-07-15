@@ -107,10 +107,11 @@
                 android:layout_below="@+id/pass_login_ui"
                 android:layout_width="300dp"
                 android:layout_height="65dp"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/white"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/rounded_corners_primary_back"
                 android:text="Comenzar cuestionario"/>
 
             <Button
@@ -118,11 +119,12 @@
                 android:layout_below="@+id/pass_login_ui"
                 android:layout_width="300dp"
                 android:layout_height="65dp"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/white"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/rounded_corners_primary_back"
                 android:text="Sincronizar información"/>
 
         </LinearLayout>

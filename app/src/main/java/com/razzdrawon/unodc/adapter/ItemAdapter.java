@@ -176,7 +176,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         }
     }
 
-    private void runMultiOptsCheck(final int position, ViewHolder holder) {
+    private void runMultiOptsCheck(final int position, final ViewHolder holder) {
         //******************* Is it multi opt with CheckBox? **********************
         //******************* Set visible CheckBosLayout, place listener to make sure it is answered, get the string to store it, make next question visible **********************
         if(itemList.get(position).getMaxCheck() != null && itemList.get(position).getOptions() != null){
@@ -198,6 +198,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     cb.setTextColor(context.getResources().getColor(android.R.color.black));
                 }
 
+                if(itemList.get(position).getBlocked()) {
+                    cb.setEnabled(false);
+                    cb.setTextColor(context.getResources().getColor(R.color.text_gray));
+                    holder.notAns.setVisibility(View.GONE);
+                }
+
 
                 Boolean isOneChecked = false;
 
@@ -208,7 +214,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 }
 
                 if(isOneChecked == false){
-                    holder.notAns.setVisibility(View.VISIBLE);
+                    if(!itemList.get(position).getBlocked()) {
+                        holder.notAns.setVisibility(View.VISIBLE);
+                    }
                 }
                 else {
                     holder.notAns.setVisibility(View.GONE);
@@ -220,10 +228,26 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                         if(isChecked) {
 
-                            opt.setChosen(true);
-                            if (!itemList.get(position).getAnswered()) {
-                                itemList.get(position).setAnswered(true);
-                                itemList.add(copyItemList.get(itemList.get(position).getQstnNbr()));
+                            int numChecks = 0;
+
+                            for (int y = 0; y < holder.chkBoxLayout.getChildCount(); y++) {
+                                CheckBox cbCh = (CheckBox)holder.chkBoxLayout.getChildAt(y);
+                                if(cbCh.isChecked()){
+                                    numChecks++;
+                                }
+                            }
+
+                            if(numChecks > itemList.get(position).getMaxCheck()) {
+                                buttonView.setChecked(false);
+                            }
+                            else {
+
+                                opt.setChosen(true);
+                                if (!itemList.get(position).getAnswered()) {
+                                    itemList.get(position).setAnswered(true);
+                                    itemList.add(copyItemList.get(itemList.get(position).getQstnNbr()));
+                                }
+
                             }
                         }
                         else {
