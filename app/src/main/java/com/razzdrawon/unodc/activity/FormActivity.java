@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -17,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.razzdrawon.unodc.R;
 import com.razzdrawon.unodc.adapter.ItemAdapter;
 import com.razzdrawon.unodc.dbhelper.ItemSQLiteHelper;
@@ -72,25 +67,6 @@ public class FormActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        finishBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //This List is gonaa be stored
-//                mAdapter.getItemList();
-//                JsonParser.
-
-                //Here we implement SQLite
-
-
-//                Intent intent;
-//                intent = new Intent(FormActivity.this, ThanksActivity.class);
-//                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                startActivity(intent);
-
-            }
-        });
 
     }
 
@@ -191,11 +167,6 @@ public class FormActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-//                .setNegativeButton("Revisar", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        dialog.cancel();
-//                    }
-//                });
 
 
         AlertDialog alertDialog = alertDialogBuilder.create();

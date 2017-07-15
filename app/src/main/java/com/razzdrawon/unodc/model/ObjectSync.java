@@ -12,6 +12,7 @@ public class ObjectSync {
 
     private Integer id;
     private String json;
+    private String timecap;
     private Boolean sync;
 
     public ObjectSync() {
@@ -36,6 +37,14 @@ public class ObjectSync {
 
     public void setJson(String json) {
         this.json = json;
+    }
+
+    public String getTimecap() {
+        return timecap;
+    }
+
+    public void setTimecap(String timecap) {
+        this.timecap = timecap;
     }
 
     public Boolean getSync() {

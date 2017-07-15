@@ -19,6 +19,7 @@ import com.razzdrawon.unodc.util.Constants;
 import com.razzdrawon.unodc.util.JsonParser;
 import com.razzdrawon.unodc.ws.SyncWS;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -62,22 +63,27 @@ public class MainActivity extends AppCompatActivity {
 
                 Boolean isAvailabletoSync = false;
                 List<ObjectSync> items  = db.getAllItems();
+                List<ObjectSync> itemsToSend = new ArrayList<>();
+
 
                 for (ObjectSync item: items){
                     if(!item.getSync()) {
-                        try {
-                            makSyncRequest(item);
-                            isAvailabletoSync = true;
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        itemsToSend.add(item);
                     }
                 }
-                if(!isAvailabletoSync)
-                    Toast.makeText(getApplicationContext(), "No hay cuestionarios por sincronizar.", Toast.LENGTH_SHORT).show();
 
+                if (itemsToSend.size() > 0) {
+                    try {
+                        makeSyncRequest(itemsToSend);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "No hay cuestionarios por sincronizar.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -86,40 +92,51 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void makSyncRequest(ObjectSync obj) throws IOException, JSONException {
-//        pDialog = new ProgressDialog(this);
-//        pDialog.setTitle("Login in");
-//        pDialog.setMessage("Wait a moment...");
-//        pDialog.show();
+    private void makeSyncRequest(List<ObjectSync> objs) throws IOException, JSONException {
+        pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Login in");
+        pDialog.setMessage("Wait a moment...");
+        pDialog.show();
 
-        String jsonStr = JsonParser.parseObjSynctoString(obj);
 
-        JSONObject jsonObj = new JSONObject(jsonStr);
+        JSONArray array = new JSONArray();
 
-        SyncWS.makePostObjSyncRequest(Constants.URL_WEBSERVICES, jsonObj, new RequestListener() {
+        for(ObjectSync obj: objs){
+            String jsonStr = JsonParser.parseObjSynctoString(obj);
+            JSONObject jsonObj = new JSONObject(jsonStr);
+            array.put(jsonObj);
+        }
+
+
+
+//        JSONObject jsonObj = new JSONObject(jsonStr);
+
+        SyncWS.makePostListObjSyncRequest(Constants.URL_WEBSERVICES, array, new RequestListener() {
 
             @Override
             public void onResponse(Object response) {
 
-//                pDialog.hide();
-//                pDialog.dismiss();
+                pDialog.hide();
+                pDialog.dismiss();
                 Log.i("Volley request", "Success");
                 Log.i("Response: ", "" + response);
-                ObjectSync objSync = (ObjectSync) response;
-
-                db.updateItem(objSync);
-
-                Toast.makeText(getApplicationContext(), "El cuestionario " + objSync.getId() + " se sincronizó correctamente", Toast.LENGTH_SHORT).show();
+                List<ObjectSync> listObjSync = (List<ObjectSync>) response;
 
                 // Aquí se marcan en true los objetos ya sincronizados de SQLite
+                for(ObjectSync objSync: listObjSync){
+                    db.updateItem(objSync);
+                }
+
+                Toast.makeText(getApplicationContext(), "Los cuestionarios se han sincronizado correctamente", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onError(VolleyError error) {
-//                pDialog.hide();
-//                pDialog.dismiss();
+                pDialog.hide();
+                pDialog.dismiss();
 
+                Toast.makeText(getApplicationContext(), "Se produjo un error.", Toast.LENGTH_SHORT).show();
             }
 
         });

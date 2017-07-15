@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.razzdrawon.unodc.model.Item;
-import com.razzdrawon.unodc.model.ItemResponse;
 import com.razzdrawon.unodc.model.ObjectSync;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +23,7 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Database Name
     private static final String DATABASE_NAME = "itemsManager";
@@ -32,6 +34,7 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_JSONITEM = "json_item";
+    private static final String KEY_TIMECAP = "time_cap";
     private static final String KEY_FLAG_SYNC = "flag_sync";
 
     public ItemSQLiteHelper(Context context) {
@@ -42,7 +45,7 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_ITEMS_TABLE = "CREATE TABLE " + TABLE_ITEMS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_JSONITEM + " TEXT,"
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_JSONITEM + " TEXT," + KEY_TIMECAP + " TEXT,"
                 + KEY_FLAG_SYNC + " INTEGER" + ")";
         db.execSQL(CREATE_ITEMS_TABLE);
     }
@@ -58,7 +61,7 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
     }
 
 
-//    // Adding new contact
+    //    // Adding new contact
     public void addItem(String item) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -66,11 +69,19 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
         values.put(KEY_JSONITEM, item); // Contact Name
         values.put(KEY_FLAG_SYNC, 0); // Contact Phone Number
 
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        // Get the date today using Calendar object.
+        Date today = Calendar.getInstance().getTime();
+        String reportDate = df.format(today);
+
+        values.put(KEY_TIMECAP, reportDate);
         // Inserting Row
         db.insert(TABLE_ITEMS, null, values);
         db.close(); // Closing database connection
     }
-//
+
+    //
 //    // Getting single contact
 //    public Item getContact(int id) {
 //
@@ -91,8 +102,9 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
                 ObjectSync objSync = new ObjectSync();
                 objSync.setId(Integer.parseInt(cursor.getString(0)));
                 objSync.setJson(cursor.getString(1));
-                int bool = Integer.parseInt(cursor.getString(2));
-                if(bool == 0)
+                objSync.setTimecap(cursor.getString(2));
+                int bool = Integer.parseInt(cursor.getString(3));
+                if (bool == 0)
                     objSync.setSync(false);
                 else
                     objSync.setSync(true);
@@ -104,7 +116,8 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
         // return contact list
         return objSyncList;
     }
-//
+
+    //
 //    // Getting contacts Count
 //    public int getItemsCount() {
 //
@@ -116,18 +129,16 @@ public class ItemSQLiteHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 //        values.put(KEY_JSONITEM, objSync.getJson());
-        if(objSync.getSync()){
+        if (objSync.getSync()) {
             values.put(KEY_FLAG_SYNC, 1);
-        }
-        else {
+        } else {
             values.put(KEY_FLAG_SYNC, 0);
         }
 
 
-
         // updating row
         return db.update(TABLE_ITEMS, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(objSync.getId()) });
+                new String[]{String.valueOf(objSync.getId())});
     }
 //
 //    // Deleting single contact

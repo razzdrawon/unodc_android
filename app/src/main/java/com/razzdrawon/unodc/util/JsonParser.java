@@ -71,10 +71,31 @@ public class JsonParser {
         return objSync;
     }
 
+    public static List<ObjectSync> parseListObjSync(String json) throws IOException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        List<ObjectSync> listObjsSync = new ArrayList<>();
+
+        JsonNode rootNode = objectMapper.readTree(json);
+
+        for(JsonNode dataAuxNode : rootNode){
+            listObjsSync.add(objectMapper.treeToValue(dataAuxNode, ObjectSync.class));
+        }
+
+        return listObjsSync;
+    }
+
     public static String parseObjSynctoString(ObjectSync item) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonResp = objectMapper.writeValueAsString(item);
         return jsonResp;
     }
+//
+//    public static String parseListObjSynctoString(List<ObjectSync> items) throws IOException {
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        String jsonResp = objectMapper.writeValueAsString(items);
+//        return jsonResp;
+//    }
 
 }
