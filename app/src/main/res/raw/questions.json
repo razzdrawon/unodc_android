@@ -642,8 +642,10 @@
       },
       {
         "opt": "d",
-        "optStr": "Otro país.",
-        "enables": [16]
+        "optStr": "Otro país. Especificar:",
+        "enables": [16],
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
