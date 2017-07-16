@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeSyncRequest(List<ObjectSync> objs) throws IOException, JSONException {
         pDialog = new ProgressDialog(this);
-        pDialog.setTitle("Login in");
-        pDialog.setMessage("Wait a moment...");
+        pDialog.setTitle("Cargando los datos en el servidor");
+        pDialog.setMessage("Por favor espere un momento...");
         pDialog.show();
 
 

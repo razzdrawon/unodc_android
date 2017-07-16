@@ -32,7 +32,7 @@
         "optStr": "Homosexual"
       },
       {
-        "opt": "d",
+        "opt": "c",
         "optStr": "Bisexual"
       },
       {
@@ -208,8 +208,12 @@
         "optStr": "Obrero (a)"
       },
       {
-        "opt": "j",
+        "opt": "i",
         "optStr": "Desempleado (a)"
+      },
+      {
+        "opt": "j",
+        "optStr": "Ninguna"
       },
       {
         "opt": "k",
@@ -691,6 +695,7 @@
     ]
   },
 
+
   {
     "qstnNbr": 18,
     "qstnStr": "¿Cuál es la causa por la que migraron sus familiares?",
@@ -723,6 +728,7 @@
       }
     ]
   },
+
   {
     "qstnNbr": 19,
     "qstnStr": "¿Hacia dónde migró su familiar?",
@@ -730,7 +736,8 @@
       {
         "opt": "a",
         "optStr": "Otro municipio del estado",
-        "enables": [20],
+
+
         "options": [
           {
             "opt": 1,
@@ -805,7 +812,7 @@
       {
         "opt": "b",
         "optStr": "Otro estado",
-        "enables": [20],
+
         "options": [
           {
             "opt": 1,
@@ -939,20 +946,17 @@
       },
       {
         "opt": "c",
-        "optStr": "Estados Unidos",
-        "blocks": [20],
-        "nextQstn": 21
+        "optStr": "Estados Unidos"
       },
       {
         "opt": "d",
-        "optStr": "Otro país",
-        "blocks": [20],
-        "nextQstn": 21,
-        "openOptFlag": true,
-        "openOptStr": null
+        "optStr": "Otro país"
+
       }
     ]
   },
+
+
   {
     "qstnNbr": 20,
     "qstnStr": " ¿De qué forma migraron sus familiares?",
@@ -1464,23 +1468,23 @@
         "optStr": "Marina"
       },
       {
-        "opt": "g",
+        "opt": "f",
         "optStr": "Ejército"
       },
       {
-        "opt": "h",
+        "opt": "g",
         "optStr": "Llamar a la línea de emergencia (911)"
       },
       {
-        "opt": "i",
+        "opt": "h",
         "optStr": "Particular"
       },
       {
-        "opt": "j",
+        "opt": "i",
         "optStr": "Seguridad privada"
       },
       {
-        "opt": "k",
+        "opt": "j",
         "optStr": "Otro. Especificar:",
         "openOptFlag": true,
         "openOptStr": null
@@ -1549,6 +1553,7 @@
   {
     "qstnNbr": 41,
     "qstnStr": "Para usted, ¿Cuáles son las 3 principales causas de la inseguridad?",
+    "check": 3,
     "options": [
       {
         "opt": "a",
@@ -1568,7 +1573,7 @@
       },
       {
         "opt": "e",
-        "optStr": "Ineficacia por parte de las autordades"
+        "optStr": "Ineficacia por parte de las autoridades"
       },
       {
         "opt": "f",
@@ -1755,7 +1760,7 @@
         "optStr": "Consumo de drogas o alcohol"
       },
       {
-        "opt": "l",
+        "opt": "k",
         "optStr": "Otro. Especificar:",
         "openOptFlag": true,
         "openOptStr": null
@@ -1795,8 +1800,8 @@
   },
   {
     "qstnNbr": 49,
-    "qstnStr": "En caso de sí, ¿por cuál delito? (Puede seleccionar hasta 3 respuestas)",
-    "check": 3,
+    "qstnStr": "En caso de sí, ¿por cuál delito? (Puede seleccionar más de una opción)",
+    "check": 17,
     "options": [
       {
         "opt": "a",
@@ -1808,11 +1813,11 @@
       },
       {
         "opt": "c",
-        "optStr": "Robo a casa habitacion con violencia"
+        "optStr": "Robo a casa habitación con violencia"
       },
       {
         "opt": "d",
-        "optStr": "Robo a casa habitacion sin violencia"
+        "optStr": "Robo a casa habitación sin violencia"
       },
       {
         "opt": "e",
@@ -1840,7 +1845,7 @@
       },
       {
         "opt": "k",
-        "optStr": "Violación ó agresiones sexuales"
+        "optStr": "Violación o agresiones sexuales"
       },
       {
         "opt": "l",
@@ -1848,11 +1853,11 @@
       },
       {
         "opt": "m",
-        "optStr": "PMaltrato animal"
+        "optStr": "Maltrato animal"
       },
       {
         "opt": "n",
-        "optStr": "Víolencia intrafamiliar"
+        "optStr": "Violencia intrafamiliar"
       },
       {
         "opt": "o",
@@ -1919,11 +1924,11 @@
       },
       {
         "opt": "c",
-        "optStr": "Robo a casa habitacion con violencia"
+        "optStr": "Robo a casa habitación con violencia"
       },
       {
         "opt": "d",
-        "optStr": "Robo a casa habitacion sin violencia"
+        "optStr": "Robo a casa habitación sin violencia"
       },
       {
         "opt": "e",
@@ -1951,7 +1956,7 @@
       },
       {
         "opt": "k",
-        "optStr": "Violación ó agresiones sexuales"
+        "optStr": "Violación o agresiones sexuales"
       },
       {
         "opt": "l",
@@ -1963,7 +1968,7 @@
       },
       {
         "opt": "n",
-        "optStr": "Víolencia intrafamiliar"
+        "optStr": "Violencia intrafamiliar"
       },
       {
         "opt": "o",
@@ -2072,11 +2077,11 @@
       },
       {
         "opt": "c",
-        "optStr": "Robo a casa habitacion con violencia"
+        "optStr": "Robo a casa habitación con violencia"
       },
       {
         "opt": "d",
-        "optStr": "Robo a casa habitacion sin violencia"
+        "optStr": "Robo a casa habitación sin violencia"
       },
       {
         "opt": "e",
@@ -2104,7 +2109,7 @@
       },
       {
         "opt": "k",
-        "optStr": "Violación ó agresiones sexuales"
+        "optStr": "Violación o agresiones sexuales"
       },
       {
         "opt": "l",
@@ -2116,7 +2121,7 @@
       },
       {
         "opt": "n",
-        "optStr": "Víolencia intrafamiliar"
+        "optStr": "Violencia intrafamiliar"
       },
       {
         "opt": "o",
