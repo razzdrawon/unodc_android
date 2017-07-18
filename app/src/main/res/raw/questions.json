@@ -730,7 +730,7 @@
       {
         "opt": "a",
         "optStr": "Otro municipio del estado",
-        "enables": [20],
+        "blocks": [20],
         "options": [
           {
             "opt": 1,
@@ -805,7 +805,7 @@
       {
         "opt": "b",
         "optStr": "Otro estado",
-        "enables": [20],
+        "blocks": [20],
         "options": [
           {
             "opt": 1,
@@ -940,13 +940,13 @@
       {
         "opt": "c",
         "optStr": "Estados Unidos",
-        "blocks": [20],
+        "enables": [20],
         "nextQstn": 21
       },
       {
         "opt": "d",
         "optStr": "Otro país",
-        "blocks": [20],
+        "enables": [20],
         "nextQstn": 21,
         "openOptFlag": true,
         "openOptStr": null
@@ -2005,13 +2005,13 @@
       {
         "opt": "a",
         "optStr": "Ninguno",
-        "enables": [52]
+        "enables": [55]
       },
       {
         "opt": "b",
         "optStr": "Se resolvió",
-        "blocks": [52],
-        "nextQstn": 53
+        "blocks": [55],
+        "nextQstn": 55
       }
     ]
   },

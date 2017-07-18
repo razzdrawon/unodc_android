@@ -487,9 +487,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                             //If we need to block some questions
                             if(itemList.get(position).getOptions().get(idx).getBlocks() != null){
                                 for (Integer block: itemList.get(position).getOptions().get(idx).getBlocks()) {
-                                    itemList.add(copyItemList.get(block - 1));
-                                    itemList.get(itemList.size() - 1).setAnswered(true);
-                                    itemList.get(itemList.size() - 1).setBlocked(true);
+                                    if(!hasDependentText && !hasDependentOpt) {
+                                        itemList.add(copyItemList.get(block - 1));
+                                        itemList.get(itemList.size() - 1).setAnswered(true);
+                                        itemList.get(itemList.size() - 1).setBlocked(true);
+                                    }
                                 }
                                 //This is the new questio to add to the list
                                 if(!hasDependentText && !hasDependentOpt) {
