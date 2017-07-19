@@ -1306,6 +1306,7 @@
   {
     "qstnNbr": 30,
     "qstnStr": "¿Qué operativos reconoce?",
+    "check": 8,
     "options": [
       {
         "opt": "a",
@@ -2010,13 +2011,13 @@
       {
         "opt": "a",
         "optStr": "Ninguno",
-        "enables": [52]
+        "enables": [55]
       },
       {
         "opt": "b",
         "optStr": "Se resolvió",
-        "blocks": [52],
-        "nextQstn": 53
+        "blocks": [55],
+        "nextQstn": 56
       }
     ]
   },
@@ -2721,15 +2722,12 @@
       },
       {
         "opt": "g",
-        "optStr": "Nuevos espacios de convivencia",
-        "openOptFlag": true,
-        "openOptStr": null
+        "optStr": "Nuevos espacios de convivencia"
+
       },
       {
         "opt": "h",
-        "optStr": "Mejorar la seguridad",
-        "openOptFlag": true,
-        "openOptStr": null
+        "optStr": "Mejorar la seguridad"
       }
     ]
   },
