@@ -432,7 +432,8 @@
       {
         "opt": "a",
         "optStr": "Municipio de Querétaro",
-        "blocks": [16]
+        "blocks": [16],
+        "nextQstn": 17
       },
       {
         "opt": "b",
@@ -695,7 +696,6 @@
     ]
   },
 
-
   {
     "qstnNbr": 18,
     "qstnStr": "¿Cuál es la causa por la que migraron sus familiares?",
@@ -728,7 +728,6 @@
       }
     ]
   },
-
   {
     "qstnNbr": 19,
     "qstnStr": "¿Hacia dónde migró su familiar?",
@@ -736,8 +735,8 @@
       {
         "opt": "a",
         "optStr": "Otro municipio del estado",
-
-
+        "blocks": [20],
+        "nextQstn": 21,
         "options": [
           {
             "opt": 1,
@@ -812,7 +811,8 @@
       {
         "opt": "b",
         "optStr": "Otro estado",
-
+        "blocks": [20],
+        "nextQstn": 21,
         "options": [
           {
             "opt": 1,
@@ -946,17 +946,20 @@
       },
       {
         "opt": "c",
-        "optStr": "Estados Unidos"
+        "optStr": "Estados Unidos",
+        "enables": [20],
+        "nextQstn": 21
       },
       {
         "opt": "d",
-        "optStr": "Otro país"
-
+        "optStr": "Otro país",
+        "enables": [20],
+        "nextQstn": 21,
+        "openOptFlag": true,
+        "openOptStr": null
       }
     ]
   },
-
-
   {
     "qstnNbr": 20,
     "qstnStr": " ¿De qué forma migraron sus familiares?",

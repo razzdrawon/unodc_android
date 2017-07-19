@@ -4,11 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by mapadi3 on 02/07/17.
@@ -16,25 +12,27 @@ import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Item {
+
+    //params to show the question
     private Integer qstnNbr;
     private String qstnStr;
 
-    @JsonProperty("check")
-    private Integer maxCheck;
-
+    //Params to show open answer if exists
     @JsonProperty("openOptFlag")
     private Boolean openAnswerFlag = false;
     @JsonProperty("openOptStr")
     private String openAnswer;
 
+    //Params to show options to choose
     private List<Option> options;
 
-    private String dependentOpenAnswer;
-    private List<Option> dependentOptions;
-
-    private Boolean isAnswered = false;
-
+    //Param to show if it is already shown in the screen
+    private Boolean isAlreadyShown = false;
     private Boolean isBlocked = false;
+
+
+    @JsonProperty("check")
+    private Integer maxCheck;
 
     public Item() {
     }
@@ -44,14 +42,12 @@ public class Item {
         this.qstnStr = qstnStr;
     }
 
-    public Item(Integer qstnNbr, String qstnStr, Boolean openAnswerFlag, String openAnswer, List<Option> options, String dependentOpenAnswer, List<Option> dependentOptions) {
+    public Item(Integer qstnNbr, String qstnStr, Boolean openAnswerFlag, String openAnswer, List<Option> options) {
         this.qstnNbr = qstnNbr;
         this.qstnStr = qstnStr;
         this.openAnswerFlag = openAnswerFlag;
         this.openAnswer = openAnswer;
         this.options = options;
-        this.dependentOpenAnswer = dependentOpenAnswer;
-        this.dependentOptions = dependentOptions;
     }
 
     public Integer getQstnNbr() {
@@ -102,22 +98,6 @@ public class Item {
         this.options = options;
     }
 
-    public String getDependentOpenAnswer() {
-        return dependentOpenAnswer;
-    }
-
-    public void setDependentOpenAnswer(String dependentOpenAnswer) {
-        this.dependentOpenAnswer = dependentOpenAnswer;
-    }
-
-    public List<Option> getDependentOptions() {
-        return dependentOptions;
-    }
-
-    public void setDependentOptions(List<Option> dependentOptions) {
-        this.dependentOptions = dependentOptions;
-    }
-
     public List<String> getOptionsByStrings() {
         List<String> options = new ArrayList<String>();
         for (Option opt : this.getOptions()) {
@@ -126,12 +106,12 @@ public class Item {
         return options;
     }
 
-    public Boolean getAnswered() {
-        return isAnswered;
+    public Boolean getAlreadyShown() {
+        return isAlreadyShown;
     }
 
-    public void setAnswered(Boolean answered) {
-        isAnswered = answered;
+    public void setAlreadyShown(Boolean alreadyShown) {
+        isAlreadyShown = alreadyShown;
     }
 
     public Boolean getBlocked() {
