@@ -432,7 +432,8 @@
       {
         "opt": "a",
         "optStr": "Municipio de Querétaro",
-        "blocks": [16]
+        "blocks": [16],
+        "nextQstn": 17
       },
       {
         "opt": "b",
@@ -735,6 +736,7 @@
         "opt": "a",
         "optStr": "Otro municipio del estado",
         "blocks": [20],
+        "nextQstn": 21,
         "options": [
           {
             "opt": 1,
@@ -810,6 +812,7 @@
         "opt": "b",
         "optStr": "Otro estado",
         "blocks": [20],
+        "nextQstn": 21,
         "options": [
           {
             "opt": 1,
@@ -2016,7 +2019,7 @@
         "opt": "b",
         "optStr": "Se resolvió",
         "blocks": [55],
-        "nextQstn": 55
+        "nextQstn": 56
       }
     ]
   },

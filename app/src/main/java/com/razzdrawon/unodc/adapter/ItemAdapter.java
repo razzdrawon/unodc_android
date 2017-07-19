@@ -79,8 +79,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             openAnsDetails = (EditText) itemView.findViewById(R.id.details_et);
             optsDetailsSpin = (Spinner) itemView.findViewById(R.id.det_opts_spn);
 
-            rv = (RecyclerView) ((FormActivity)context).findViewById(R.id.recycler_view);
-            finishBtn = (Button) ((FormActivity)context).findViewById(R.id.finish_btn);
+            rv = (RecyclerView) ((FormActivity) context).findViewById(R.id.recycler_view);
+            finishBtn = (Button) ((FormActivity) context).findViewById(R.id.finish_btn);
 
         }
     }
@@ -117,17 +117,81 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
 
     private void validateBlockedItems(int position, ViewHolder holder) {
-        if(itemList.get(position).getBlocked()) {
+        if (itemList.get(position).getBlocked()) {
             holder.qstnCard.setBackgroundColor(context.getResources().getColor(R.color.card_gray));
             holder.qstnNbr.setTextColor(context.getResources().getColor(R.color.text_gray));
             holder.qstnStr.setTextColor(context.getResources().getColor(R.color.text_gray));
             holder.detailsTv.setTextColor(context.getResources().getColor(R.color.text_gray));
-        }
-        else {
+        } else {
             holder.qstnCard.setBackgroundColor(context.getResources().getColor(android.R.color.white));
             holder.qstnNbr.setTextColor(context.getResources().getColor(android.R.color.white));
             holder.qstnStr.setTextColor(context.getResources().getColor(android.R.color.white));
             holder.detailsTv.setTextColor(context.getResources().getColor(R.color.colorAccent));
+        }
+    }
+
+    private void addNextToAnswer(Integer qstnNbr, Boolean blocked) {
+
+        if (qstnNbr > itemList.size() && qstnNbr <= copyItemList.size()) {
+            itemList.add(copyItemList.get(qstnNbr - 1));
+            itemList.get(qstnNbr - 1).setBlocked(blocked);
+            itemList.get(qstnNbr - 1).setAlreadyShown(true);
+        }
+
+    }
+
+    private void cleanAllSelectionFromItem(int positionToClear) {
+        //Cleaning the last option in the model
+        for (Option opt : itemList.get(positionToClear).getOptions()) {
+            opt.setChosen(false);
+            if(opt.getDepOptions() != null) {
+                for (DepOption depOpt : opt.getDepOptions()) {
+                    depOpt.setChosen(false);
+                }
+            }
+        }
+    }
+
+    private void prepareNewScenario(int positionToPrepare, int idx) {
+        //***************************************** Preparing next scenario. Adding, block, enable items if needed ************************************
+
+        //***** Checking blocks *****
+        if (itemList.get(positionToPrepare).getOptions().get(idx).getBlocks() != null) {
+            for (Integer block : itemList.get(positionToPrepare).getOptions().get(idx).getBlocks()) {
+                //validating the items to block if they exist just block them or if they dont, create them as blocked
+                //Already exists:
+                if (block <= itemList.get(itemList.size() - 1).getQstnNbr()) {
+                    cleanAllSelectionFromItem(block - 1);
+                    itemList.get(block - 1).setBlocked(true);
+                    itemList.get(block - 1).setAlreadyShown(true);
+                }
+                //Create it blocked:
+                else {
+                    addNextToAnswer(block, true);
+                }
+            }
+            addNextToAnswer(itemList.get(positionToPrepare).getQstnNbr() + itemList.get(positionToPrepare).getOptions().get(idx).getBlocks().size() + 1, false);
+        }
+
+        //***** Checking enables *****
+        if(itemList.get(positionToPrepare).getOptions().get(idx).getEnables() != null){
+            for (Integer enable: itemList.get(positionToPrepare).getOptions().get(idx).getEnables()) {
+                //validating the items to enable if they already exist or just create the next one
+                //Already exists:
+                if (enable <= itemList.get(itemList.size() - 1).getQstnNbr()) {
+                    itemList.get(enable - 1).setBlocked(false);
+                    itemList.get(enable - 1).setAlreadyShown(true);
+                }
+                //Create only the next one it enabled:
+                else {
+                    addNextToAnswer(itemList.get(positionToPrepare).getQstnNbr() + 1, false);
+                }
+            }
+        }
+
+        //**** Checking No Blocks and No Enables
+        if(itemList.get(positionToPrepare).getOptions().get(idx).getBlocks() == null && itemList.get(positionToPrepare).getOptions().get(idx).getEnables() == null) {
+            addNextToAnswer(itemList.get(positionToPrepare).getQstnNbr() + 1, false);
         }
     }
 
@@ -151,12 +215,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_DOWN))) {
                         itemList.get(position).setOpenAnswer(holder.openAns.getText().toString());
 
-                        // Adding the new item and make the question answered
-                        if(!itemList.get(position).getAnswered()){
-//                            itemList.add(copyItemList.get(itemList.get(position).getQstnNbr()));
-                            itemList.add(copyItemList.get(position + 1));
-                            itemList.get(position).setAnswered(true);
-                        }
+                        addNextToAnswer(itemList.get(position).getQstnNbr() + 1, false);
 
                         notifyDataSetChanged();
 
@@ -179,26 +238,25 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     private void runMultiOptsCheck(final int position, final ViewHolder holder) {
         //******************* Is it multi opt with CheckBox? **********************
         //******************* Set visible CheckBosLayout, place listener to make sure it is answered, get the string to store it, make next question visible **********************
-        if(itemList.get(position).getMaxCheck() != null && itemList.get(position).getOptions() != null){
+        if (itemList.get(position).getMaxCheck() != null && itemList.get(position).getOptions() != null) {
             holder.chkBoxLayout.setVisibility(View.VISIBLE);
             holder.chkBoxLayout.removeAllViews();
 
-            for(final Option opt: itemList.get(position).getOptions()) {
+            for (final Option opt : itemList.get(position).getOptions()) {
                 CheckBox cb = new CheckBox(context);
                 cb.setText(opt.getOpt() + ") " + opt.getOptStr());
                 cb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
                 holder.chkBoxLayout.addView(cb);
-                if(opt.getChosen()) {
+                if (opt.getChosen()) {
                     cb.setChecked(true);
                     cb.setTextColor(context.getResources().getColor(R.color.colorAccent));
-                }
-                else{
+                } else {
                     cb.setChecked(false);
                     cb.setTextColor(context.getResources().getColor(android.R.color.black));
                 }
 
-                if(itemList.get(position).getBlocked()) {
+                if (itemList.get(position).getBlocked()) {
                     cb.setEnabled(false);
                     cb.setTextColor(context.getResources().getColor(R.color.text_gray));
                     holder.notAns.setVisibility(View.GONE);
@@ -207,18 +265,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                 Boolean isOneChecked = false;
 
-                for (Option o: itemList.get(position).getOptions()) {
-                    if(o.getChosen()){
+                for (Option o : itemList.get(position).getOptions()) {
+                    if (o.getChosen()) {
                         isOneChecked = true;
                     }
                 }
 
-                if(isOneChecked == false){
-                    if(!itemList.get(position).getBlocked()) {
+                if (isOneChecked == false) {
+                    if (!itemList.get(position).getBlocked()) {
                         holder.notAns.setVisibility(View.VISIBLE);
                     }
-                }
-                else {
+                } else {
                     holder.notAns.setVisibility(View.GONE);
                 }
 
@@ -226,31 +283,27 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                        if(isChecked) {
+                        if (isChecked) {
 
                             int numChecks = 0;
 
                             for (int y = 0; y < holder.chkBoxLayout.getChildCount(); y++) {
-                                CheckBox cbCh = (CheckBox)holder.chkBoxLayout.getChildAt(y);
-                                if(cbCh.isChecked()){
+                                CheckBox cbCh = (CheckBox) holder.chkBoxLayout.getChildAt(y);
+                                if (cbCh.isChecked()) {
                                     numChecks++;
                                 }
                             }
 
-                            if(numChecks > itemList.get(position).getMaxCheck()) {
+                            if (numChecks > itemList.get(position).getMaxCheck()) {
                                 buttonView.setChecked(false);
-                            }
-                            else {
+                            } else {
 
                                 opt.setChosen(true);
-                                if (!itemList.get(position).getAnswered()) {
-                                    itemList.get(position).setAnswered(true);
-                                    itemList.add(copyItemList.get(itemList.get(position).getQstnNbr()));
-                                }
+
+                                addNextToAnswer(itemList.get(position).getQstnNbr() + 1, false);
 
                             }
-                        }
-                        else {
+                        } else {
                             opt.setChosen(false);
                         }
 
@@ -258,14 +311,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     }
                 });
             }
-        }
-        else {
+        } else {
             holder.chkBoxLayout.setVisibility(View.GONE);
         }
     }
 
     private void runOptsRadio(int position, ViewHolder holder) {
-
 
         //******************* Is it a multi option answer? **********************
         //******************* Set visible radiogroup, place listener to make sure it is answered, get option to store it, make next question visible **********************
@@ -277,69 +328,77 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             holder.notAns.setVisibility(View.GONE);
 
 
-
             Boolean hasDetails = false;
 
-            //create radio buttons -- initializing what is already answered for all the options
-            for (int i = 0; i < itemList.get(position).getOptions().size(); i++) {
+            //Creating radio buttons -- initializing what is already answered for all the options
+//            for (int i = 0; i < itemList.get(position).getOptions().size(); i++) {
+            int i = 0;
+            for(Option option: itemList.get(position).getOptions()) {
                 RadioButton radioButton = new RadioButton(context);
-                radioButton.setText(itemList.get(position).getOptions().get(i).getOpt() + ") " + itemList.get(position).getOptions().get(i).getOptStr());
+                radioButton.setText(option.getOpt() + ") " + option.getOptStr());
                 radioButton.setId(i);
                 radioButton.setTextAppearance(context, android.R.style.TextAppearance_Large);
-
-                if(itemList.get(position).getBlocked()) {
-                    radioButton.setEnabled(false);
-                    radioButton.setTextColor(context.getResources().getColor(R.color.text_gray));
-                }
+                i++;
 
                 // Check if it was choosen
-                if (itemList.get(position).getOptions().get(i).getChosen()) {
+                if (option.getChosen()) {
+
+                    //Setting checked and color
                     radioButton.setChecked(true);
                     radioButton.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
+
+
                     //Does it have open answer details? set the text and show ET
-                    if(itemList.get(position).getOptions().get(i).getOpenAnswerFlag()) {
+                    if (option.getDepOpenAnswerFlag()) {
                         hasDetails = true;
                         holder.openAnsDetails.setVisibility(View.VISIBLE);
                         holder.detailsTv.setVisibility(View.VISIBLE);
-                        holder.openAnsDetails.setText(itemList.get(position).getOptions().get(i).getOpenAnswer());
-                    }
-                    else {
+                        holder.openAnsDetails.setText(option.getDepOpenAnswer());
+                    } else {
                         holder.openAnsDetails.setVisibility(View.GONE);
                     }
 
 
+
                     //Does it have dependent options? Populate spinner
-                    if(itemList.get(position).getOptions().get(i).getOptions() != null){
+                    if (option.getDepOptions() != null) {
                         hasDetails = true;
                         holder.optsDetailsSpin.setVisibility(View.VISIBLE);
                         holder.detailsTv.setVisibility(View.VISIBLE);
 
-                        List<DepOption> optionsForSpin = new ArrayList<>();
-                        DepOption optDefault = new DepOption(0,"Seleccione una opción");
-                        optionsForSpin.add(optDefault);
-                        optionsForSpin.addAll(itemList.get(position).getOptions().get(i).getOptions());
 
+                        //Populating array for spinn and creating it
+                        List<DepOption> optionsForSpin = new ArrayList<>();
+                        DepOption optDefault = new DepOption(0, "Seleccione una opción");
+                        optionsForSpin.add(optDefault);
+                        optionsForSpin.addAll(option.getDepOptions());
                         ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(context,
                                 R.layout.spinner_dropdown_layout, optionsForSpin);
                         holder.optsDetailsSpin.setAdapter(spinnerArrayAdapter);
 
-                        if(itemList.get(position).getOptions().get(i).getDependentChosen() != null)
-                            holder.optsDetailsSpin.setSelection(itemList.get(position).getOptions().get(i).getDependentChosen());
+                        for (DepOption depOpt: option.getDepOptions()) {
+                            if(depOpt.getChosen()) {
+                                holder.optsDetailsSpin.setSelection(depOpt.getDepOpt());
+                            }
+                        }
 
-                    }
-                    else {
+                    } else {
                         holder.optsDetailsSpin.setVisibility(View.GONE);
                     }
 
                 }
                 holder.optsRadio.addView(radioButton);
+
+                if (itemList.get(position).getBlocked()) {
+                    radioButton.setEnabled(false);
+                    radioButton.setTextColor(context.getResources().getColor(R.color.text_gray));
+                }
             }
 
-            if(hasDetails) {
+            if (hasDetails) {
                 holder.detailsLayout.setVisibility(View.VISIBLE);
                 holder.detailsTv.setVisibility(View.VISIBLE);
-            }
-            else {
+            } else {
                 holder.detailsLayout.setVisibility(View.GONE);
                 holder.detailsTv.setVisibility(View.GONE);
             }
@@ -356,6 +415,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             holder.optsRadio.setVisibility(View.GONE);
 
         }
+
+//        if(itemList.get(itemList.size() - 1).getBlocked()) {
+//            addNextToAnswer(itemList.size() + 1, false);
+//        }
     }
 
 
@@ -365,29 +428,29 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // This will get the radiobutton that has changed in its check state
                 RadioButton checkedRadioButton = (RadioButton) group.findViewById(checkedId);
-
                 // This puts the value (true/false) into the variable
                 if (checkedRadioButton != null) {
                     boolean isChecked = checkedRadioButton.isChecked();
                     // If the radiobutton that has changed in check state is now checked...
                     if (isChecked) {
-                        //Cleaning the last option in the model
-                        for (Option opt: itemList.get(position).getOptions()) {
-                            opt.setChosen(false);
-                        }
-                        final int idx = holder.optsRadio.indexOfChild(checkedRadioButton);
-                        RadioButton rb = (RadioButton)  holder.optsRadio.getChildAt(idx);
-                        rb.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
 
+                        cleanAllSelectionFromItem(position);
+
+                        //Setting checked, color and option model to true
+                        final int idx = holder.optsRadio.indexOfChild(checkedRadioButton);
+                        RadioButton rb = (RadioButton) holder.optsRadio.getChildAt(idx);
+                        rb.setTextColor(context.getResources().getColor(android.R.color.holo_green_dark));
                         itemList.get(position).getOptions().get(idx).setChosen(true);
+
 
                         Boolean hasDependentText = false;
                         Boolean hasDependentOpt = false;
 
+
                         //*********************************** if the option chosen has to specify somthing else... *****************************
 
                         //************* if an open answer is needed **************
-                        if (itemList.get(position).getOptions().get(idx).getOpenAnswerFlag()) {
+                        if (itemList.get(position).getOptions().get(idx).getDepOpenAnswerFlag()) {
                             hasDependentText = true;
                             holder.openAnsDetails.setVisibility(View.VISIBLE);
                             holder.detailsTv.setVisibility(View.VISIBLE);
@@ -397,18 +460,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         }
 
                         //************* if a multi opt is needed **************
-                        if (itemList.get(position).getOptions().get(idx).getOptions() != null) {
+                        if (itemList.get(position).getOptions().get(idx).getDepOptions() != null) {
                             hasDependentOpt = true;
 
                             List<DepOption> optionsForSpin = new ArrayList<>();
-                            DepOption optDefault = new DepOption(0,"Seleccione una opción");
+                            DepOption optDefault = new DepOption(0, "Seleccione una opción");
                             optionsForSpin.add(optDefault);
-                            optionsForSpin.addAll(itemList.get(position).getOptions().get(idx).getOptions());
-
+                            optionsForSpin.addAll(itemList.get(position).getOptions().get(idx).getDepOptions());
                             ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(context,
                                     R.layout.spinner_layout, optionsForSpin);
-
-//                            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
                             holder.optsDetailsSpin.setAdapter(spinnerArrayAdapter);
 
                             holder.optsDetailsSpin.setVisibility(View.VISIBLE);
@@ -419,104 +479,32 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
 
 
-                        //When it was already answered
-                        if (itemList.get(position).getAnswered() && position < copyItemList.size() - 1) {
 
-                            //If we need to block some questions
-                            if(itemList.get(position).getOptions().get(idx).getBlocks() != null){
-                                for (Integer block: itemList.get(position).getOptions().get(idx).getBlocks()) {
+                        if(itemList.get(itemList.size() - 1).getQstnNbr() > itemList.get(position).getQstnNbr()){
 
-                                    //validating the items to block if they exist just block them or if they dont, create them as blocked
-                                    if(itemList.size() >= block){
-                                        itemList.get(block - 1).setBlocked(true);
-                                        itemList.get(block - 1).setAnswered(true);
-                                    }
-                                    else {
-                                        itemList.add(copyItemList.get(block - 1));
-                                        itemList.get(itemList.size() - 1).setAnswered(true);
-                                        itemList.get(itemList.size() - 1).setBlocked(true);
-                                    }
-
-                                }
-                                //validating the item after blocks if it exists just block it or if it doesn't, create it as non-blocked
-                                if(itemList.size() > (position + itemList.get(position).getOptions().get(idx).getBlocks().size() + 1)){
-                                    itemList.get(position + itemList.get(position).getOptions().get(idx).getBlocks().size() + 1);
-                                }
-                                else {
-//                                    if(!hasDependentText && !hasDependentOpt) {
-                                        itemList.add(copyItemList.get(position + itemList.get(position).getOptions().get(idx).getBlocks().size() + 1));
-//                                    }
-                                }
-
+//                            if (!hasDependentText && !hasDependentOpt) {
+                                prepareNewScenario(position, idx);
+//                            }
+                            //If it doesn't have a dependent thing, run only in case next item already exist
+//                            else {
+//                                prepareNewScenario(position, idx);
+//                            }
+                        }
+                        else {
+                            if (!hasDependentText && !hasDependentOpt) {
+                                prepareNewScenario(position, idx);
                             }
-
-
-                            //If we need to enable some questions
-                            if(itemList.get(position).getOptions().get(idx).getEnables() != null){
-                                for (Integer enable: itemList.get(position).getOptions().get(idx).getEnables()) {
-
-                                    //validating the items to block if they exist just enable them or if they dont, create them as blocked
-                                    if(itemList.get(enable - 1) != null){
-                                        itemList.get(enable - 1).setBlocked(false);
-                                    }
-                                    else {
-                                        itemList.add(copyItemList.get(enable - 1));
-                                        itemList.get(itemList.size() - 1).setAnswered(true);
-                                        itemList.get(itemList.size() - 1).setBlocked(false);
-                                    }
-
-                                }
-                                //validating the item after blocks if it exists just enable it or if it doesn't, create it as non-blocked
-                                if(itemList.size() > (position + itemList.get(position).getOptions().get(idx).getEnables().size() + 1)){
-                                    itemList.get(position + itemList.get(position).getOptions().get(idx).getEnables().size() + 1);
-                                }
-                                else {
-//                                    if(!hasDependentText && !hasDependentOpt) {
-                                        itemList.add(copyItemList.get(position + itemList.get(position).getOptions().get(idx).getEnables().size() + 1));
-//                                    }
-                                }
-
-                            }
-
                         }
 
-
-                        // Adding the new items (if needed) when the item was selected for the first time
-                        if(!itemList.get(position).getAnswered() && position < copyItemList.size() -1){
-
-                            //If we need to block some questions
-                            if(itemList.get(position).getOptions().get(idx).getBlocks() != null){
-                                for (Integer block: itemList.get(position).getOptions().get(idx).getBlocks()) {
-                                    if(!hasDependentText && !hasDependentOpt) {
-                                        itemList.add(copyItemList.get(block - 1));
-                                        itemList.get(itemList.size() - 1).setAnswered(true);
-                                        itemList.get(itemList.size() - 1).setBlocked(true);
-                                    }
-                                }
-                                //This is the new questio to add to the list
-                                if(!hasDependentText && !hasDependentOpt) {
-                                    itemList.add(copyItemList.get(itemList.size()));
-                                    itemList.get(position).setAnswered(true);
-                                }
-                            }
-                            else {
-                                //This is the new questio to add to the list
-                                if(!hasDependentText && !hasDependentOpt) {
-                                    itemList.add(copyItemList.get(position + 1));
-                                    itemList.get(position).setAnswered(true);
-                                }
-                            }
-
-                        }
 
                         // Just in case this is the last question:
-                        if ((itemList.get(position).getQstnNbr()) == copyItemList.size()){
+                        if ((itemList.get(position).getQstnNbr()) == copyItemList.size()) {
 
-                            Menu menu = ((FormActivity)context).getMenu();
+                            Menu menu = ((FormActivity) context).getMenu();
                             menu.getItem(0).setVisible(true);
                             holder.finishBtn.setVisibility(View.VISIBLE);
 
-                            ((FormActivity)context).showFinishDialog("¡Muchas gracias por participar!");
+                            ((FormActivity) context).showFinishDialog("¡Muchas gracias por participar!");
 
                         }
 
@@ -531,20 +519,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         });
     }
 
-    private void setListenerDetailsEdtTxt(final int position, final ViewHolder holder){
+
+
+    private void setListenerDetailsEdtTxt(final int position, final ViewHolder holder) {
         holder.openAnsDetails.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
                 if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_DOWN))) {
 
-                    itemList.get(position).getOptions().get(holder.optsRadio.getCheckedRadioButtonId()).setOpenAnswer(holder.openAnsDetails.getText().toString());
+                    itemList.get(position).getOptions().get(holder.optsRadio.getCheckedRadioButtonId()).setDepOpenAnswer(holder.openAnsDetails.getText().toString());
 
 
-                    if(!itemList.get(position).getAnswered()){
-                        itemList.add(copyItemList.get(position + 1));
-                        itemList.get(position).setAnswered(true);
-                    }
+                    addNextToAnswer(itemList.get(position).getQstnNbr() + 1, false);
+
 
                     //Hiding keyboard
                     InputMethodManager imm = (InputMethodManager) v.getContext()
@@ -558,21 +546,22 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         });
     }
 
-    private void setListenerDetailsSpin(final int position, final ViewHolder holder){
+    private void setListenerDetailsSpin(final int position, final ViewHolder holder) {
         holder.optsDetailsSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int positionSpin, long id) {
 
-                if(positionSpin != 0) {
+                if (positionSpin != 0) {
 
-                    itemList.get(position).getOptions().get(holder.optsRadio.getCheckedRadioButtonId()).setDependentChosen(positionSpin);
+                    clearDepOptionsSelection(position, holder.optsRadio.getCheckedRadioButtonId());
 
-                    if (!itemList.get(position).getAnswered()) {
-                        itemList.add(copyItemList.get(position + 1));
-                        itemList.get(position).setAnswered(true);
-                    }
+                    itemList.get(position).getOptions().get(holder.optsRadio.getCheckedRadioButtonId()).getDepOptions().get(positionSpin - 1).setChosen(true);
+
+
+                    prepareNewScenario(position, holder.optsRadio.getCheckedRadioButtonId());
 
                 }
+
             }
 
             @Override
@@ -580,6 +569,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
             }
         });
+    }
+
+    private void clearDepOptionsSelection(int position, int checkedRadioButtonId) {
+        for (DepOption depOpt: itemList.get(position).getOptions().get(checkedRadioButtonId).getDepOptions()) {
+            depOpt.setChosen(false);
+        }
     }
 
 

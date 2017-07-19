@@ -10,15 +10,24 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Option {
+
+    //Params to show the option
     private String opt;
     private String optStr;
-    private Boolean chosen = false;
+
+    //Params to show dependent text
     @JsonProperty("openOptFlag")
-    private Boolean openAnswerFlag = false;
+    private Boolean openDepAnswerFlag = false;
     @JsonProperty("openOptStr")
-    private String openAnswer;
-    private List<DepOption> options;
-    private Integer dependentChosen;
+    private String openDepAnswer;
+
+    //Param to show dependent options
+    @JsonProperty("options")
+    private List<DepOption> depOptions;
+
+    //Param to check if the option is checked
+    private Boolean chosen = false;
+
 
     private Integer nextQstn;
     private List<Integer> blocks;
@@ -34,14 +43,13 @@ public class Option {
         this.optStr = strOpt;
     }
 
-    public Option(String opt, String optStr, Boolean chosen, Boolean openAnswerFlag, String openAnswer, List<DepOption> options, Integer dependentChosen) {
+    public Option(String opt, String optStr, Boolean chosen, Boolean openAnswerFlag, String openDepAnswer, List<DepOption> depOptions) {
         this.opt = opt;
         this.optStr = optStr;
         this.chosen = chosen;
-        this.openAnswerFlag = openAnswerFlag;
-        this.openAnswer = openAnswer;
-        this.options = options;
-        this.dependentChosen = dependentChosen;
+        this.openDepAnswerFlag = openAnswerFlag;
+        this.openDepAnswer = openDepAnswer;
+        this.depOptions = depOptions;
     }
 
     public String getOpt() {
@@ -68,36 +76,28 @@ public class Option {
         this.chosen = chosen;
     }
 
-    public Boolean getOpenAnswerFlag() {
-        return openAnswerFlag;
+    public Boolean getDepOpenAnswerFlag() {
+        return openDepAnswerFlag;
     }
 
-    public void setOpenAnswerFlag(Boolean openAnswerFlag) {
-        this.openAnswerFlag = openAnswerFlag;
+    public void setDepOpenAnswerFlag(Boolean openDepAnswerFlag) {
+        this.openDepAnswerFlag = openDepAnswerFlag;
     }
 
-    public String getOpenAnswer() {
-        return openAnswer;
+    public String getDepOpenAnswer() {
+        return openDepAnswer;
     }
 
-    public void setOpenAnswer(String openAnswer) {
-        this.openAnswer = openAnswer;
+    public void setDepOpenAnswer(String openDepAnswer) {
+        this.openDepAnswer = openDepAnswer;
     }
 
-    public List<DepOption> getOptions() {
-        return options;
+    public List<DepOption> getDepOptions() {
+        return depOptions;
     }
 
-    public void setOptions(List<DepOption> options) {
-        this.options = options;
-    }
-
-    public Integer getDependentChosen() {
-        return dependentChosen;
-    }
-
-    public void setDependentChosen(Integer dependentChosen) {
-        this.dependentChosen = dependentChosen;
+    public void setDepOptions(List<DepOption> depOptions) {
+        this.depOptions = depOptions;
     }
 
     public Integer getNextQstn() {

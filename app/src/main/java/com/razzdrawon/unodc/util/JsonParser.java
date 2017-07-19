@@ -2,6 +2,7 @@ package com.razzdrawon.unodc.util;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.razzdrawon.unodc.model.DepOption;
 import com.razzdrawon.unodc.model.Item;
 import com.razzdrawon.unodc.model.ItemResponse;
 import com.razzdrawon.unodc.model.ObjectSync;
@@ -32,32 +33,44 @@ public class JsonParser {
 
 
         List<ItemResponse> itemResp = new ArrayList<>();
+
+
         for (Item item: items) {
-            ItemResponse ir = new ItemResponse();
-            ir.setQstnNbr(item.getQstnNbr());
 
-            if(item.getOpenAnswer() != null)
-            ir.setOpenAns(item.getOpenAnswer());
+            if(!item.getBlocked()){
+                ItemResponse ir = new ItemResponse();
 
+                ir.setQstnNbr(item.getQstnNbr());
 
-            List<String> opts = new ArrayList<>();
+                if(item.getOpenAnswer() != null)
+                    ir.setOpenAns(item.getOpenAnswer());
 
-            if(item.getOptions() != null && item.getOptions().size() > 0) {
-                for(Option opt : item.getOptions()){
-                    if(opt.getChosen()) {
-                        opts.add(opt.getOpt());
-                        if (opt.getDependentChosen() != null){
-                            ir.setDepOpt(opt.getDependentChosen());
-                        }
-                        if (opt.getOpenAnswer() != null){
-                            ir.setDepOpenAns(opt.getOpenAnswer());
+                List<String> opts = new ArrayList<>();
+                if(item.getOptions() != null) {
+                    for(Option opt : item.getOptions()){
+                        if(opt.getChosen()) {
+                            opts.add(opt.getOpt());
+
+                            if (opt.getDepOpenAnswer() != null){
+                                ir.setDepOpenAns(opt.getDepOpenAnswer());
+                            }
+
+                            if (opt.getDepOptions() != null){
+
+                                for (DepOption depOpt: opt.getDepOptions()){
+                                    if (depOpt.getChosen())
+                                        ir.setDepOpt(depOpt.getDepOpt());
+                                }
+
+                            }
+
                         }
                     }
                 }
-            }
-            ir.setOptsAns(opts);
+                ir.setOptsAns(opts);
 
-            itemResp.add(ir);
+                itemResp.add(ir);
+            }
         }
 
         String jsonResp = objectMapper.writeValueAsString(itemResp);
