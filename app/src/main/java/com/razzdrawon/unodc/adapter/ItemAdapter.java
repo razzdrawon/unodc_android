@@ -29,6 +29,8 @@ import com.razzdrawon.unodc.model.DepOption;
 import com.razzdrawon.unodc.model.Item;
 import com.razzdrawon.unodc.model.Option;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,12 +55,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         public LinearLayout qstnLayout, optsLayout, detailsLayout, chkBoxLayout;
         public CardView qstnCard;
         public TextView qstnNbr, qstnStr, notAns;
-        public EditText openAns, openAnsDetails;
+        public EditText openAns, openAnsDetails, openDetailsChk;
         public RadioGroup optsRadio;
         public Spinner optsDetailsSpin;
         public RecyclerView rv;
         public Button finishBtn;
-        public TextView detailsTv;
+        public TextView detailsTv, detailsChkTv;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -66,7 +68,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             qstnCard = (CardView) itemView.findViewById(R.id.card_view);
             optsLayout = (LinearLayout) itemView.findViewById(R.id.opts_layout);
             detailsLayout = (LinearLayout) itemView.findViewById(R.id.details_layout);
+
             chkBoxLayout = (LinearLayout) itemView.findViewById(R.id.checkBox_layout);
+            openDetailsChk = (EditText) itemView.findViewById(R.id.details_chk_et);
+            detailsChkTv = (TextView) itemView.findViewById(R.id.detail_chk_tv);
 
             qstnNbr = (TextView) itemView.findViewById(R.id.qstn_nbr);
             qstnStr = (TextView) itemView.findViewById(R.id.qstn_str);
@@ -203,10 +208,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         if (itemList.get(position).getOpenAnswerFlag()) {
             holder.openAns.setVisibility(View.VISIBLE);
             holder.notAns.setVisibility(View.GONE);
+            holder.openDetailsChk.setVisibility(View.GONE);
+            holder.detailsChkTv.setVisibility(View.GONE);
             holder.openAns.setText(itemList.get(position).getOpenAnswer());
-
-            //Listener for EditText (level 1 Main ans)
-//            setListenerFirstEditText(position, holder);
 
             holder.openAns.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
@@ -242,6 +246,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             holder.chkBoxLayout.setVisibility(View.VISIBLE);
             holder.chkBoxLayout.removeAllViews();
 
+            Boolean hasDetails = false;
+
             for (final Option opt : itemList.get(position).getOptions()) {
                 CheckBox cb = new CheckBox(context);
                 cb.setText(opt.getOpt() + ") " + opt.getOptStr());
@@ -251,6 +257,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 if (opt.getChosen()) {
                     cb.setChecked(true);
                     cb.setTextColor(context.getResources().getColor(R.color.colorAccent));
+
+                    if(opt.getDepOpenAnswerFlag()) {
+                        hasDetails = true;
+                        holder.openDetailsChk.setText(opt.getDepOpenAnswer());
+                    }
+
                 } else {
                     cb.setChecked(false);
                     cb.setTextColor(context.getResources().getColor(android.R.color.black));
@@ -261,6 +273,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     cb.setTextColor(context.getResources().getColor(R.color.text_gray));
                     holder.notAns.setVisibility(View.GONE);
                 }
+
+
+                //Here we check if details have to be shown
+                if (hasDetails) {
+                    holder.openDetailsChk.setVisibility(View.VISIBLE);
+                    holder.detailsChkTv.setVisibility(View.VISIBLE);
+                } else {
+                    holder.openDetailsChk.setVisibility(View.GONE);
+                    holder.detailsChkTv.setVisibility(View.GONE);
+                }
+
 
 
                 Boolean isOneChecked = false;
@@ -279,40 +302,16 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                     holder.notAns.setVisibility(View.GONE);
                 }
 
-                cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                        if (isChecked) {
-
-                            int numChecks = 0;
-
-                            for (int y = 0; y < holder.chkBoxLayout.getChildCount(); y++) {
-                                CheckBox cbCh = (CheckBox) holder.chkBoxLayout.getChildAt(y);
-                                if (cbCh.isChecked()) {
-                                    numChecks++;
-                                }
-                            }
-
-                            if (numChecks > itemList.get(position).getMaxCheck()) {
-                                buttonView.setChecked(false);
-                            } else {
-
-                                opt.setChosen(true);
-
-                                addNextToAnswer(itemList.get(position).getQstnNbr() + 1, false);
-
-                            }
-                        } else {
-                            opt.setChosen(false);
-                        }
-
-                        notifyDataSetChanged();
-                    }
-                });
+                //Listener for ChckBx
+                setListenerCheckBox(position, holder, opt, cb);
+                //Listener for ET details for ChckBx
+                setListenerChkDetailsEdtTxt(position, holder);
             }
+
         } else {
             holder.chkBoxLayout.setVisibility(View.GONE);
+            holder.openDetailsChk.setVisibility(View.GONE);
+            holder.detailsChkTv.setVisibility(View.GONE);
         }
     }
 
@@ -326,6 +325,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             holder.optsLayout.setVisibility(View.VISIBLE);
             holder.optsRadio.setVisibility(View.VISIBLE);
             holder.notAns.setVisibility(View.GONE);
+            holder.openDetailsChk.setVisibility(View.GONE);
+            holder.detailsChkTv.setVisibility(View.GONE);
 
 
             Boolean hasDetails = false;
@@ -416,11 +417,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
         }
 
-//        if(itemList.get(itemList.size() - 1).getBlocked()) {
-//            addNextToAnswer(itemList.size() + 1, false);
-//        }
     }
-
 
     private void setListenerRadioGroup(final int position, final ViewHolder holder) {
         //Listener for RadioGroup
@@ -482,13 +479,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
                         if(itemList.get(itemList.size() - 1).getQstnNbr() > itemList.get(position).getQstnNbr()){
 
-//                            if (!hasDependentText && !hasDependentOpt) {
                                 prepareNewScenario(position, idx);
-//                            }
-                            //If it doesn't have a dependent thing, run only in case next item already exist
-//                            else {
-//                                prepareNewScenario(position, idx);
-//                            }
                         }
                         else {
                             if (!hasDependentText && !hasDependentOpt) {
@@ -519,7 +510,69 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         });
     }
 
+    private void setListenerCheckBox(final int position, final ViewHolder holder, final Option opt, CheckBox cb) {
+        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                if (isChecked) {
+
+                    int numChecks = 0;
+
+                    //getting total of checkbox checked in order to validate the max num allowed
+                    for (int y = 0; y < holder.chkBoxLayout.getChildCount(); y++) {
+                        CheckBox cbCh = (CheckBox) holder.chkBoxLayout.getChildAt(y);
+                        if (cbCh.isChecked()) {
+                            numChecks++;
+                        }
+                    }
+                    //Block checked in case it is full of max options
+                    if (numChecks > itemList.get(position).getMaxCheck()) {
+                        buttonView.setChecked(false);
+                    } else {
+
+                        if(!opt.getDepOpenAnswerFlag()){
+                            opt.setChosen(true);
+                            addNextToAnswer(itemList.get(position).getQstnNbr() + 1, false);
+                        }
+                        else {
+                            opt.setChosen(true);
+                        }
+
+
+                    }
+                } else {
+                    opt.setChosen(false);
+                }
+
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void setListenerChkDetailsEdtTxt(final int position, final ViewHolder holder) {
+        holder.openDetailsChk.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if ((actionId == EditorInfo.IME_ACTION_DONE) || ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_DOWN))) {
+
+                    int lastOptionChck = itemList.get(position).getOptions().size() - 1;
+                    itemList.get(position).getOptions().get(lastOptionChck).setDepOpenAnswer(holder.openDetailsChk.getText().toString());
+
+                    addNextToAnswer(itemList.get(position).getQstnNbr() + 1, false);
+
+                    //Hiding keyboard
+                    InputMethodManager imm = (InputMethodManager) v.getContext()
+                            .getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+    }
 
     private void setListenerDetailsEdtTxt(final int position, final ViewHolder holder) {
         holder.openAnsDetails.setOnEditorActionListener(new TextView.OnEditorActionListener() {
