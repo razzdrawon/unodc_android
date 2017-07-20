@@ -948,13 +948,13 @@
         "opt": "c",
         "optStr": "Estados Unidos",
         "enables": [20],
-        "nextQstn": 21
+        "nextQstn": 20
       },
       {
         "opt": "d",
         "optStr": "Otro país",
         "enables": [20],
-        "nextQstn": 21,
+        "nextQstn": 20,
         "openOptFlag": true,
         "openOptStr": null
       }
@@ -1649,6 +1649,7 @@
   {
     "qstnNbr": 44,
     "qstnStr": "¿Cuál es la principal causa por la cual sus vecinos se pelean?",
+    "check": 12,
     "options": [
       {
         "opt": "a",
@@ -1917,6 +1918,7 @@
   {
     "qstnNbr": 52,
     "qstnStr": "¿Qué tipo de delito?",
+    "check": 17,
     "options": [
       {
         "opt": "a",
@@ -2417,6 +2419,12 @@
         "opt": "b",
         "optStr": "No",
         "enables": [66]
+      },
+      {
+        "opt": "c",
+        "optStr": "No tengo hijos",
+        "blocks": [66],
+        "nextQstn": 67
       }
     ]
   },
@@ -2499,7 +2507,7 @@
       },
       {
         "opt": "e",
-        "optStr": "Pruebe haber replresalias"
+        "optStr": "Pruebe haber represalias"
       },
       {
         "opt": "f",
