@@ -358,6 +358,10 @@
         "optStr": "Otro. Especificar:",
         "openOptFlag": true,
         "openOptStr": null
+      },
+      {
+        "opt": "f",
+        "optStr": "yo"
       }
     ]
   },
@@ -985,6 +989,7 @@
   {
     "qstnNbr": 21,
     "qstnStr": "En su opinión, ¿quién es responsable de la seguridad de su colonia o comunidad?",
+    "check": 9,
     "options": [
       {
         "opt": "a",
@@ -1019,6 +1024,10 @@
         "optStr": "Otra causa. Especificar:",
         "openOptFlag": true,
         "openOptStr": null
+      },
+      {
+        "opt": "i",
+        "optStr": "Ninguno"
       }
     ]
   },
@@ -1050,12 +1059,18 @@
       {
         "opt": "f",
         "optStr": "Ejército"
+      },
+      {
+        "opt": "g",
+        "optStr": "ninguno"
       }
+
     ]
   },
   {
     "qstnNbr": 23,
     "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor confianza?",
+    "check": 3,
     "options": [
       {
         "opt": "a",
@@ -1102,12 +1117,17 @@
         "optStr": "Otros. Especificar:",
         "openOptFlag": true,
         "openOptStr": null
+      },
+      {
+        "opt": "l",
+        "optStr": "ninguno"
       }
     ]
   },
   {
     "qstnNbr": 24,
     "qstnStr": "¿Cuál de las siguientes autoridades le otorga mayor desconfianza?",
+    "check": 3,
     "options": [
       {
         "opt": "a",
@@ -1160,6 +1180,7 @@
   {
     "qstnNbr": 25,
     "qstnStr": "¿A qué motivo le atribuye la desconfianza a la autoridad?",
+    "check": 7,
     "options": [
       {
         "opt": "a",
@@ -1254,6 +1275,7 @@
   {
     "qstnNbr": 28,
     "qstnStr": "¿Cuál autoridad de seguridad pública identifica en esos patrullajes?",
+    "check": 8,
     "options": [
       {
         "opt": "a",
@@ -1301,6 +1323,12 @@
       {
         "opt": "b",
         "optStr": "No",
+        "blocks": [30, 31],
+        "nextQstn": 32
+      },
+      {
+        "opt": "c",
+        "optStr": "No sé",
         "blocks": [30, 31],
         "nextQstn": 32
       }
@@ -1380,6 +1408,10 @@
       {
         "opt": "b",
         "optStr": "No"
+      },
+      {
+        "opt": "c",
+        "optStr": "No sé"
       }
     ]
   },
@@ -1389,12 +1421,15 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "enables": [34, 35]
 
       },
       {
         "opt": "b",
-        "optStr": "No"
+        "optStr": "No",
+        "blocks": [34, 35],
+        "nextQstn": 36
       }
     ]
   },
@@ -1546,7 +1581,7 @@
         "optStr": "Poco Efectiva"
       },{
         "opt": "c",
-        "optStr": "Nada"
+        "optStr": "Nada Efectiva"
       },
       {
         "opt": "d",
@@ -1705,7 +1740,7 @@
   },
   {
     "qstnNbr": 45,
-    "qstnStr": "Usted o alguno de los integrantes de su familia, ¿ha tenido algun problema con sus vecinos en los últimos  años?",
+    "qstnStr": " Usted o alguno de los integrantes de su familia, ¿ha tenido algun problema con sus vecinos en los últimos  años?",
     "options": [
       {
         "opt": "a",
@@ -1723,6 +1758,7 @@
   {
     "qstnNbr": 46,
     "qstnStr": "¿Cuál es la principal causa de la diferencia?",
+    "check": 12,
     "options": [
       {
         "opt": "a",
@@ -2016,7 +2052,8 @@
       {
         "opt": "a",
         "optStr": "Ninguno",
-        "enables": [55]
+        "blocks": [55],
+        "nextQstn": 56
       },
       {
         "opt": "b",
@@ -2072,6 +2109,7 @@
   {
     "qstnNbr": 57,
     "qstnStr": "¿Qué tipo de delito?",
+    "check": 17,
     "options": [
       {
         "opt": "a",
@@ -2236,6 +2274,7 @@
   {
     "qstnNbr": 59,
     "qstnStr": "¿Qué hace para protegerse de los delitos?",
+    "check": 8,
     "options": [
       {
         "opt": "a",
@@ -2326,6 +2365,7 @@
   {
     "qstnNbr": 62,
     "qstnStr": "En su opinión, ¿Qué motiva a que las adolescentes se embaracen a temprana edad?",
+    "check": 8,
     "options": [
       {
         "opt": "a",
@@ -2422,6 +2462,12 @@
       },
       {
         "opt": "c",
+        "optStr": "Ya terminaron de estudiar",
+        "blocks": [66],
+        "nextQstn": 67
+      },
+      {
+        "opt": "d",
         "optStr": "No tengo hijos",
         "blocks": [66],
         "nextQstn": 67
@@ -2488,6 +2534,7 @@
   {
     "qstnNbr": 69,
     "qstnStr": "¿A qué le atribuye usted que no haya organización en su colonia o comunidad?",
+    "check": 7,
     "options": [
       {
         "opt": "a",
@@ -2507,7 +2554,7 @@
       },
       {
         "opt": "e",
-        "optStr": "Pruebe haber represalias"
+        "optStr": "Puede haber represalias"
       },
       {
         "opt": "f",
@@ -2522,6 +2569,7 @@
   {
     "qstnNbr": 70,
     "qstnStr": "¿Cómo se organizan en su colonia para conocer más sobre temas de relevancia entre vecinos?",
+    "check": 5,
     "options": [
       {
         "opt": "a",
@@ -2585,6 +2633,10 @@
         "optStr": "Otra.",
         "openOptFlag": true,
         "openOptStr": null
+      },
+      {
+      "opt": "e",
+      "optStr": "No me he enterado"
       }
     ]
   },
@@ -2594,7 +2646,10 @@
     "options": [
       {
         "opt": "a",
-        "optStr": "Sí"
+        "optStr": "Sí",
+        "optStr": "Especificar",
+        "openOptFlag": true,
+        "openOptStr": null
       },
       {
         "opt": "b",
@@ -2621,6 +2676,7 @@
   {
     "qstnNbr": 75,
     "qstnStr": "¿Qué actividades realiza en su tiempo libre?",
+    "check": 6,
     "options": [
       {
         "opt": "a",
@@ -2670,6 +2726,7 @@
   {
     "qstnNbr": 77,
     "qstnStr": "Señale el o los programas sociales que recibe:",
+    "check": 7,
     "options": [
       {
         "opt": "a",
@@ -2706,6 +2763,7 @@
   {
     "qstnNbr": 78,
     "qstnStr": "¿Qué considera usted qué hace falta para mejorar el lugar donde vive?",
+    "check": 8,
     "options": [
       {
         "opt": "a",
