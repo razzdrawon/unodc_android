@@ -23,35 +23,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:padding="7dp"
                 android:background="@drawable/rounded_corners_primary_back"
-                >
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="7dp">
 
                 <TextView
                     android:id="@+id/qstn_nbr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1. "
                     android:layout_marginLeft="5dp"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/qstn_size"
                     android:gravity="center_vertical|end"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:text="1. "
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/qstn_size"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/qstn_str"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:gravity="center_vertical"
+                    android:maxLines="4"
                     android:text="Pregunta"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold"
                     android:textSize="@dimen/qstn_size"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="7dp"
-                    android:maxLines="4"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -65,17 +64,17 @@
                     android:id="@+id/open_answer_et"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="00"
                     android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"
+                    android:background="@drawable/rounded_corners_accent_border_white_back"
+                    android:hint="00"
                     android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLength="2"
-                    android:background="@drawable/rounded_corners_accent_border_white_back"
                     android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
                     android:paddingLeft="15dp"
-                    android:paddingRight="15dp"/>
+                    android:paddingRight="15dp"
+                    android:paddingTop="8dp"
+                    android:textAlignment="center" />
 
                 <!--<Spinner-->
                 <!--android:id="@+id/opts_spn"-->
@@ -111,45 +110,77 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="18dp"
-                            android:textSize="18sp"
-                            android:textColor="@color/colorAccent"
-                            android:textStyle="bold"
                             android:text="Especifique aquí su respuesta:"
-                            android:visibility="gone"/>
+                            android:textColor="@color/colorAccent"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
 
                         <EditText
                             android:id="@+id/details_et"
-                            android:inputType="text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corners_accent_border_white_back"
                             android:hint="Toque aquí para responder"
                             android:imeOptions="actionDone"
+                            android:inputType="text"
                             android:maxLength="30"
-                            android:layout_marginTop="5dp"
-                            android:visibility="gone"
-                            android:background="@drawable/rounded_corners_accent_border_white_back"
-                            android:padding="7dp"/>
+                            android:padding="7dp"
+                            android:visibility="gone" />
 
                         <Spinner
                             android:id="@+id/det_opts_spn"
+                            style="@style/spinner_style"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
                             android:entries="@array/answers_array"
                             android:spinnerMode="dialog"
                             android:textSize="@dimen/qstn_size"
-                            android:layout_marginTop="5dp"
-                            android:visibility="gone"
-                            android:layout_gravity="center_horizontal"
-                            style="@style/spinner_style"/>
+                            android:visibility="gone" />
 
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/checkBox_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/checkBox_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/detail_chk_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="Especifique aquí su respuesta:"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/details_chk_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_corners_accent_border_white_back"
+                        android:hint="Toque aquí para responder"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:padding="7dp"
+                        android:visibility="gone" />
+
 
                 </LinearLayout>
 
@@ -157,10 +188,10 @@
                     android:id="@+id/missing_message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:textSize="15sp"
+                    android:text="Debe seleccionar al menos una opción."
                     android:textColor="@android:color/holo_red_light"
-                    android:text="Debe seleccionar al menos una opción."/>
+                    android:textSize="15sp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
